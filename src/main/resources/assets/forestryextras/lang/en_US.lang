@@ -4,6 +4,7 @@ item.fe.item.reinforcedIngot.name=Reinforced Ingot
 item.fe.item.witheriaIngot.name=Witheria Ingot
 item.fe.item.ryuIngot.name=Ryu Ingot
 item.fe.item.alfiumIngot.name=Alfium Ingot
+item.fe.item.itariusIngot.name=Itarius Ingot
 --Sticks--
 item.fe.item.coalStick.name=Coal Stick
 item.fe.item.ironStick.name=Iron Stick
@@ -31,6 +32,7 @@ item.fe.item.pokefenniumStick.name=Pokefennium Stick
 item.fe.item.fairyStick.name=Fairy Stick
 item.fe.item.alfiumStick.name=Alfium Stick
 item.fe.item.witheriaStick.name=Witheria Stick
+item.fe.item.itariusStick.name=Itarius Stick
 --Nuggets--
 item.fe.nugget.draconic.name=Draconic Nugget
 item.fe.nugget.reinforced.name=Reinforced Nugget
@@ -90,6 +92,7 @@ item.fe.frame.frameFairy.name=Fairy Frame
 item.fe.frame.frameAlfium.name=Alfium Frame
 item.fe.frame.frameMCKE.name=MCKE Frame
 item.fe.frame.frameWitheria.name=Witheria Frame
+item.fe.frame.frameItarius.name=Itarius Frame
 --Grafters--
 item.fe.grafter.grafterReinforced.name=Reinforced Grafter
 item.fe.grafter.grafterDraconic.name=Draconic Grafter

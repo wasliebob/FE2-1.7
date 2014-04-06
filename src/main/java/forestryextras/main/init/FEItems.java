@@ -38,7 +38,7 @@ public class FEItems {
 		witheriaIngot = new FEItemIngot("witheriaIngot", 0x333333, "ingotWitheria");
 		alfiumIngot = new FEItemIngot("alfiumIngot", 0x663366, "ingotAlfium");
 		ryuIngot = new FEItemIngot("ryuIngot", 0x990000, "ingotRyu");
-
+		itariusIngot = new FEItemIngot("itariusIngot", 0xCCFFCC, "ingotItarius");
 		coalStick = new FEItemStick("coalStick", 0x000000, "stickCoal", new ItemStack(Items.coal));
 		diamondStick = new FEItemStick("diamondStick", 0x99FFFF, "stickDiamond", new ItemStack(Items.diamond));
 		draconicStick = new FEItemStick("draconicStick", 0xFF0000, "stickDraconic", new ItemStack(FEItems.draconicIngot));
@@ -50,6 +50,7 @@ public class FEItems {
 		reinforcedStick = new FEItemStick("reinforcedStick", 0xCCCC99, "stickReinforced", new ItemStack(FEItems.reinforcedIngot));
 		alfiumStick = new FEItemStick("alfiumStick", 0x663366, "stickAlfium", new ItemStack(FEItems.alfiumIngot));
 		witheriaStick = new FEItemStick("witheriaStick", 0x333333, "stickWitheria", new ItemStack(FEItems.witheriaIngot));
+		itariusStick = new FEItemStick("itariusStick", 0xCCFFCC, "stickItarius", new ItemStack(FEItems.itariusIngot));
 
 	}
 	public static FEItemIngot draconicIngot;
@@ -57,6 +58,7 @@ public class FEItems {
 	public static FEItemIngot alfiumIngot;
 	public static FEItemIngot ryuIngot;
 	public static FEItemIngot witheriaIngot;
+	public static FEItemIngot itariusIngot;
 
 	public static FEItemStick coalStick;
 	public static FEItemStick diamondStick;
@@ -69,6 +71,7 @@ public class FEItems {
 	public static FEItemStick reinforcedStick;
 	public static FEItemStick alfiumStick;
 	public static FEItemStick witheriaStick;
+	public static FEItemStick itariusStick;
 
 	public static void initFrames()
 	{
@@ -82,7 +85,7 @@ public class FEItems {
 		draconicFrame = new FEItemFrame(1000, false, false, false, false, 1.0F, 1.0F, 2.5F, 1.0F, 1.0F, 1.0F, "frameDraconic", "frameDraconic", "frame", 0xFF0000, new ItemStack(Items.string), new ItemStack(FEItems.draconicStick), false, new FluidStack(FluidRegistry.LAVA, 100), 100);
 		mutationFrame = new FEItemFrame(25, false, false, false, false, 1.0F, 1.0F, 1.0F, 1.0F, 10.0F, 1.0F, "frameMutation", "frameMutation", "frame", 0x99CC00, new ItemStack(Items.ender_pearl), new ItemStack(FEItems.mutationStick), true, null, 0);
 		alfiumFrame = new FEItemFrame(750, false, false, false, false, 1.0F, 1.0F, 1.5F, 1.0F, 1.0F, 1.0F, "frameAlfium", "frameAlfium", "frame", 0x663366, new ItemStack(Items.string), new ItemStack(FEItems.alfiumStick), false, new FluidStack(FluidRegistry.LAVA, 15), 20);
-		//customFrame = new FEItemFrameCustom(Config.upgradeFrameId, 10, false, false, false, false, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, "frameCustom", "frameCustom", "frame", 0x663366, new ItemStack(Item.ingotGold), new ItemStack(Items.emeraldStick), true, null, 0);
+		itariusFrame = new FEItemFrame(800, false, false, false, false, 1.0F, 1.0F, 1.4F, 1.0F, 1.0F, 1.0F, "frameItarius", "frameItarius", "frame", 0xCCFFCC, new ItemStack(Items.string), new ItemStack(FEItems.itariusStick), false, new FluidStack(FluidRegistry.LAVA, 15), 20);
 	}
 	public static FEItemFrame coalFrame;
 	public static FEItemFrame ironFrame;
@@ -95,12 +98,12 @@ public class FEItems {
 	public static FEItemFrame obsidianFrame;
 	public static FEItemFrame alfiumFrame;
 	public static FEItemFrame witheriaFrame;
-	
+	public static FEItemFrame itariusFrame;
+
 	public static void initScoops()
 	{
 		reinforcedScoop = new FEItemScoop("scoopReinforced", 0xFFFFFF, 0x999999, "scoopReinforced", 300, new ItemStack(FEItems.reinforcedIngot), new ItemStack(FEItems.reinforcedStick), true, null, 0);
 		draconicScoop = new FEItemScoop("scoopDraconic", 0xFFFFFF, 0xFF0000, "scoopDraconic", 700, new ItemStack(FEItems.draconicIngot), new ItemStack(FEItems.draconicStick), true, null, 0);
-
 	}
 	public static FEItemScoop reinforcedScoop;
 	public static FEItemScoop draconicScoop;
