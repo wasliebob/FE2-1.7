@@ -71,7 +71,7 @@ public class Main {
     @EventHandler
     public void postInit(FMLPostInitializationEvent evt)
     {
-        FileHelper.createBaseFileInFolder(Main.modName, "", ".txt", FEBees.specieNames);
+        FileHelper.createBaseFileInFolder(Main.modName, "species", ".txt", FEBees.specieNames);
     }
     
     public void initMisc(FMLPreInitializationEvent event)
