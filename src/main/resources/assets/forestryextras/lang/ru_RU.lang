@@ -1,8 +1,11 @@
---Items-
+--Ingots-
 item.fe.item.draconicIngot.name=Драконовский Слиток
 item.fe.item.reinforcedIngot.name=Усиленный Слиток
+item.fe.item.witheriaIngot.name=Иссушающий Слиток
 item.fe.item.ryuIngot.name=Ржаной Слиток
 item.fe.item.alfiumIngot.name=Алфиевый Слиток
+item.fe.item.itariusIngot.name=Итариевый Слиток
+--Sticks--
 item.fe.item.coalStick.name=Угольная Палка
 item.fe.item.ironStick.name=Железная Палка
 item.fe.item.goldStick.name=Золотая Палка
@@ -28,18 +31,39 @@ item.fe.item.voidStick.name=Пустотная Палка
 item.fe.item.pokefenniumStick.name=Покфениумная Палка
 item.fe.item.fairyStick.name=Волшебная Палка
 item.fe.item.alfiumStick.name=Алфиевая Палка
-item.fe.nugget.draconic=Драконовский Самородок
-item.fe.nugget.reinforced=Усиленный Самородок
-item.fe.nugget.thaumium=Чудесный Самородок
-item.fe.nugget.darkthaumium=Тёмный Чудесный Самородок
+item.fe.item.witheriaStick.name=Иссушающая Палка
+item.fe.item.itariusStick.name=Итариевая Палка
+--Nuggets--
+item.fe.nugget.draconic.name=Драконовский Самородок
+item.fe.nugget.reinforced.name=Усиленный Самородок
+item.fe.nugget.thaumium.name=Чудесный Самородок
+item.fe.nugget.dark thaumium.name=Тёмный Чудесный Самородок
+item.fe.nugget.fairy.name=Волшебный Самородок
+item.fe.nugget.pokefennium.name=Покфениумный Самородок
+item.fe.nugget.conductive iron.name=Проводящее Железо
+item.fe.nugget.electrical steel.name=Электрическая Сталь
+item.fe.nugget.energetic alloy.name=Энергетический Сплав
+item.fe.nugget.vibrant alloy.name=Трепетный Сплав
+item.fe.nugget.pulsating iron.name=Пульсирующее Железо
+--Combs--
 item.fe.comb.draconic=Драконовские Соты
 item.fe.comb.reinforced=Усиленные Соты
 item.fe.comb.thaumium=Чудесные Соты
-item.fe.comb.darkthaumium=Тёмные Чудесные Соты
+item.fe.comb.dark thaumium=Тёмные Чудесные Соты
+item.fe.comb.fairy.name=Волшебные Соты
+item.fe.comb.pokefennium.name=Покфениумные Соты
+item.fe.comb.normal.name=Обычные Соты
+item.fe.comb.conductive iron.name=Проводожелезные Соты
+item.fe.comb.electrical steel.name=Электростальные Соты
+item.fe.comb.energetic alloy.name=Энергосплавные Соты
+item.fe.comb.vibrant alloy.name=Трепетносплавные Соты
+item.fe.comb.pulsating iron.name=Железнопульсирующие Соты
+item.fe.comb.botanist.name=Ботанические Соты
 --Blocks--
 tile.fe.block.draconicBlock.name=Драконовский Блок
 tile.fe.block.reinforcedBlock.name=Усиленный Блок
 tile.fe.block.draconicOre.name=Драконовская Руда
+tile.fe.block.beeducer.name=Пчелуктор
 --Frames--
 item.fe.frame.frameCoal.name=Угольная Рамка
 item.fe.frame.frameIron.name=Железная Рамка
@@ -66,14 +90,31 @@ item.fe.frame.frameVoid.name=Пустотная Рамка
 item.fe.frame.framePokefennium.name=Покфениумная Рамка
 item.fe.frame.frameFairy.name=Волшебная Рамка
 item.fe.frame.frameAlfium.name=Алфиевая Рамка
+item.fe.frame.frameMCKE.name=Магинергическая Рамка
+item.fe.frame.frameWitheria.name=Иссушающая Рамка
+item.fe.frame.frameItarius.name=Итариевая Рамка
 --Grafters--
 item.fe.grafter.grafterReinforced.name=Усиленный Садовый Нож
 item.fe.grafter.grafterDraconic.name=Драконовский Садовый Нож
+item.fe.grafter.grafterMCKE.name=Магинергический Садовый Нож
 --Scoops--
 item.fe.scoop.scoopReinforced.name=Усиленный Сачок
 item.fe.scoop.scoopDraconic.name=Драконовский Сачок
+item.fe.scoop.scoopMCKE.name=Магинергический Сачок
 --Bees--
 fe.bees.species.draconic=Драконовская
 fe.bees.species.reinforced=Усиленная
 fe.bees.species.thaumium=Чудесная
 fe.bees.species.darkThaumium=Тёмная Чудесная
+fe.bees.species.fairy=Волшебная
+fe.bees.species.pokefennium=Покфениумная
+fe.bees.species.greatwood=Великодревесная
+fe.bees.species.silverwood=Древесно-серебряная
+fe.bees.species.conductiveIron=Проводожелезная
+fe.bees.species.electricalSteel=Электростальная
+fe.bees.species.energeticAlloy=Энергосплавная
+fe.bees.species.vibrantAlloy=Трепетносплавная
+fe.bees.species.pulsatingIron=Пульсожелезная
+fe.bees.species.botanist=Ботаническая
+--Misc--
+itemGroup.tabForestryExtras=Forestry Extras 2
