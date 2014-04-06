@@ -27,9 +27,8 @@ minecraft {
 }
 dependencies{
 	compile files(
-	'build/libs/TC.zip',
-	'build/libs/Forestry.jar',
-	'build/libs/WaslieCore.jar'
+	'build/dep/Forestry.jar',
+	'build/dep/WaslieCore.jar'
 	)
 }
 	
