@@ -1,0 +1,83 @@
+package forestryextras.main;
+
+import net.minecraftforge.common.MinecraftForge;
+import wasliecore.helpers.FileHelper;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import forestryextras.handlers.GUIHandler;
+import forestryextras.main.init.FEBees;
+import forestryextras.main.init.FEBlocks;
+import forestryextras.main.init.FEItems;
+import forestryextras.main.init.Recipes;
+import forestryextras.main.init.intergration.IntergrationLoader;
+
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.3" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO;after:ThermalExpansion")
+public class Main {
+    @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
+    public static CommonProxy proxy;
+ 
+    @Instance("ForestryExtras")
+    public static Main instance;
+    public static String version = "1.3";
+    public static String modName = "ForestryExtras";
+    public static String alias = "FE";
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+		@SuppressWarnings("unused")
+		Config config = new Config();
+		Config.loadConfig(event);
+		FileHelper.createModFolder(modName);
+		
+		proxy.load();
+		IntergrationLoader.preFullInit();
+    	FEItems.init();
+    	FEBlocks.init();
+    	IntergrationLoader.init();
+    	FEBees.init();
+    	initTiles();
+    
+    }
+
+    
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
+    	initEvents();
+    	Recipes.init();
+    }
+    
+    public void initEvents()
+    {
+        MinecraftForge.EVENT_BUS.register(this); 
+    }
+    
+    public void initTiles()
+    {
+        GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityProducer.class, "10001");
+    }
+    
+    
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent evt)
+    {
+        FileHelper.createBaseFileInFolder(Main.modName, "", ".txt", FEBees.specieNames);
+    }
+    
+    public void initMisc(FMLPreInitializationEvent event)
+    {
+		if(event.getSide() == Side.CLIENT){
+			IntergrationLoader.initRequired("ThermalExpansion");
+		}
+    }
+}

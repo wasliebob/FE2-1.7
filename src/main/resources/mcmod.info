@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ForestryExtras",
+  "name": "Forestry Extras",
+  "description": "Forestry Addon",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://wasliebob.nl/FE.html",
+  "updateUrl": "",
+  "authors": ["Wasliebob"],
+  "credits": "Creator: Wasliebob",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
