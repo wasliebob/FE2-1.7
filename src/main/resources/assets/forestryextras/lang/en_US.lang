@@ -116,5 +116,10 @@ fe.bees.species.energeticAlloy=Energetic Alloy
 fe.bees.species.vibrantAlloy=Vibrant Alloy
 fe.bees.species.pulsatingIron=Pulsating Iron
 fe.bees.species.botanist=Botanist
+--Text--
+fe.info.beeducer.1=This block will make it easier for you to produce combs.
+fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).
+fe.info.beeducer.3=When done that the bee will produce 32 combs and then die.
+fe.info.beeducer.4=WARNING: Be careful only place 1 bee at a time.
 --Misc--
 itemGroup.tabForestryExtras=Forestry Extras 2
