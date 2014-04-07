@@ -51,7 +51,6 @@ public class FEItems {
 		alfiumStick = new FEItemStick("alfiumStick", 0x663366, "stickAlfium", new ItemStack(FEItems.alfiumIngot));
 		witheriaStick = new FEItemStick("witheriaStick", 0x333333, "stickWitheria", new ItemStack(FEItems.witheriaIngot));
 		itariusStick = new FEItemStick("itariusStick", 0xCCFFCC, "stickItarius", new ItemStack(FEItems.itariusIngot));
-
 	}
 	public static FEItemIngot draconicIngot;
 	public static FEItemIngot reinforcedIngot;
@@ -59,7 +58,7 @@ public class FEItems {
 	public static FEItemIngot ryuIngot;
 	public static FEItemIngot witheriaIngot;
 	public static FEItemIngot itariusIngot;
-
+	
 	public static FEItemStick coalStick;
 	public static FEItemStick diamondStick;
 	public static FEItemStick draconicStick;

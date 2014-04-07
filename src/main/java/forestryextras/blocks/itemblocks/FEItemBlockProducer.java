@@ -12,17 +12,17 @@ import org.lwjgl.input.Keyboard;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import forestryextras.helpers.LocalizationHelper;
 
 public class FEItemBlockProducer extends ItemBlock{
 
 	public FEItemBlockProducer(Block block) {
 		super(block);
-		text = new String[]{"This block will make it easier for you to produce combs.", "You have to put a bee in (click the block with a bee in your hand).", "when done that the bee will produce 32 combs and then die.", "WARNING: Be careful only place 1 bee at a time."};
+		text = new String[]{LocalizationHelper.getLocalization("fe.info.beeducer", 1), LocalizationHelper.getLocalization("fe.info.beeducer", 2), LocalizationHelper.getLocalization("fe.info.beeducer", 3),
+				LocalizationHelper.getLocalization("fe.info.beeducer", 4)};
 	}
 	String[] text;
-	
-	
-	
+		
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })

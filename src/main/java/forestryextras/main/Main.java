@@ -36,8 +36,6 @@ public class Main {
 		@SuppressWarnings("unused")
 		Config config = new Config();
 		Config.loadConfig(event);
-		FileHelper.createModFolder(modName);
-		
 		proxy.load();
 		IntergrationLoader.preFullInit();
     	FEItems.init();
@@ -45,9 +43,7 @@ public class Main {
     	IntergrationLoader.init();
     	FEBees.init();
     	initTiles();
-    
     }
-
     
     @EventHandler
     public void init(FMLInitializationEvent event)
