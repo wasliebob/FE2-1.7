@@ -14,6 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import forestryextras.handlers.GUIHandler;
 import forestryextras.handlers.events.OnPlayerJoin;
+import forestryextras.handlers.events.OnPreRender;
 import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
@@ -50,14 +51,16 @@ public class Main {
     public void init(FMLInitializationEvent event)
     {
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
-    	initEvents();
+    	initEvents(event);
     	Recipes.init();
     }
     
-    public void initEvents()
+    public void initEvents(FMLInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(this); 
         MinecraftForge.EVENT_BUS.register(new OnPlayerJoin());
+        if (event.getSide() == Side.CLIENT){
+        MinecraftForge.EVENT_BUS.register(new OnPreRender());}
     }
     
     public void initTiles()
