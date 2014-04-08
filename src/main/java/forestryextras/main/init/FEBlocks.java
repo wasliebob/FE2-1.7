@@ -17,7 +17,7 @@ public class FEBlocks {
 		draconicBlock = new FEBlock(Material.iron, "draconicBlock", "draconicblock", true, 1.0F, new ItemStack(FEItems.draconicIngot));
 		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforcedblock", true, 1.0F, new ItemStack(FEItems.reinforcedIngot));
 //		draconicOre = new FEBlock(Material.iron, "draconicOre", "draconicore", false, 0F, null);
-		producer = new FEBlockProducer("Beeducer");		
+		producer = new FEBlockProducer("Beeducer");	
 		smelting();
 	}
 	

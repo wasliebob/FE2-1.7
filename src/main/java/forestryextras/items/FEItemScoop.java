@@ -18,7 +18,7 @@ public class FEItemScoop extends Item implements IToolScoop{
 
 	public FEItemScoop(String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "scoop" + "." + itemName);
-		setCreativeTab(Tabs.tabMain);
+		setCreativeTab(Tabs.tabUtilities);
 		setMaxDamage(maxItemDamage);
 		setMaxStackSize(1);
 		name = itemName;

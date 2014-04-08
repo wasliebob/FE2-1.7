@@ -31,7 +31,7 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     		ItemStack bindingMaterial, ItemStack frameMaterial, boolean easyRecipe, FluidStack recipeFluid, int creationTime)
     {
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "frame" + "." + itemName);
-        setCreativeTab(Tabs.tabMain);
+        setCreativeTab(Tabs.tabFrames);
         setMaxStackSize(1);
         setMaxDamage(durability);
         

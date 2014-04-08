@@ -20,7 +20,7 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 
 	public FEItemGrafter(String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "grafter" + "." + itemName);
-		setCreativeTab(Tabs.tabMain);
+		setCreativeTab(Tabs.tabUtilities);
 		setMaxDamage(maxItemDamage);
 		setMaxStackSize(1);
 		name = itemName;

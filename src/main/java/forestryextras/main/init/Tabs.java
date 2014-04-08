@@ -10,6 +10,17 @@ public class Tabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return FEItems.draconicIngot;}};  
+			return FEItems.draconicIngot;}};
+			
+			   public static CreativeTabs tabFrames = new CreativeTabs("tabForestryExtrasFrames") {
+					@Override
+					@SideOnly(Side.CLIENT)
+					public Item getTabIconItem() {
+						return FEItems.draconicFrame;}};  
                
+						   public static CreativeTabs tabUtilities = new CreativeTabs("tabForestryExtrasUtilities") {
+								@Override
+								@SideOnly(Side.CLIENT)
+								public Item getTabIconItem() {
+									return FEItems.draconicScoop;}};  
 }

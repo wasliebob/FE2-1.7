@@ -13,6 +13,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import forestryextras.handlers.GUIHandler;
+import forestryextras.handlers.events.OnPlayerJoin;
 import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
@@ -26,7 +27,7 @@ public class Main {
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static String version = "1.3";
+    public static double version = 1.312;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
@@ -56,6 +57,7 @@ public class Main {
     public void initEvents()
     {
         MinecraftForge.EVENT_BUS.register(this); 
+        MinecraftForge.EVENT_BUS.register(new OnPlayerJoin());
     }
     
     public void initTiles()

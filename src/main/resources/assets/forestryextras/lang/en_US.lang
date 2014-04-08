@@ -123,3 +123,5 @@ fe.info.beeducer.3=When done that the bee will produce 32 combs and then die.
 fe.info.beeducer.4=WARNING: Be careful only place 1 bee at a time.
 --Misc--
 itemGroup.tabForestryExtras=Forestry Extras 2
+itemGroup.tabForestryExtrasFrames=Forestry Extras 2 Frames
+itemGroup.tabForestryExtrasUtilities=Forestry Extras 2 Utilities
