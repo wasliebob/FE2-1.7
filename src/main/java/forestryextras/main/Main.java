@@ -28,7 +28,7 @@ public class Main {
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 1.312;
+    public static double version = 1.314;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
