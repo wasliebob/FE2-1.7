@@ -27,6 +27,10 @@ public class ForgeMultipart {
 			registerMetadata(ForestryBlock.planks2, 7);
 		
 			registerMetadata(ForestryBlock.soil, 1);
+			
+			registerMetadata(ForestryBlock.beehives, 5);
+			registerMetadata(ForestryBlock.glass, 15);
+
 		}
 	}
 	
