@@ -116,5 +116,12 @@ fe.bees.species.energeticAlloy=Энергосплавная
 fe.bees.species.vibrantAlloy=Трепетносплавная
 fe.bees.species.pulsatingIron=Пульсожелезная
 fe.bees.species.botanist=Ботаническая
+--Text--
+fe.info.beeducer.1=Этот блок облегчит производство сот.
+fe.info.beeducer.2=Нужно всего лишь поместить пчелу внутрь(нажми на блок пчелой в руке).
+fe.info.beeducer.3=После этого пчела произведёт соты в количестве 32 штуки и умрёт.
+fe.info.beeducer.4=ВНИМАНИЕ! Только одну пчелу за раз!
 --Misc--
 itemGroup.tabForestryExtras=Forestry Extras 2
+itemGroup.tabForestryExtrasFrames=Forestry Extras 2 - Рамки
+itemGroup.tabForestryExtrasUtilities=Forestry Extras 2 - Дополнительно
