@@ -13,7 +13,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import forestryextras.handlers.GUIHandler;
-import forestryextras.handlers.events.OnPlayerJoin;
+import forestryextras.handlers.events.OnPlayerJoinWorld;
 import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
@@ -27,7 +27,7 @@ public class Main {
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 1.319;
+    public static double version = 1.321;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
@@ -57,7 +57,7 @@ public class Main {
     public void initEvents(FMLInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(this); 
-        MinecraftForge.EVENT_BUS.register(new OnPlayerJoin());
+        MinecraftForge.EVENT_BUS.register(new OnPlayerJoinWorld());
     }
     
     public void initTiles()
@@ -69,7 +69,7 @@ public class Main {
     @EventHandler
     public void postInit(FMLPostInitializationEvent evt)
     {
-        FileHelper.createBaseFileInFolder(Main.modName, "species", ".txt", FEBees.specieNames);
+        FileHelper.createBaseFileInFolder(Main.modName, "species", ".wasliecore", FEBees.specieNames);
     }
     
     public void initMisc(FMLPreInitializationEvent event)
