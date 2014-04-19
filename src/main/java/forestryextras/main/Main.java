@@ -20,14 +20,14 @@ import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.3" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO;after:ThermalExpansion")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.32" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO;after:ThermalExpansion")
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
     public static CommonProxy proxy;
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 1.321;
+    public static double version = 1.323;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
@@ -42,7 +42,7 @@ public class Main {
     	FEItems.init();
     	FEBlocks.init();
     	IntergrationLoader.init();
-    	FEBees.init();
+
     	initTiles();
     }
     
@@ -70,6 +70,7 @@ public class Main {
     public void postInit(FMLPostInitializationEvent evt)
     {
         FileHelper.createBaseFileInFolder(Main.modName, "species", ".wasliecore", FEBees.specieNames);
+    	FEBees.init();
     }
     
     public void initMisc(FMLPreInitializationEvent event)
