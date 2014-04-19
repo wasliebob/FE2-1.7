@@ -27,7 +27,7 @@ public class Main {
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 1.323;
+    public static double version = 1.324;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     
@@ -49,6 +49,7 @@ public class Main {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	FEBees.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
     	initEvents(event);
     	Recipes.init();
@@ -70,7 +71,6 @@ public class Main {
     public void postInit(FMLPostInitializationEvent evt)
     {
         FileHelper.createBaseFileInFolder(Main.modName, "species", ".wasliecore", FEBees.specieNames);
-    	FEBees.init();
     }
     
     public void initMisc(FMLPreInitializationEvent event)
