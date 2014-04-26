@@ -35,8 +35,11 @@ public class BeeMutation implements IBeeMutation
 		this.requiresBlock = false;
 		this.requiredBlockOreDictEntry = null;
 		this.requiredBlockName = null;
+	
+		/** Might Corrupt or Fix */
+//		this.getRoot().registerMutation(this);
 		
-		this.getRoot().registerMutation(this);
+		
 //		FileHelper.parent1.put(FileHelper.parent1.size(), species0.getName());
 //		FileHelper.parent2.put(FileHelper.parent2.size(), species1.getName());
 //		FileHelper.result.put(FileHelper.result.size(), resultType.getName());
