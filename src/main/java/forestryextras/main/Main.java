@@ -2,6 +2,7 @@ package forestryextras.main;
 
 import net.minecraftforge.common.MinecraftForge;
 import wasliecore.helpers.FileHelper;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -18,6 +19,7 @@ import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
+import forestryextras.main.init.intergration.ForgeMultipart;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
 @Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.32" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO;after:ThermalExpansion")
@@ -49,6 +51,10 @@ public class Main {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+		if(Loader.isModLoaded("ForgeMultipart")){
+			System.out.print(IntergrationLoader.initMessage("Forge Multipart"));
+			ForgeMultipart.init();}
+		
     	FEBees.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
     	initEvents(event);

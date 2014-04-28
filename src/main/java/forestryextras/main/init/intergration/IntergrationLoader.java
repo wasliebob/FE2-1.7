@@ -5,11 +5,7 @@ import cpw.mods.fml.common.Loader;
 public class IntergrationLoader {
 
 	public static void init()
-	{
-		if(Loader.isModLoaded("ForgeMultipart")){
-			System.out.print(initMessage("Forge Multipart"));
-			ForgeMultipart.init();}
-		
+	{	
 		if(Loader.isModLoaded("TinkersConstruct")){
 			//System.out.print(initMessage("Tinkers Construct"));
 			TinkersConstruct.init();}
