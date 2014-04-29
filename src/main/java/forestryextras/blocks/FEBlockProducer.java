@@ -87,7 +87,6 @@ public class FEBlockProducer extends BlockContainer{
 			if(tile.getStackInSlot(0) != null){
 	            dropItems(world, x, y, z);
 
-			//dropBee(world, x, y, z, tile.getStackInSlot(0));
 			tile.setInventorySlotContents(0, null);
 			world.markBlockForUpdate(x, y, z);
 			}
@@ -138,8 +137,6 @@ public class FEBlockProducer extends BlockContainer{
 			return side;
 		}
 	}
-
-
 
     private void dropItems(World world, int x, int y, int z){
             Random rand = new Random();

@@ -30,7 +30,9 @@ dependencies{
 	'build/dep/Forestry.jar',
 	'build/dep/WaslieCore.jar',
 	'build/dep/CCL.jar',
-	'build/dep/FMP.jar'
+	'build/dep/FMP.jar',
+	'build/dep/TCE2.jar',
+	'build/dep/TC.jar',
 	)
 }
 	
