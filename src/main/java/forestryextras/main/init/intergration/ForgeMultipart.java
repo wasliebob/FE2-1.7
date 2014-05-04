@@ -30,7 +30,8 @@ public class ForgeMultipart {
 			
 			registerMetadata(ForestryBlock.beehives, 5);
 			registerMetadata(ForestryBlock.glass, 15);
-
+			registerMultipart(ForestryBlock.alveary, 0);
+			registerMultipart(ForestryBlock.glass, 15);
 		}
 	}
 	
