@@ -21,6 +21,7 @@ import forestry.api.apiculture.IBeeHousing;
 import forestry.api.apiculture.IHiveFrame;
 import forestry.api.recipes.RecipeManagers;
 import forestryextras.main.Main;
+import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Tabs;
 
 public final class FEItemFrame extends Item implements IHiveFrame {
@@ -85,6 +86,8 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     	recipe(easyRec);
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
 		OreDictionary.registerOre(oreDict, this); 
+		OreDictionary.registerOre("frameForestry", this); 
+		FEItems.list_backpack_frame.add(new ItemStack(this));
 //		FileHelper.list.put(FileHelper.list.size(), this.getItemDisplayName(new ItemStack(this)));
         
 //		initFrameList();

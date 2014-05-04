@@ -24,7 +24,6 @@ public class FEBlock extends Block {
 		lValue = lightValue;
 		craftMat = craftMaterial;
 		texture = textureName;
-		
 		init();
 	}
 	String name;

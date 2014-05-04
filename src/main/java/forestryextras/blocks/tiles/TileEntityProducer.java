@@ -18,7 +18,7 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 		ItemStacks = new ItemStack[1];
 		chargeTime = MathHelper.secondToTick(5);
 		waitTime = MathHelper.secondToTick(5);
-		waiterTime = MathHelper.secondToTick(5);
+		waiterTime = MathHelper.secondToTick(6);
 		turns = 32;
 	}
 	public ItemStack ItemStacks[];
@@ -44,17 +44,16 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 			worldObj.markBlockForUpdate(xCoord, yCoord, yCoord);
     	
     	if(getStackInSlot(0) != null){
-    	if(chargeTime != 0)
-    		chargeTime--;
+    		if(chargeTime != 0)
+    			chargeTime--;
     	
-    	if(chargeTime == 0)
-    	{
+    		if(chargeTime == 0){
     			ItemStack stack = new ItemStack(ForestryItem.beeComb.item());
     			dropItems(worldObj, this.xCoord, this.yCoord, this.zCoord, stack);
     			turns--;
     			chargeTime = waitTime;
     			worldObj.markBlockForUpdate(xCoord, yCoord, yCoord);
-    	}
+    		}
     	}
     	}
     }

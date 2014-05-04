@@ -1,11 +1,5 @@
 package forestryextras.main.init.intergration;
 
-import net.minecraft.item.ItemStack;
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import forestryextras.main.init.FEBlocks;
-import forestryextras.main.init.FEItems;
 
 
 
@@ -37,9 +31,9 @@ public class Thaumcraft {
 	
 	public static void initMaterialAspects()
 	{
-		ThaumcraftApi.registerObjectTag(new ItemStack(FEItems.draconicIngot), new AspectList().add(Aspect.MAGIC, 1).add(Aspect.METAL, 1));
-		ThaumcraftApi.registerObjectTag(new ItemStack(FEItems.reinforcedIngot), new AspectList().add(Aspect.ORDER, 1).add(Aspect.METAL, 1));
-		ThaumcraftApi.registerObjectTag(new ItemStack(FEBlocks.draconicBlock), new AspectList().add(Aspect.MAGIC, 9).add(Aspect.METAL, 9));
-		ThaumcraftApi.registerObjectTag(new ItemStack(FEBlocks.reinforcedBlock),  new AspectList().add(Aspect.ORDER, 9).add(Aspect.METAL, 9));
+//		ThaumcraftApi.registerObjectTag(new ItemStack(FEItems.draconicIngot), new AspectList().add(Aspect.MAGIC, 1).add(Aspect.METAL, 1));
+//		ThaumcraftApi.registerObjectTag(new ItemStack(FEItems.reinforcedIngot), new AspectList().add(Aspect.ORDER, 1).add(Aspect.METAL, 1));
+//		ThaumcraftApi.registerObjectTag(new ItemStack(FEBlocks.draconicBlock), new AspectList().add(Aspect.MAGIC, 9).add(Aspect.METAL, 9));
+//		ThaumcraftApi.registerObjectTag(new ItemStack(FEBlocks.reinforcedBlock),  new AspectList().add(Aspect.ORDER, 9).add(Aspect.METAL, 9));
 	}
 }

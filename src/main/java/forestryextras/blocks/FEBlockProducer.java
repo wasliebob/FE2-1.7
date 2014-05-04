@@ -68,8 +68,7 @@ public class FEBlockProducer extends BlockContainer{
 		
 		if(!player.isSneaking()){
 		if(player.getCurrentEquippedItem() != null){
-		if(tile.getStackInSlot(0) == null)
-		{
+		if(tile.getStackInSlot(0) == null){
 			if(player.getCurrentEquippedItem().getItem() instanceof ItemBeeGE){				
 				tile.setInventorySlotContents(0,  player.getCurrentEquippedItem().copy());
 				
@@ -86,9 +85,8 @@ public class FEBlockProducer extends BlockContainer{
 		}else{
 			if(tile.getStackInSlot(0) != null){
 	            dropItems(world, x, y, z);
-
-			tile.setInventorySlotContents(0, null);
-			world.markBlockForUpdate(x, y, z);
+	            tile.setInventorySlotContents(0, null);
+	            world.markBlockForUpdate(x, y, z);
 			}
 		}
 		}

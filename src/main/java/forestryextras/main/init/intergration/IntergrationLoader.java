@@ -18,9 +18,9 @@ public class IntergrationLoader {
 			System.out.print(initMessage("Thermal Expansion"));
 			ThermalExpansion.init();}
 		
-		//if(Loader.isModLoaded("ThaumcraftExtras")){
-		//	System.out.print(initMessage("Thaumcraft Extras"));
-		//	ThaumcraftExtras.init();}
+		if(Loader.isModLoaded("ThaumcraftExtras")){
+			System.out.print(initMessage("Thaumcraft Extras"));
+			ThaumcraftExtras.init();}
 		
 		//if(Loader.isModLoaded("Botania")){
 		//	System.out.print(initMessage("Botania"));

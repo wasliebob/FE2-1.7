@@ -1,15 +1,24 @@
 package forestryextras.main.init;
 
+import java.util.ArrayList;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import wasliecore.helpers.ColorHelper;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+import forestry.api.storage.BackpackManager;
+import forestry.api.storage.EnumBackpackType;
+import forestry.storage.BackpackHelper;
 import forestryextras.helpers.NuggetHelper;
+import forestryextras.helpers.util.BackpackDefinition;
 import forestryextras.items.FEItemFrame;
 import forestryextras.items.FEItemGrafter;
 import forestryextras.items.FEItemIngot;
@@ -29,6 +38,7 @@ public class FEItems {
 		initModSupportFrames();
 		initWorldGen();
 		initNuggets();
+		initBackpacks();
 	}
 	
 	public static void initItems()
@@ -293,4 +303,16 @@ public class FEItems {
 		NuggetHelper.addRecipes();
 	}
 	public static FEItemNugget nugget;
+	
+	public static void initBackpacks()
+	{		
+//	    BackpackManager.backpackInterface = new BackpackHelper();
+//	    backpack_frame = BackpackManager.backpackInterface.addBackpack(new BackpackDefinition("frame", "Frame Backpack", ColorHelper.getColorCodeFromRGB(100, 0, 0)), EnumBackpackType.T1);
+//	    backpack_frame.setCreativeTab(Tabs.tabUtilities);
+//	    GameRegistry.registerItem(backpack_frame, backpack_frame.getUnlocalizedName());
+	}
+//	public static Item backpack_frame;
+	
+	public static ArrayList<ItemStack> list_backpack_frame = new ArrayList<ItemStack>();
+
 }

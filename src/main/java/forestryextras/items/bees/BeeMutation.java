@@ -36,8 +36,8 @@ public class BeeMutation implements IBeeMutation
 		this.requiredBlockOreDictEntry = null;
 		this.requiredBlockName = null;
 	
-		/** Might Corrupt or Fix */
-//		this.getRoot().registerMutation(this);
+		/** Not sure about what is causing this -- Player didn't change anything as of the port to 1.7 so something went wrong*/
+		this.getRoot().registerMutation(this);
 		
 		
 //		FileHelper.parent1.put(FileHelper.parent1.size(), species0.getName());
