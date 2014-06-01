@@ -23,27 +23,20 @@ public class CombHelper {
 	{
 		addOreDictionary();
 		for(int i = 0; i < combs.size(); i++){
-			
 			int meta = combs.get(i);
-			
 			ItemStack[] output = outputStacks.get(meta);
 			int[] chance = outputChance.get(meta);
-			
 			if (output != null && chance != null) {
 				RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(FEBees.comb, 1, meta),output, chance);
 			}
-			
-		}
-			
+		}	
 	}
 	
 	public static void addOreDictionary()
 	{
 		for(int i = 0; i < combs.size(); i++) {
-			
 			int meta = combs.get(i);
 			OreDictionary.registerOre("beeComb", new ItemStack(FEBees.comb, 1, meta));
-			
 		}
 	}
 	
@@ -51,7 +44,6 @@ public class CombHelper {
 	public static HashMap<Integer, String> name = new HashMap<Integer, String>();
 	public static HashMap<Integer, Integer> primaryColor = new HashMap<Integer, Integer>();
 	public static HashMap<Integer, Integer> secondaryColor = new HashMap<Integer, Integer>();
-	//public static HashMap<Integer, HashMap<ItemStack, Integer>> output  = new HashMap<Integer, HashMap<ItemStack, Integer>>();
 	public static HashMap<Integer, ItemStack[]> outputStacks  = new HashMap<Integer, ItemStack[]>();
 	public static HashMap<Integer, int[]> outputChance  = new HashMap<Integer, int[]>();
 

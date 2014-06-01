@@ -24,11 +24,6 @@ public class FEItemComb extends Item{
 	}
 	IIcon primary;
 	IIcon secondary;
-	
-	//@Override
-	//public String getItemDisplayName(ItemStack stack) {
-	//	return "item.fe.comb." + CombHelper.name.get(stack.getItemDamage()).toLowerCase() ;
-	//}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
@@ -37,6 +32,7 @@ public class FEItemComb extends Item{
 			return "item.fe.comb." + unlocalizedStackName.toLowerCase() ;
 		return getUnlocalizedName();
 	}
+	
 	public void init()
 	{
 		GameRegistry.registerItem(this, this.getUnlocalizedName());		

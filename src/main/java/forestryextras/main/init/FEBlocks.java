@@ -21,10 +21,7 @@ public class FEBlocks {
 		smelting();
 	}
 	
-	public static void smelting()
-	{
-//		GameRegistry.addSmelting(draconicOre, new ItemStack(FEItems.draconicIngot), 0.0F);
-	}
+	public static void smelting(){}
 	
 	public static void crafting()
 	{

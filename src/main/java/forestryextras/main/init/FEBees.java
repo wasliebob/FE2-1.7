@@ -140,10 +140,16 @@ public class FEBees {
 		new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Noble"), GenomeManager.getReinforcedTemplate(), 5, false, FEBees.reinforcedBee, "FE2");
 		new BeeMutation(Allele.getBaseSpecies("Industrious"), FEBees.reinforcedBee, GenomeManager.getDraconicTemplate(), 5, false, FEBees.draconicBee, "FE2");
 		
-		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0){
+		if(OreDictionary.getOres("woodGreatwood").size() > 0){
+			new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Edenic"), GenomeManager.getGreatwoodTemplate(), 5, false, FEBees.greatwoodBee, "TC4");}
+
+		if(OreDictionary.getOres("woodSilverwood").size() > 0 && FEBees.greatwoodBee != null){
+			new BeeMutation(FEBees.greatwoodBee, Allele.getBaseSpecies("Edenic"), GenomeManager.getSilverwoodTemplate(), 5, false, FEBees.silverwoodBee, "TC4");}
+
+		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0 && FEBees.silverwoodBee != null && FEBees.greatwoodBee != null){
 			new BeeMutation(FEBees.silverwoodBee, FEBees.greatwoodBee, GenomeManager.getThaumiumTemplate(), 5, false, FEBees.thaumiumBee, "TC4");}
 		
-		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0){
+		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0 && FEBees.thaumiumBee != null){
 			new BeeMutation(FEBees.thaumiumBee, Allele.getBaseSpecies("Edenic"), GenomeManager.getDarkThaumiumTemplate(), 5, false, darkThaumiumBee, "TCE");}
 	
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
@@ -152,12 +158,6 @@ public class FEBees {
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotFairy").size() > 0){
 			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Heroic"), GenomeManager.getFairyTemplate(), 5, false, FEBees.fairyBee, "ExtraTiC");}
 		
-		if(OreDictionary.getOres("woodGreatwood").size() > 0){
-			new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Edenic"), GenomeManager.getGreatwoodTemplate(), 5, false, FEBees.greatwoodBee, "TC4");}
-
-		if(OreDictionary.getOres("woodSilverwood").size() > 0){
-			new BeeMutation(FEBees.greatwoodBee, Allele.getBaseSpecies("Edenic"), GenomeManager.getSilverwoodTemplate(), 5, false, FEBees.silverwoodBee, "TC4");}
-
 		if(OreDictionary.getOres("ingotConductiveIron").size() > 0){
 			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Unweary"), GenomeManager.getConductiveTemplate(), 5, false, FEBees.conductiveBee, "EIO");}
 
@@ -250,12 +250,7 @@ public class FEBees {
 		//products = Botania.getPetalStackArray();
 		//chance = Botania.getPetalChance();
 		//CombHelper.addCombToMap(11, "Botanist", 0xCC0033, 0xFF99CC, products, chance);}
-		
-		//if(Loader.isModLoaded("EnderIO") && doesModItemExist("EnderIO", "Electrical Steel")){
-		//products = new ItemStack[]{new ItemStack(Items.nugget, 1, 6), GameRegistry.findItemStack("EnderIO", "Electrical Steel", 1)};
-		//chance = new int[]{15, 75};
-		//CombHelper.addCombToMap(4, "Electrical Steel", 0x999966, 0xFFFFCC, products, chance);}
-		
+				
 		comb = new FEItemComb();
 		CombHelper.addRecipes();
 	}

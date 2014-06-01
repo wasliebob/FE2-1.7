@@ -19,12 +19,6 @@ import forestryextras.main.init.FEBees;
 
 public class BeeMutation implements IBeeMutation
 {	
-	public static void setupMutations()
-	{
-
-	}
-	
-
 	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance, boolean requiresBlock, IAlleleBeeSpecies resultType, String mod)
 	{
 		this.parent1 = species0;

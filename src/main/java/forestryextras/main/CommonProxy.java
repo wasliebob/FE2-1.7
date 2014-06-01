@@ -1,22 +1,13 @@
 package forestryextras.main;
 
-import net.minecraft.world.World;
 
 public class CommonProxy {
-	
-	public void load()
-	{
-        registerRenderInformation();
+	public void load(){
+		render();
         registerParticles();
 	}
 	
-    public void registerRenderInformation(){}
-    
-    public World getClientWorld()
-    {
-        return null;
-    }
-    
+	public void render(){}
     public void registerParticles(){}
 }
 

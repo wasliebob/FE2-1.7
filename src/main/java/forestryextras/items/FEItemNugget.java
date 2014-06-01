@@ -22,11 +22,6 @@ public class FEItemNugget extends Item{
 		init();
 	}
 	
-	//@Override
-	//public String getItemDisplayName(ItemStack stack) {
-	//	return "item.fe.nugget." + NuggetHelper.name.get(stack.getItemDamage()).toLowerCase() ;
-	//}
-	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		String unlocalizedStackName = NuggetHelper.name.get(stack.getItemDamage());

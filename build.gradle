@@ -22,15 +22,13 @@ group= "ForestryExtras" // http://maven.apache.org/guides/mini/guide-naming-conv
 archivesBaseName = "ForestryExtras"
 
 minecraft {
-    version = "1.7.2-10.12.1.1060"
+    version = "1.7.2-10.12.1.1079"
     assetDir = "eclipse/assets"
 }
 dependencies{
 	compile files(
 	'build/dep/Forestry.jar',
 	'build/dep/WaslieCore.jar',
-	'build/dep/CCL.jar',
-	'build/dep/FMP.jar',
 	)
 }
 	

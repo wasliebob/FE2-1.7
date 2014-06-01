@@ -288,10 +288,7 @@ public class FEItems {
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0){
 		NuggetHelper.addNuggetToMap(10, "Pulsating Iron", 0xFF9900, OreDictionary.getOres("ingotPulsatingIron").get(0));}
-		
-		//if(Loader.isModLoaded("EnderIO") && Bees.doesModItemExist("EnderIO", "electricalSteel")){
-		//NuggetHelper.addNuggetToMap(7, "ElectricSteel", 0xCCCC99, GameRegistry.findItemStack("EnderIO", "electricalSteel", 1));}
-		
+
 		nugget = new FEItemNugget();
 		NuggetHelper.addRecipes();
 	}

@@ -1,4 +1,4 @@
-package forestryextras.items.bees;
+package forestryextras.items.bees.helpers;
 
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.AlleleManager;
