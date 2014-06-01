@@ -209,47 +209,47 @@ public class FEBees {
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotFairy").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 4), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(3, "Fairy", 0xFF99CC, 0xFFCC00, products, chance);}
+		CombHelper.addCombToMap(4, "Fairy", 0xFF99CC, 0xFFCC00, products, chance);}
 			
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 5), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(4, "Pokefennium", 0x9966CC, 0x99FFCC, products, chance);}
+		CombHelper.addCombToMap(5, "Pokefennium", 0x9966CC, 0x99FFCC, products, chance);}
 		
 		if(OreDictionary.getOres("dropHoney").size() > 0){
 		products = new ItemStack[]{OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{75};
-		CombHelper.addCombToMap(5, "Normal", 0xFFFF33 , 0x999900, products, chance);}
+		CombHelper.addCombToMap(6, "Normal", 0xFFFF33 , 0x999900, products, chance);}
 			
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotConductiveIron").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 6), OreDictionary.getOres("dropHoney").get(0)};
-		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(6, "Conductive Iron", 0xCCCC99, 0x99FFCC, products, chance);}
+		chance = new int[]{15, 7};
+		CombHelper.addCombToMap(7, "Conductive Iron", 0xCCCC99, 0x99FFCC, products, chance);}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotElectricalSteel").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 7), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(7, "Electrical Steel", 0x999900, 0x99FFCC, products, chance);}
+		CombHelper.addCombToMap(8, "Electrical Steel", 0x999900, 0x99FFCC, products, chance);}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 8), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(8, "Energetic Alloy", 0xCCCC99, 0xFFCC00, products, chance);}
+		CombHelper.addCombToMap(9, "Energetic Alloy", 0xCCCC99, 0xFFCC00, products, chance);}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy ").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 9), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(9, "Vibrant Alloy", 0xFFCC00, 0x99FFCC, products, chance);}
+		CombHelper.addCombToMap(10, "Vibrant Alloy", 0xFFCC00, 0x99FFCC, products, chance);}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0){
 		products = new ItemStack[]{new ItemStack(FEItems.nugget, 1, 10), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(10, "Pulsating Iron", 0xFFCC00, 0xFFCC00, products, chance);}
+		CombHelper.addCombToMap(11, "Pulsating Iron", 0xFFCC00, 0xFFCC00, products, chance);}
 		
 		//if(Loader.isModLoaded("Botania")){
 		//products = Botania.getPetalStackArray();
 		//chance = Botania.getPetalChance();
-		//CombHelper.addCombToMap(11, "Botanist", 0xCC0033, 0xFF99CC, products, chance);}
+		//CombHelper.addCombToMap(12, "Botanist", 0xCC0033, 0xFF99CC, products, chance);}
 				
 		comb = new FEItemComb();
 		CombHelper.addRecipes();

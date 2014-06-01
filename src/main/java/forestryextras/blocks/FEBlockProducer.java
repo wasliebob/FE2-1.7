@@ -74,7 +74,6 @@ public class FEBlockProducer extends BlockContainer{
 				
 				if(player.getCurrentEquippedItem().stackSize > 1)
 					player.getCurrentEquippedItem().stackSize--;
-					//player.setCurrentItemOrArmor(0, new ItemStack(player.getCurrentEquippedItem().getItem(), player.getCurrentEquippedItem().stackSize -1, 0));
 				else
 					player.setCurrentItemOrArmor(0, null);
 				
@@ -107,21 +106,12 @@ public class FEBlockProducer extends BlockContainer{
         return false;
     }
     
-    /*
-    @Override
-    public int  getRenderType()
-    {
-    	return -1;
-    }
-    */
-    
 	@Override
     public void registerBlockIcons(IIconRegister ir) 
 	{
 		top = Blocks.planks.getBlockTextureFromSide(0);
 		side = Blocks.glass.getBlockTextureFromSide(0);
 		bottom = Blocks.planks.getBlockTextureFromSide(0);
-        //blockIcon = IconHelper.forBlock(par1IconRegister, this);
 	}
 
 	@Override

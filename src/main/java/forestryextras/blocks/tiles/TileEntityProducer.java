@@ -80,7 +80,6 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
                         world.spawnEntityInWorld(entityItem);
                         item.stackSize = 0;
                 }
-    			//worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
         }
 
 	@Override

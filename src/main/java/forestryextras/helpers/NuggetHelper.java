@@ -36,7 +36,6 @@ public class NuggetHelper {
 			}
 			
 		}
-			//RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(Bees.comb, 1, i), output.get(i));
 	}
 	
 	public static void addOreDictionary()
@@ -50,7 +49,6 @@ public class NuggetHelper {
 			{
 				OreDictionary.registerOre("nugget" + nuggetName, new ItemStack(FEItems.nugget, 1, meta));
 			}
-			
 		}
 			
 	}
