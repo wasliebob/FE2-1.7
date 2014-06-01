@@ -1,0 +1,127 @@
+--Ingots-
+item.fe.item.draconicIngot.name=龙炼锭
+item.fe.item.reinforcedIngot.name=精刚锭
+item.fe.item.witheriaIngot.name=凋灵锭
+item.fe.item.ryuIngot.name=龙锭
+item.fe.item.alfiumIngot.name=埃尔夫锭
+item.fe.item.itariusIngot.name=埃塔罗锭
+--Sticks--
+item.fe.item.coalStick.name=煤炭棍
+item.fe.item.ironStick.name=铁棍
+item.fe.item.goldStick.name=黄金棍
+item.fe.item.diamondStick.name=钻石棍
+item.fe.item.emeraldStick.name=绿宝石棍
+item.fe.item.obsidianStick.name=黑曜石棍
+item.fe.item.mutationStick.name=突变棍
+item.fe.item.draconicStick.name=龙炼棍
+item.fe.item.reinforcedStick.name=精刚棍
+item.fe.item.copperStick.name=铜棍
+item.fe.item.tinStick.name=锡棍
+item.fe.item.silverStick.name=银棍
+item.fe.item.manyullynStick.name=玛玉灵棍
+item.fe.item.bronzeStick.name=青铜棍
+item.fe.item.steelStick.name=钢棍
+item.fe.item.arditeStick.name=阿迪特棍
+item.fe.item.cobaltStick.name=钴棍
+item.fe.item.leadStick.name=铅棍
+item.fe.item.alumiteStick.name=耐酸铝棍
+item.fe.item.darkThaumiumStick.name=黑暗神秘棍
+item.fe.item.thaumiumStick.name=神秘棍
+item.fe.item.voidStick.name=虚空棍
+item.fe.item.pokefenniumStick.name=口袋芬妮棍
+item.fe.item.fairyStick.name=精灵棍
+item.fe.item.alfiumStick.name=埃尔夫棍
+item.fe.item.witheriaStick.name=凋灵棍
+item.fe.item.itariusStick.name=埃塔罗棍
+--Nuggets--
+item.fe.nugget.draconic.name=龙炼粒
+item.fe.nugget.reinforced.name=精刚粒
+item.fe.nugget.thaumium.name=神秘粒
+item.fe.nugget.dark thaumium.name=黑暗神秘粒
+item.fe.nugget.fairy.name=精灵粒
+item.fe.nugget.pokefennium.name=口袋芬妮粒
+item.fe.nugget.conductive iron.name=传导铁
+item.fe.nugget.electrical steel.name=电化钢
+item.fe.nugget.energetic alloy.name=充能合金
+item.fe.nugget.vibrant alloy.name=振荡合金
+item.fe.nugget.pulsating iron.name=脉动铁
+--Combs--
+item.fe.comb.draconic.name=龙炼蜂巢
+item.fe.comb.reinforced.name=精刚蜂巢
+item.fe.comb.thaumium.name=神秘蜂巢
+item.fe.comb.dark thaumium.name=黑暗神秘蜂巢
+item.fe.comb.fairy.name=精灵蜂巢
+item.fe.comb.pokefennium.name=口袋芬妮蜂巢
+item.fe.comb.normal.name=标准蜂巢
+item.fe.comb.conductive iron.name=传导铁蜂巢
+item.fe.comb.electrical steel.name=电化钢蜂巢
+item.fe.comb.energetic alloy.name=充能合金蜂巢
+item.fe.comb.vibrant alloy.name=振荡合金蜂巢
+item.fe.comb.pulsating iron.name=脉动铁蜂巢
+item.fe.comb.botanist.name=植物学家蜂巢
+--Blocks--
+tile.fe.block.draconicBlock.name=龙炼方块
+tile.fe.block.reinforcedBlock.name=精刚方块
+tile.fe.block.draconicOre.name=龙炼矿石
+tile.fe.block.beeducer.name=Beeducer
+--Frames--
+item.fe.frame.frameCoal.name=煤炭框架
+item.fe.frame.frameIron.name=铁框架
+item.fe.frame.frameGold.name=黄金框架
+item.fe.frame.frameDiamond.name=钻石框架
+item.fe.frame.frameEmerald.name=绿宝石框架
+item.fe.frame.frameObsidian.name=黑曜石框架
+item.fe.frame.frameMutation.name=突变框架
+item.fe.frame.frameDraconic.name=龙炼框架
+item.fe.frame.frameReinforced.name=精刚框架
+item.fe.frame.frameCopper.name=铜框架
+item.fe.frame.frameTin.name=锡框架
+item.fe.frame.frameSilver.name=银框架
+item.fe.frame.frameManyullyn.name=玛玉灵框架
+item.fe.frame.frameBronze.name=青铜框架
+item.fe.frame.frameSteel.name=钢框架
+item.fe.frame.frameArdite.name=阿迪特框架
+item.fe.frame.frameCobalt.name=钴框架
+item.fe.frame.frameLead.name=铅框架
+item.fe.frame.frameAlumite.name=耐酸铝框架
+item.fe.frame.frameDarkThaumium.name=黑暗神秘框架
+item.fe.frame.frameThaumium.name=神秘框架
+item.fe.frame.frameVoid.name=虚空框架
+item.fe.frame.framePokefennium.name=口袋芬妮框架
+item.fe.frame.frameFairy.name=精灵框架
+item.fe.frame.frameAlfium.name=埃尔夫框架
+item.fe.frame.frameMCKE.name=MCKE框架
+item.fe.frame.frameWitheria.name=凋灵框架
+item.fe.frame.frameItarius.name=埃塔罗框架
+--Grafters--
+item.fe.grafter.grafterReinforced.name=精刚剪枝器
+item.fe.grafter.grafterDraconic.name=龙炼剪枝器
+item.fe.grafter.grafterMCKE.name=MCKE剪枝器
+--Scoops--
+item.fe.scoop.scoopReinforced.name=精刚勺
+item.fe.scoop.scoopDraconic.name=龙炼勺
+item.fe.scoop.scoopMCKE.name=MCKE勺
+--Bees--
+fe.bees.species.draconic=龙炼
+fe.bees.species.reinforced=精刚
+fe.bees.species.thaumium=神秘
+fe.bees.species.darkThaumium=黑暗神秘
+fe.bees.species.fairy=精灵
+fe.bees.species.pokefennium=口袋芬妮
+fe.bees.species.greatwood=宏伟之木
+fe.bees.species.silverwood=银树
+fe.bees.species.conductiveIron=传导铁
+fe.bees.species.electricalSteel=电化钢
+fe.bees.species.energeticAlloy=充能合金
+fe.bees.species.vibrantAlloy=振荡合金
+fe.bees.species.pulsatingIron=脉动铁
+fe.bees.species.botanist=植物学家
+--Text--
+fe.info.beeducer.1=本设备用于快速生产蜂巢.
+fe.info.beeducer.2=你需要放入一只蜜蜂(手持蜜蜂点击该设备).
+fe.info.beeducer.3=完成操作后蜜蜂将产出32个蜂巢然后死亡.
+fe.info.beeducer.4=警告:注意一次只能放置一只蜜蜂!
+--Misc--
+itemGroup.tabForestryExtras=林业扩展2
+itemGroup.tabForestryExtrasFrames=林业扩展2|框架
+itemGroup.tabForestryExtrasUtilities=林业扩展2|设备
