@@ -11,6 +11,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.Loader;
+import forestryextras.helpers.DonatorHelper;
+import forestryextras.helpers.IngotHelper;
 import forestryextras.helpers.NuggetHelper;
 import forestryextras.items.FEItemFrame;
 import forestryextras.items.FEItemGrafter;
@@ -18,6 +20,7 @@ import forestryextras.items.FEItemIngot;
 import forestryextras.items.FEItemNugget;
 import forestryextras.items.FEItemScoop;
 import forestryextras.items.FEItemStick;
+import forestryextras.items.donator.FEItemDonatorIngot;
 
 public class FEItems {
 
@@ -29,9 +32,10 @@ public class FEItems {
 		initGrafters();
 		initModSupportItems();
 		initModSupportFrames();
-		initWorldGen();
 		initNuggets();
 		initBackpacks();
+		initDonatorItems();	
+		initWorldGen();
 	}
 	
 	public static void initItems()
@@ -255,6 +259,10 @@ public class FEItems {
 	{	
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(FEItems.alfiumIngot), 0, 3, 0));	
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(FEItems.ryuIngot), 0, 3, 0));	
+	
+		for(int i = 0; i < IngotHelper.ingots.size(); i++){
+			ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(FEItems.donator_ingot, 1, i), 0, 3, 0));	
+		}
 	}
 	
 	public static void initNuggets()
@@ -294,6 +302,31 @@ public class FEItems {
 	}
 	public static FEItemNugget nugget;
 	
+	public static void initDonatorItems(){
+		if(DonatorHelper.canConnect()){
+			if(DonatorHelper.getNames() != null){
+				for(int i = 0; i < DonatorHelper.getNames().size(); i++){
+					String s = DonatorHelper.getNames().get(i);
+					IngotHelper.addIngotToMap(i, s);
+				}
+			}else{
+				for(int i = 0; i < DonatorHelper.readFile().size(); i++){
+					String s = DonatorHelper.readFile().get(i);
+					IngotHelper.addIngotToMap(i, s);
+				}
+			}
+		}else{
+			for(int i = 0; i < DonatorHelper.readFile().size(); i++){
+				String s = DonatorHelper.readFile().get(i);
+				IngotHelper.addIngotToMap(i, s);
+			}
+
+		}
+		if(IngotHelper.ingots.size() > 0)
+			donator_ingot = new FEItemDonatorIngot();
+	}
+	public static FEItemDonatorIngot donator_ingot;
+	
 	public static void initBackpacks()
 	{		
 //	    BackpackManager.backpackInterface = new BackpackHelper();
@@ -304,5 +337,4 @@ public class FEItems {
 //	public static Item backpack_frame;
 	
 	public static ArrayList<ItemStack> list_backpack_frame = new ArrayList<ItemStack>();
-
 }

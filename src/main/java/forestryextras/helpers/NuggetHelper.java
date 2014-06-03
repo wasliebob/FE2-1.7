@@ -57,5 +57,4 @@ public class NuggetHelper {
 	public static HashMap<Integer, String> name = new HashMap<Integer, String>();
 	public static HashMap<Integer, Integer> color = new HashMap<Integer, Integer>();
 	public static HashMap<Integer, ItemStack> output = new HashMap<Integer, ItemStack>();
-
 }

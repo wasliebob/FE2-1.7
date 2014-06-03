@@ -1,5 +1,7 @@
 package forestryextras.main;
 
+import java.util.ArrayList;
+
 import net.minecraftforge.common.MinecraftForge;
 import wasliecore.helpers.FileHelper;
 import cpw.mods.fml.common.Mod;
@@ -13,6 +15,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestryextras.handlers.GUIHandler;
 import forestryextras.handlers.events.OnPlayerJoinWorld;
+import forestryextras.helpers.DonatorHelper;
 import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
@@ -32,18 +35,31 @@ public class Main {
     public static IntergrationLoader integration = new IntergrationLoader();
    
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) throws Exception{
 		@SuppressWarnings("unused")
 		Config config = new Config();
 		Config.loadConfig(event);
+		
+		if(DonatorHelper.canConnect()){
+			createFiles();}
+		
 		proxy.load();
 		integration.prePreInit();
     	FEItems.init();
     	FEBlocks.init();
     	integration.preInit();
-//    	FEBees.init();
-
     	initTiles();
+    }
+    
+    public void createFiles() throws Exception{
+    	FileHelper.createModFolder("Forestry Extras 2");    	
+    	if(DonatorHelper.getNames() != null){
+        	ArrayList<String> list = new ArrayList<String>();
+    		for(String s : DonatorHelper.getNames()){
+    			list.add(s);
+    		}
+    		DonatorHelper.createFailFile(list);
+    	}
     }
     
     @EventHandler
@@ -70,6 +86,5 @@ public class Main {
     @EventHandler
     public void postInit(FMLPostInitializationEvent evt){
     	integration.postInit();
-        FileHelper.createBaseFileInFolder(Main.modName, "species", ".wasliecore", FEBees.specieNames);
-    }    
+    }
 }
