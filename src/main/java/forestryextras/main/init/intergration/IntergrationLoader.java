@@ -16,11 +16,13 @@ public class IntergrationLoader implements IIntergration{
 			tc.postInit();
 			initMessage("Thaumcraft");}
 	}
-	public Thaumcraft tc = new Thaumcraft();
-		
+	
 	@Override
 	public void init(){	
-		
+		if(isLoaded("VersionChecker")){
+			vc.init();
+			initMessage("VersionChecker");
+		}
 	}
 	
 	@Override
@@ -36,4 +38,7 @@ public class IntergrationLoader implements IIntergration{
 	public boolean isLoaded(String modID){
 		return Loader.isModLoaded(modID);
 	}
+	public Thaumcraft tc = new Thaumcraft();
+	public VersionChecker vc = new VersionChecker();
+
 }

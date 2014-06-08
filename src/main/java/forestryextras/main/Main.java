@@ -64,7 +64,6 @@ public class Main {
     
     @EventHandler
     public void init(FMLInitializationEvent event){
-    	/** Use FMPIntegration for FMP Support! */
     	integration.init();
     	FEBees.init();
 
@@ -81,7 +80,6 @@ public class Main {
     public void initTiles(){
         GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityProducer.class, "10001");
     }
-    
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent evt){
