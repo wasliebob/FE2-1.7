@@ -304,7 +304,7 @@ public class FEItems {
 	
 	public static void initDonatorItems(){
 		if(DonatorHelper.canConnect()){
-			if(DonatorHelper.getNames() != null){
+			if(DonatorHelper.getNames() != null && !DonatorHelper.getNames().isEmpty()){
 				for(int i = 0; i < DonatorHelper.getNames().size(); i++){
 					String s = DonatorHelper.getNames().get(i);
 					IngotHelper.addIngotToMap(i, s);
@@ -316,9 +316,11 @@ public class FEItems {
 				}
 			}
 		}else{
-			for(int i = 0; i < DonatorHelper.readFile().size(); i++){
-				String s = DonatorHelper.readFile().get(i);
-				IngotHelper.addIngotToMap(i, s);
+			if(DonatorHelper.readFile() != null && DonatorHelper.readFile().size() > 0){
+				for(int i = 0; i < DonatorHelper.readFile().size(); i++){
+					String s = DonatorHelper.readFile().get(i);
+					IngotHelper.addIngotToMap(i, s);
+				}
 			}
 
 		}
