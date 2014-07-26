@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import com.mojang.authlib.GameProfile;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -149,11 +151,6 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
     }
 
     @Override
-    public ItemStack[] getResearchBounty(World world, String researcher, IIndividual individual, int bountyLevel) {
-        return new ItemStack[0];
-    }
-
-    @Override
     public EnumTemperature getTemperature() {
         return temperature;
     }
@@ -256,5 +253,11 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
 			AlleleManager.alleleRegistry.blacklistAllele(this.getUID());
 		}
 		return this;
+	}
+
+	@Override
+	public ItemStack[] getResearchBounty(World world, GameProfile gameProfile,
+			IIndividual individual, int bountyLevel) {
+        return new ItemStack[0];
 	}
 }

@@ -36,7 +36,7 @@ public class FEBlockProducer extends BlockContainer{
 
 		GameRegistry.registerBlock(this, FEItemBlockProducer.class, blockName);
 		init();
-		}
+	}
 	
 	@SideOnly(Side.CLIENT)
 	IIcon top;

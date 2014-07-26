@@ -1,7 +1,5 @@
 package forestryextras.main.init.intergration;
 
-import net.minecraftforge.oredict.OreDictionary;
-import thaumcraft.api.ItemApi;
 
 
 public class Thaumcraft implements IIntergration{
@@ -26,10 +24,10 @@ public class Thaumcraft implements IIntergration{
 	}
 	
 	public void initOreDict(){
-		OreDictionary.registerOre("woodGreatwood", ItemApi.getBlock("blockMagicalLog", 0));
-		OreDictionary.registerOre("saplingSilverwood",  ItemApi.getBlock("blockMagicalLog", 1));
-		
-		OreDictionary.registerOre("woodSilverwood", ItemApi.getBlock("blockCustomPlant", 0));
-		OreDictionary.registerOre("saplingGreatwood", ItemApi.getBlock("blockCustomPlant", 0));
+//		OreDictionary.registerOre("woodGreatwood", ItemApi.getBlock("blockMagicalLog", 0));
+//		OreDictionary.registerOre("saplingSilverwood",  ItemApi.getBlock("blockMagicalLog", 1));
+//		
+//		OreDictionary.registerOre("woodSilverwood", ItemApi.getBlock("blockCustomPlant", 0));
+//		OreDictionary.registerOre("saplingGreatwood", ItemApi.getBlock("blockCustomPlant", 0));
 	}
 }
