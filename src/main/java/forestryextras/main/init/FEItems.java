@@ -168,11 +168,6 @@ public class FEItems {
 		
 		if(OreDictionary.getOres("ingotVoid").size() > 0)
 			voidFrame = new FEItemFrame(1000, false, false, false, false, 1.0F, 1.0F, 1.9F, 1.0F, 1.0F, 1.0F, "frameVoid", "frameVoid", "frame", 0x9900CC, new ItemStack(Items.string), new ItemStack(FEItems.voidStick), true, null, 0);
-	
-		if(OreDictionary.getOres("ingotVoid").size() > 0)
-			voidFrame = new FEItemFrame(1000, false, false, false, false, 1.0F, 1.0F, 1.9F, 1.0F, 1.0F, 1.0F, "frameVoid", "frameVoid", "frame", 0x9900CC, new ItemStack(Items.string), new ItemStack(FEItems.voidStick), true, null, 0);
-	
-	
 	}
 	public static FEItemFrame alumiteFrame;
 	public static FEItemFrame arditeFrame;
@@ -307,19 +302,22 @@ public class FEItems {
 			if(DonatorHelper.getNames() != null && !DonatorHelper.getNames().isEmpty()){
 				for(int i = 0; i < DonatorHelper.getNames().size(); i++){
 					String s = DonatorHelper.getNames().get(i);
-					IngotHelper.addIngotToMap(i, s);
+					if(s != null)
+						IngotHelper.addIngotToMap(i, s);
 				}
 			}else{
 				for(int i = 0; i < DonatorHelper.readFile().size(); i++){
 					String s = DonatorHelper.readFile().get(i);
-					IngotHelper.addIngotToMap(i, s);
+					if(s != null)
+						IngotHelper.addIngotToMap(i, s);
 				}
 			}
 		}else{
 			if(DonatorHelper.readFile() != null && DonatorHelper.readFile().size() > 0){
 				for(int i = 0; i < DonatorHelper.readFile().size(); i++){
 					String s = DonatorHelper.readFile().get(i);
-					IngotHelper.addIngotToMap(i, s);
+					if(s != null)
+						IngotHelper.addIngotToMap(i, s);
 				}
 			}
 

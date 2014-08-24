@@ -36,7 +36,6 @@ public class Main {
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) throws Exception{
-		@SuppressWarnings("unused")
 		Config config = new Config();
 		Config.loadConfig(event);
 		

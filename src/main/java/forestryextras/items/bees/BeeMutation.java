@@ -45,7 +45,6 @@ public class BeeMutation implements IBeeMutation
 	private int baseChance;
 	private boolean isSecret;
 	private boolean requiresBlock;
-	@SuppressWarnings("unused")
 	private Block requiredBlock;
 	private String requiredBlockOreDictEntry;
 	private String requiredBlockName;

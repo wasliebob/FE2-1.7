@@ -26,7 +26,6 @@ public enum BeeClassification implements IClassification
 	
 
 	private String uID;
-	@SuppressWarnings("unused")
 	private String latin;
 	private ArrayList<IAlleleSpecies> species;
 	private IClassification parent;
