@@ -1,115 +1,132 @@
 package forestryextras.blocks.tiles;
 
-import java.util.Random;
-
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants;
 import wasliecore.helpers.MathHelper;
+import wasliecore.helpers.Utils;
 import forestry.core.config.ForestryItem;
+import forestryextras.helpers.BeeHelper;
 
 public class TileEntityProducer extends TileEntity implements ISidedInventory{
 	public TileEntityProducer()
 	{
-		ItemStacks = new ItemStack[1];
-		chargeTime = MathHelper.secondToTick(5);
-		waitTime = MathHelper.secondToTick(5);
-		waiterTime = MathHelper.secondToTick(6);
+		stacks = new ItemStack[1];
+		time = MathHelper.secondToTick(5);
 		turns = 32;
 	}
-	public ItemStack ItemStacks[];
-	int chargeTime;
-	int waitTime;
-	int waiterTime;
+	public ItemStack[] stacks;
+	public int time;
 
-	int turns;
+	public int turns;
 
     @Override
-    public void updateEntity() 
-    {
+    public void updateEntity() {
     	if(!worldObj.isRemote){
-    	if(turns == 0){
-    		ItemStacks[0] = null;
-			worldObj.markBlockForUpdate(xCoord, yCoord, yCoord);
-    	}
-    	
-    	if(waiterTime != 0)
-    		waiterTime--;
-    	
-    	if(waiterTime == 0)
-			worldObj.markBlockForUpdate(xCoord, yCoord, yCoord);
-    	
-    	if(getStackInSlot(0) != null){
-    		if(chargeTime != 0)
-    			chargeTime--;
-    	
-    		if(chargeTime == 0){
-    			ItemStack stack = new ItemStack(ForestryItem.beeComb.item());
-    			dropItems(worldObj, this.xCoord, this.yCoord, this.zCoord, stack);
-    			turns--;
-    			chargeTime = waitTime;
-    			worldObj.markBlockForUpdate(xCoord, yCoord, yCoord);
+    		if(turns == 0){
+    			stacks[0] = null;
+    			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    		}else{
+    			if(time != 0)
+    				time--;
+    		
+    			if(time == 0){
+    				ItemStack stack = getStackInSlot(0);
+    				if(stack != null && BeeHelper.getComb(stack) != null){
+//    					ItemStack comb = BeeHelper.getComb(stack);
+    					ItemStack comb = new ItemStack(ForestryItem.beeComb.item());
+    					Utils.dropBlock(worldObj, xCoord, yCoord, zCoord, comb);
+
+    					this.turns--;
+    					this.time = MathHelper.secondToTick(5);
+    				}
+    			}
     		}
-    	}
     	}
     }
     
-    private void dropItems(World world, int x, int y, int z, ItemStack item){
-    	Random rand = new Random();
-                if (item != null && item.stackSize > 0) {
-                        float rx = rand.nextFloat() * 0.8F + 0.1F;
-                        float ry = rand.nextFloat() * 0.8F + 0.1F;
-                        float rz = rand.nextFloat() * 0.8F + 0.1F;
 
-                        EntityItem entityItem = new EntityItem(world,
-                                        x + rx, y + ry, z + rz,
-                                        new ItemStack(item.getItem(), item.stackSize, item.getItemDamage()));
-
-                        if (item.hasTagCompound()) {
-                                entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
-                        }
-
-                        float factor = 0.05F;
-                        entityItem.motionX = rand.nextGaussian() * factor;
-                        entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
-                        entityItem.motionZ = rand.nextGaussian() * factor;
-                        world.spawnEntityInWorld(entityItem);
-                        item.stackSize = 0;
-                }
+	@Override
+	public void writeToNBT(NBTTagCompound nbt)
+	{
+		super.writeToNBT(nbt);
+		
+		NBTTagList itemList = new NBTTagList();
+        for (int i = 0; i < stacks.length; i++) {
+        	ItemStack stack = stacks[i];
+        	if (stack != null) {
+        		NBTTagCompound tag = new NBTTagCompound();
+        		tag.setByte("Slot", (byte) i);
+        		stack.writeToNBT(tag);
+        		itemList.appendTag(tag);
+        	}
         }
+        nbt.setTag("Inventory", itemList);
+	}
+		
+	@Override
+	public void readFromNBT(NBTTagCompound nbt)
+	{
+		super.readFromNBT(nbt);
+		
+		NBTTagList tagList = nbt.getTagList("Inventory", Constants.NBT.TAG_COMPOUND);
+		for (int i = 0; i < tagList.tagCount(); i++) {
+			NBTTagCompound tag = (NBTTagCompound) tagList.getCompoundTagAt(i);
+			byte slot = tag.getByte("Slot");
+			if (slot >= 0 && slot < stacks.length) {
+				stacks[slot] = ItemStack.loadItemStackFromNBT(tag);
+			}
+		}
+	}
+	
+	@Override
+	public Packet getDescriptionPacket() {
+	    NBTTagCompound tagCompound = new NBTTagCompound();
+	    writeToNBT(tagCompound);
+	    
+	    return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, -999, tagCompound);
+	}
+	
+	@Override
+	public void onDataPacket(NetworkManager networkManager, S35PacketUpdateTileEntity packet) {
+		this.readFromNBT(packet.func_148857_g());
+	}
 
 	@Override
 	public int getSizeInventory() {
-		return ItemStacks.length;
+		return stacks.length;
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return ItemStacks[i];
+		return stacks[i];
 	}
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
-		if (ItemStacks[i] != null)
+		if (stacks[i] != null)
         {
 
-            if (ItemStacks[i].stackSize <= j)
+            if (stacks[i].stackSize <= j)
             {
-                ItemStack itemstack = ItemStacks[i];
-                ItemStacks[i] = null;
+                ItemStack itemstack = stacks[i];
+                stacks[i] = null;
                 return itemstack;
             }
             else
             {
-                ItemStack itemstack1 = ItemStacks[i].splitStack(j);
+                ItemStack itemstack1 = stacks[i].splitStack(j);
 
-                if (ItemStacks[i].stackSize == 0)
+                if (stacks[i].stackSize == 0)
                 {
-                    ItemStacks[i] = null;
+                    stacks[i] = null;
                 }
 
                 return itemstack1;
@@ -123,10 +140,10 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int i) {
-	      if (ItemStacks[i] != null)
+	      if (stacks[i] != null)
 	        {
-	            ItemStack itemstack = ItemStacks[i];
-	            ItemStacks[i] = null;
+	            ItemStack itemstack = stacks[i];
+	            stacks[i] = null;
 	            return itemstack;
 	        }
 	        else
@@ -137,7 +154,7 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		 ItemStacks[i] = itemstack;
+		 stacks[i] = itemstack;
 
 	        if (itemstack != null && itemstack.stackSize > getInventoryStackLimit())
 	        {

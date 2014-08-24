@@ -1,19 +1,15 @@
 package forestryextras.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import wasliecore.helpers.Utils;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -61,35 +57,31 @@ public class FEBlockProducer extends BlockContainer{
 			'Y', FEItems.witheriaIngot});
 	}
 	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float par7, float par8, float par9)
-	{
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float par7, float par8, float par9){
 		if(!world.isRemote){
-		TileEntityProducer tile = (TileEntityProducer) world.getTileEntity(x, y, z);
-		
-		if(!player.isSneaking()){
-		if(player.getCurrentEquippedItem() != null){
-		if(tile.getStackInSlot(0) == null){
-			if(player.getCurrentEquippedItem().getItem() instanceof ItemBeeGE){				
-				tile.setInventorySlotContents(0,  player.getCurrentEquippedItem().copy());
-				
-				if(player.getCurrentEquippedItem().stackSize > 1)
-					player.getCurrentEquippedItem().stackSize--;
-				else
-					player.setCurrentItemOrArmor(0, null);
-				
-				world.markBlockForUpdate(x, y, z);
+			TileEntityProducer te = (TileEntityProducer) world.getTileEntity(x, y, z);
+			if(te != null){
+				ItemStack bee = te.getStackInSlot(0);
+				if(player.isSneaking()){
+					if(bee != null){
+						Utils.dropBlock(world, x, y, z, bee);
+						te.setInventorySlotContents(0, null);
+						world.markBlockForUpdate(x, y, z);
+					}
+				}else{
+					if(bee == null){
+						if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() instanceof ItemBeeGE){
+							te.setInventorySlotContents(0, player.getCurrentEquippedItem().copy());
+							if(player.getHeldItem().stackSize > 1)
+								player.inventory.mainInventory[player.inventory.currentItem].stackSize--;
+							else
+								player.setCurrentItemOrArmor(0, null);
+							world.markBlockForUpdate(x, y, z);
+						}
+					}
+				}
 			}
 		}
-		}
-		}else{
-			if(tile.getStackInSlot(0) != null){
-	            dropItems(world, x, y, z);
-	            tile.setInventorySlotContents(0, null);
-	            world.markBlockForUpdate(x, y, z);
-			}
-		}
-		}
-
 		return true;
 	}
 
@@ -125,41 +117,6 @@ public class FEBlockProducer extends BlockContainer{
 			return side;
 		}
 	}
-
-    private void dropItems(World world, int x, int y, int z){
-            Random rand = new Random();
-
-            TileEntity tileEntity = world.getTileEntity(x, y, z);
-            if (!(tileEntity instanceof IInventory)) {
-                    return;
-            }
-            IInventory inventory = (IInventory) tileEntity;
-
-            for (int i = 0; i < inventory.getSizeInventory(); i++) {
-                    ItemStack item = inventory.getStackInSlot(i);
-
-                    if (item != null && item.stackSize > 0) {
-                            float rx = rand.nextFloat() * 0.8F + 0.1F;
-                            float ry = rand.nextFloat() * 0.8F + 0.1F;
-                            float rz = rand.nextFloat() * 0.8F + 0.1F;
-
-                            EntityItem entityItem = new EntityItem(world,
-                                            x + rx, y + ry, z + rz,
-                                            new ItemStack(item.getItem(), item.stackSize, item.getItemDamage()));
-
-                            if (item.hasTagCompound()) {
-                                    entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
-                            }
-
-                            float factor = 0.05F;
-                            entityItem.motionX = rand.nextGaussian() * factor;
-                            entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
-                            entityItem.motionZ = rand.nextGaussian() * factor;
-                            world.spawnEntityInWorld(entityItem);
-                            item.stackSize = 0;
-                    }
-            }
-    }
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {

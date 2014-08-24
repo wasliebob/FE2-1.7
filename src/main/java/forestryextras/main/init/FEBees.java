@@ -19,6 +19,7 @@ import forestryextras.items.bees.BeeClassification;
 import forestryextras.items.bees.BeeMutation;
 import forestryextras.items.bees.GenomeManager;
 import forestryextras.items.bees.Species;
+import forestryextras.main.init.intergration.Botania;
 
 public class FEBees {
 
@@ -114,7 +115,7 @@ public class FEBees {
 		
 		if(Loader.isModLoaded("Botania")){
 			botanistBee = new Species("botanist", "botanist", BeeClassification.BOTANIST, 0xCC0033, 0xFF99CC, EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false, true);
-			botanistBee.addProduct(new ItemStack(FEBees.comb, 1, 11), 50)	
+			botanistBee.addProduct(new ItemStack(FEBees.comb, 1, 12), 50)	
 			.setGenome(GenomeManager.getBotanistTemplate())
 			.register();}
 
@@ -173,12 +174,9 @@ public class FEBees {
 		if(OreDictionary.getOres("ingotPulsatingIron").size() > 0){
 			new BeeMutation(FEBees.draconicBee, FEBees.energeticBee, GenomeManager.getPulsatingTemplate(), 5, false, FEBees.pulsatingBee, "TC4");}
 
-		//if(Loader.isModLoaded("Botania")){
-		//	for(int i = 0; i < Botania.getFlowerArray().length; i++)
-		//		new BeeMutation(Allele.getBaseSpecies("Unweary"), Allele.getBaseSpecies("Heroic"), GenomeManager.getBotanistTemplate(), 5, false, Bees.botanistBee, "Botania");}
-
-		//if(Loader.isModLoaded("EnderIO") && doesModItemExist("EnderIO", "Electrical Steel")){
-			//new BeeMutation(Bees.reinforcedBee, Allele.getBaseSpecies("Unweary"), GenomeManager.getElectricSteelTemplate(), 5);}
+		if(Loader.isModLoaded("Botania")){
+			for(int i = 0; i < Botania.getFlowerArray().length; i++)
+				new BeeMutation(Allele.getBaseSpecies("Unweary"), Allele.getBaseSpecies("Heroic"), GenomeManager.getBotanistTemplate(), 5, false, FEBees.botanistBee, "Botania");}
 		
 	}
 	
@@ -246,10 +244,10 @@ public class FEBees {
 		chance = new int[]{15, 75};
 		CombHelper.addCombToMap(11, "Pulsating Iron", 0xFFCC00, 0xFFCC00, products, chance);}
 		
-		//if(Loader.isModLoaded("Botania")){
-		//products = Botania.getPetalStackArray();
-		//chance = Botania.getPetalChance();
-		//CombHelper.addCombToMap(12, "Botanist", 0xCC0033, 0xFF99CC, products, chance);}
+		if(Loader.isModLoaded("Botania")){
+		products = Botania.getPetalStackArray();
+		chance = Botania.getPetalChance();
+		CombHelper.addCombToMap(12, "Botanist", 0xCC0033, 0xFF99CC, products, chance);}
 				
 		comb = new FEItemComb();
 		CombHelper.addRecipes();
