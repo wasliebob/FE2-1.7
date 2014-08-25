@@ -11,9 +11,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import forestryextras.handlers.GuiHandler;
 import forestryextras.handlers.events.OnPlayerJoinWorld;
 import forestryextras.helpers.DonatorHelper;
 import forestryextras.main.init.FEBees;
@@ -65,7 +63,6 @@ public class Main {
     	integration.init();
     	FEBees.init();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     	initEvents(event);
     	Recipes.init();
     }
