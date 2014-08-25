@@ -29,8 +29,7 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     public FEItemFrame(int durability, boolean isHelish, boolean isSimulated, boolean isSelfLighted, boolean isSealed,
     		float frameDecay, float floweringMod, float productionMod, float lifespanMod,
     		float mutationMod, float territoryMod, String itemName, String oreDictName, String textureName, int frameColor,
-    		ItemStack bindingMaterial, ItemStack frameMaterial, boolean easyRecipe, FluidStack recipeFluid, int creationTime)
-    {
+    		ItemStack bindingMaterial, ItemStack frameMaterial, boolean easyRecipe, FluidStack recipeFluid, int creationTime){
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "frame" + "." + itemName);
         setCreativeTab(Tabs.tabFrames);
         setMaxStackSize(1);
@@ -58,7 +57,12 @@ public final class FEItemFrame extends Item implements IHiveFrame {
         easyRec = easyRecipe;
         recFluid = recipeFluid;
         createTime = creationTime;
-        init();
+        
+    	recipe(easyRec);
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this); 
+		OreDictionary.registerOre("frameForestry", this); 
+		FEItems.list_backpack_frame.add(new ItemStack(this));
     }
     boolean helish;
     boolean simulated;
@@ -81,34 +85,7 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     int createTime;
     int uses;
     
-    public void init()
-    {
-    	recipe(easyRec);
-		GameRegistry.registerItem(this, this.getUnlocalizedName());
-		OreDictionary.registerOre(oreDict, this); 
-		OreDictionary.registerOre("frameForestry", this); 
-		FEItems.list_backpack_frame.add(new ItemStack(this));
-//		FileHelper.list.put(FileHelper.list.size(), this.getItemDisplayName(new ItemStack(this)));
-        
-//		initFrameList();
-        
-
-    }
-    
-//    public void initFrameList()
-//    {
-//		FileHelper.prodMod.put(FileHelper.prodMod.size(), this.productionmodifier);
-//		FileHelper.decay.put(FileHelper.decay.size(), this.decay);
-//		FileHelper.flowering.put(FileHelper.flowering.size(), this.flowering);
-//		FileHelper.lifeMod.put(FileHelper.lifeMod.size(), this.lifespanmodifier);
-//		FileHelper.mutMod.put(FileHelper.mutMod.size(), this.mutationmodifier);
-//		FileHelper.terMod.put(FileHelper.terMod.size(), this.territorymodifier);
-//		FileHelper.durability.put(FileHelper.durability.size(), this.uses);
-//		FileHelper.frameName.put(FileHelper.frameName.size(), this.name);
-//    }
-    
-    public void recipe(boolean easy)
-    {
+    public void recipe(boolean easy){
     	if(easy == true){
     		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
     			"XXX",
@@ -181,30 +158,27 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 	@Override
 	public ItemStack frameUsed(IBeeHousing housing, ItemStack frame,
 			IBee queen, int wear) {
-		 frame.setItemDamage(frame.getItemDamage() + 1);
-	        if(frame.getItemDamage() >= frame.getMaxDamage())
-	            return null;
-	        else
-	            return frame;
+		frame.setItemDamage(frame.getItemDamage() + 1);
+		if(frame.getItemDamage() >= frame.getMaxDamage())
+			return null;
+		else
+			return frame;
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir) {
         itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + texture);
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id)
-	{
+	public int getColorFromItemStack(ItemStack stack, int id){
 		return color;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) 
-	{
+    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)){
 			list.add(EnumChatFormatting.RED + "Durability: " + EnumChatFormatting.GRAY + uses);
 			list.add(EnumChatFormatting.RED + "isHelish: " + EnumChatFormatting.GRAY + helish);

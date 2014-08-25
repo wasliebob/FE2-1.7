@@ -16,8 +16,7 @@ import forestry.core.config.ForestryItem;
 import forestryextras.helpers.BeeHelper;
 
 public class TileEntityProducer extends TileEntity implements ISidedInventory{
-	public TileEntityProducer()
-	{
+	public TileEntityProducer(){
 		stacks = new ItemStack[1];
 		time = MathHelper.secondToTick(5);
 		turns = 32;
@@ -54,8 +53,7 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
     
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbt)
-	{
+	public void writeToNBT(NBTTagCompound nbt){
 		super.writeToNBT(nbt);
 		
 		NBTTagList itemList = new NBTTagList();
@@ -72,8 +70,7 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 	}
 		
 	@Override
-	public void readFromNBT(NBTTagCompound nbt)
-	{
+	public void readFromNBT(NBTTagCompound nbt){
 		super.readFromNBT(nbt);
 		
 		NBTTagList tagList = nbt.getTagList("Inventory", Constants.NBT.TAG_COMPOUND);
@@ -111,53 +108,42 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
-		if (stacks[i] != null)
-        {
+		if (stacks[i] != null){
 
-            if (stacks[i].stackSize <= j)
-            {
+            if (stacks[i].stackSize <= j){
                 ItemStack itemstack = stacks[i];
                 stacks[i] = null;
                 return itemstack;
-            }
-            else
-            {
-                ItemStack itemstack1 = stacks[i].splitStack(j);
+            }else{
+            	ItemStack itemstack1 = stacks[i].splitStack(j);
 
-                if (stacks[i].stackSize == 0)
-                {
+                if (stacks[i].stackSize == 0){
                     stacks[i] = null;
                 }
 
                 return itemstack1;
             }
-        }
-        else
-        {
+        }else{
             return null;
         }
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int i) {
-	      if (stacks[i] != null)
-	        {
-	            ItemStack itemstack = stacks[i];
-	            stacks[i] = null;
-	            return itemstack;
-	        }
-	        else
-	        {
-	            return null;
-	        }
+	      if (stacks[i] != null){
+	    	  ItemStack itemstack = stacks[i];
+	    	  stacks[i] = null;
+	    	  return itemstack;
+	      }else{
+	    	  return null;
 	      }
+	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
 		 stacks[i] = itemstack;
 
-	        if (itemstack != null && itemstack.stackSize > getInventoryStackLimit())
-	        {
+	        if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()){
 	            itemstack.stackSize = getInventoryStackLimit();
 	        } 
 	}
@@ -169,13 +155,11 @@ public class TileEntityProducer extends TileEntity implements ISidedInventory{
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		  if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this)
-	         {
-	                 return false;
-	         }
-
-	         return player.getDistanceSq((double)xCoord + 0.5D, (double)yCoord + 0.5D, (double)zCoord + 0.5D) <= 64D;
-	     }
+		  if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this){
+			  return false;
+		  }
+		  return player.getDistanceSq((double)xCoord + 0.5D, (double)yCoord + 0.5D, (double)zCoord + 0.5D) <= 64D;
+	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {

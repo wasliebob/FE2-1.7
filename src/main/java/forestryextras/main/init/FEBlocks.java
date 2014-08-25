@@ -12,19 +12,16 @@ import forestryextras.blocks.FEBlockProducer;
 
 public class FEBlocks {
 
-	public static void init()
-	{
+	public static void init(){
 		draconicBlock = new FEBlock(Material.iron, "draconicBlock", "draconicblock", true, 1.0F, new ItemStack(FEItems.draconicIngot));
 		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforcedblock", true, 1.0F, new ItemStack(FEItems.reinforcedIngot));
-//		draconicOre = new FEBlock(Material.iron, "draconicOre", "draconicore", false, 0F, null);
 		producer = new FEBlockProducer("Beeducer");	
 		smelting();
 	}
 	
 	public static void smelting(){}
 	
-	public static void crafting()
-	{
+	public static void crafting(){
 		RecipeManagers.carpenterManager.addRecipe(20, new FluidStack(FluidRegistry.LAVA, 20), null, new ItemStack(FEItems.reinforcedIngot), new Object[]{
 			"IZ",
 			"XY",

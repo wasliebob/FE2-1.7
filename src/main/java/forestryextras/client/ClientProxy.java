@@ -10,7 +10,7 @@ public class ClientProxy extends CommonProxy {
 	public void render(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProducer.class, new TileEntityProducerRenderer());
     }
-
+	
 	@Override
     public void registerParticles(){}
 }

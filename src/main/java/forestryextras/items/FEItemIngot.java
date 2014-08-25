@@ -11,35 +11,27 @@ import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
 public class FEItemIngot extends Item{
-
 	public FEItemIngot(String itemName, int itemColor, String oreDictName) {
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "item" + "." + itemName);
 		setCreativeTab(Tabs.tabMain);
 		name = itemName;
 		color = itemColor;
 		oreDict = oreDictName;
-		init();
+		
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this);
 	}
 	String name;
 	String oreDict;
 	int color;
 	
-	public void init()
-	{
-		GameRegistry.registerItem(this, this.getUnlocalizedName());
-		OreDictionary.registerOre(oreDict, this);
-//		FileHelper.list.put(FileHelper.list.size(), this.getItemDisplayName(new ItemStack(this)));
-	}
-	
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id)
-	{
+	public int getColorFromItemStack(ItemStack stack, int id){
 		return color;
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir) {
         itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "ingot");
 	}
 }

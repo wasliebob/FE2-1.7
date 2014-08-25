@@ -4,8 +4,7 @@ import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 
-public class Allele implements IAllele
-{
+public class Allele implements IAllele{
 	public static IAlleleBeeSpecies getBaseSpecies(String name){
 		return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele((new StringBuilder()).append("forestry.species").append(name).toString());
 	}

@@ -30,7 +30,11 @@ public class FEItemScoop extends Item implements IToolScoop{
 		easy = isEasy;
 		recFluid = recipeFluid;
 		createTime = creationTime;
-		init();
+		
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this);
+        this.setHarvestLevel("scoop", 7);
+        recipe(easy);
 	}
 	String name;
 	String oreDict;
@@ -44,16 +48,7 @@ public class FEItemScoop extends Item implements IToolScoop{
 	IIcon primary;
 	IIcon secondary;
 	
-	public void init()
-	{
-		GameRegistry.registerItem(this, this.getUnlocalizedName());
-		OreDictionary.registerOre(oreDict, this);
-        this.setHarvestLevel("scoop", 7);
-        recipe(easy);
-	}
-	
-    public void recipe(boolean easy)
-    {
+    public void recipe(boolean easy){
     	if(easy == true){
     		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
     			"XIX",
@@ -70,20 +65,6 @@ public class FEItemScoop extends Item implements IToolScoop{
     			'I', mainMat});
     	}
     }
-    
-    /*
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id)
-	{
-		return color;
-	}
-	
-	@Override
-    public void registerIcons(IconRegister ir) 
-	{
-        itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop");
-	}
-	*/
     
     @Override
 	@SideOnly(Side.CLIENT)
@@ -107,18 +88,15 @@ public class FEItemScoop extends Item implements IToolScoop{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass)
-	{		
-		if(pass > 0) 
-		{
+	public int getColorFromItemStack(ItemStack stack, int pass){		
+		if(pass > 0) {
 			return secColor;
 		}
-			return primColor;
+		return primColor;
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir) {
 		this.primary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop1");
 		this.secondary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop2");
 	}

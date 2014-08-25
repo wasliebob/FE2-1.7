@@ -13,7 +13,6 @@ public class IngotHelper {
 		int rand = new Random().nextInt((255 - 0) + 1) + 0;
 		color.put(meta, new Color(rand, rand, rand).getRGB());
 	}
-	
 	public static ArrayList<Integer> ingots = new ArrayList<Integer>();
 	public static HashMap<Integer, String> name = new HashMap<Integer, String>();
 	public static HashMap<Integer, Integer> color = new HashMap<Integer, Integer>();

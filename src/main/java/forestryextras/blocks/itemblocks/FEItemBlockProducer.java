@@ -26,8 +26,7 @@ public class FEItemBlockProducer extends ItemBlock{
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) 
-	{
+    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)){
 			if(text.length > 0){
 				for(int i = 0;i < text.length; i++)

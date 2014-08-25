@@ -13,8 +13,9 @@ public class IntergrationLoader implements IIntergration{
 	@Override
 	public void preInit(){
 		if(isLoaded("Thaumcraft")){
-			tc.postInit();
-			initMessage("Thaumcraft");}
+			tc.preInit();
+			initMessage("Thaumcraft");
+		}
 	}
 	
 	@Override
@@ -27,7 +28,7 @@ public class IntergrationLoader implements IIntergration{
 	
 	@Override
 	public void postInit(){
-		
+		tc.postInit();
 	}
 
 	public String initMessage(String modName)

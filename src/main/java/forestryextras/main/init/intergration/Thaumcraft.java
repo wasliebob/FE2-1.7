@@ -28,9 +28,9 @@ public class Thaumcraft implements IIntergration{
 	
 	public void initOreDict(){
 		OreDictionary.registerOre("woodGreatwood", ItemApi.getBlock("blockMagicalLog", 0));
-		OreDictionary.registerOre("saplingSilverwood",  ItemApi.getBlock("blockMagicalLog", 1));
-		
-		OreDictionary.registerOre("woodSilverwood", ItemApi.getBlock("blockCustomPlant", 0));
+		OreDictionary.registerOre("woodSilverwood", ItemApi.getBlock("blockMagicalLog", 1));
+
 		OreDictionary.registerOre("saplingGreatwood", ItemApi.getBlock("blockCustomPlant", 0));
+		OreDictionary.registerOre("saplingSilverwood",  ItemApi.getBlock("blockCustomPlant", 1));
 	}
 }

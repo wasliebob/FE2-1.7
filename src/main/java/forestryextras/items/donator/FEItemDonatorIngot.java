@@ -47,8 +47,7 @@ public class FEItemDonatorIngot extends Item{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass)
-	{		
+	public int getColorFromItemStack(ItemStack stack, int pass){		
 		if(IngotHelper.color.containsKey(stack.getItemDamage())){
 			return IngotHelper.color.get(stack.getItemDamage());
 		}else{
@@ -57,8 +56,7 @@ public class FEItemDonatorIngot extends Item{
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir){
         itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "ingot");
 	}
 }

@@ -9,18 +9,24 @@ public class Tabs {
     public static CreativeTabs tabMain = new CreativeTabs("tabForestryExtras") {
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() {
-			return FEItems.draconicIngot;}};
+		public Item getTabIconItem(){
+			return FEItems.draconicIngot;
+			}
+		};
 			
-			   public static CreativeTabs tabFrames = new CreativeTabs("tabForestryExtrasFrames") {
-					@Override
-					@SideOnly(Side.CLIENT)
-					public Item getTabIconItem() {
-						return FEItems.draconicFrame;}};  
+		public static CreativeTabs tabFrames = new CreativeTabs("tabForestryExtrasFrames") {
+			@Override
+			@SideOnly(Side.CLIENT)
+			public Item getTabIconItem() {
+				return FEItems.draconicFrame;
+			}
+		};  
                
-						   public static CreativeTabs tabUtilities = new CreativeTabs("tabForestryExtrasUtilities") {
-								@Override
-								@SideOnly(Side.CLIENT)
-								public Item getTabIconItem() {
-									return FEItems.draconicScoop;}};  
+		public static CreativeTabs tabUtilities = new CreativeTabs("tabForestryExtrasUtilities") {
+			@Override
+			@SideOnly(Side.CLIENT)
+			public Item getTabIconItem() {
+				return FEItems.draconicScoop;
+			}
+		}; 
 }

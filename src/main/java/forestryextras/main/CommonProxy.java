@@ -6,8 +6,6 @@ public class CommonProxy {
 		render();
         registerParticles();
 	}
-	
 	public void render(){}
     public void registerParticles(){}
 }
-

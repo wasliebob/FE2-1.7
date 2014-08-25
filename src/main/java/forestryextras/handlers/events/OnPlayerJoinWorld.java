@@ -13,8 +13,7 @@ import forestryextras.main.Main;
 public class OnPlayerJoinWorld {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-    public void joinEvent(EntityJoinWorldEvent e)
-    {
+    public void joinEvent(EntityJoinWorldEvent e){
 		if(!e.world.isRemote){
 			if(e.entity instanceof EntityPlayer){
 				EntityPlayer player = (EntityPlayer)e.entity;
@@ -36,5 +35,3 @@ public class OnPlayerJoinWorld {
 		player.addChatComponentMessage(new ChatComponentText(EnumChatFormatting.RED + "[" + Main.alias + "2" +  "] " + color + text));
 	}
 }
-
-

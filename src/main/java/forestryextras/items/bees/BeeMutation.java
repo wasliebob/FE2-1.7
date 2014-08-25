@@ -17,10 +17,8 @@ import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IGenome;
 import forestryextras.main.init.FEBees;
 
-public class BeeMutation implements IBeeMutation
-{	
-	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance, boolean requiresBlock, IAlleleBeeSpecies resultType, String mod)
-	{
+public class BeeMutation implements IBeeMutation{	
+	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance, boolean requiresBlock, IAlleleBeeSpecies resultType, String mod){
 		this.parent1 = species0;
 		this.parent2 = species1;
 		this.mutationTemplate = resultSpeciesGenome;
@@ -32,12 +30,6 @@ public class BeeMutation implements IBeeMutation
 	
 		/** Not sure about what is causing this -- Player didn't change anything as of the port to 1.7 so something went wrong*/
 		this.getRoot().registerMutation(this);
-		
-		
-//		FileHelper.parent1.put(FileHelper.parent1.size(), species0.getName());
-//		FileHelper.parent2.put(FileHelper.parent2.size(), species1.getName());
-//		FileHelper.result.put(FileHelper.result.size(), resultType.getName());
-//		FileHelper.beeAuthor.put(FileHelper.beeAuthor.size(), mod);
 	}
 	private IAllele parent1;
 	private IAllele parent2;
@@ -65,39 +57,34 @@ public class BeeMutation implements IBeeMutation
 		}
 		return 0.0F;
 	}
+	
 	@Override
-	public IAllele getAllele0()
-	{
+	public IAllele getAllele0(){
 		return parent1;
 	}
 
 	@Override
-	public IAllele getAllele1()
-	{
+	public IAllele getAllele1(){
 		return parent2;
 	}
 
 	@Override
-	public IAllele[] getTemplate()
-	{
+	public IAllele[] getTemplate(){
 		return mutationTemplate;
 	}
 
 	@Override
-	public float getBaseChance()
-	{
+	public float getBaseChance(){
 		return baseChance;
 	}
 
 	@Override
-	public boolean isPartner(IAllele allele)
-	{
+	public boolean isPartner(IAllele allele){
 		return parent1.getUID().equals(allele.getUID()) || parent2.getUID().equals(allele.getUID());
 	}
 
 	@Override
-	public IAllele getPartner(IAllele allele)
-	{
+	public IAllele getPartner(IAllele allele){
 		IAllele val = parent1;
 		if (val.getUID().equals(allele.getUID()))
 			val = parent2;
@@ -105,31 +92,26 @@ public class BeeMutation implements IBeeMutation
 	}
 
 	@Override
-	public IBeeRoot getRoot()
-	{
+	public IBeeRoot getRoot(){
 		return FEBees.beeRoot;
 	}
 	
-	public boolean arePartners(IAllele alleleA, IAllele alleleB)
-	{
+	public boolean arePartners(IAllele alleleA, IAllele alleleB){
 		return (this.parent1.getUID().equals(alleleA.getUID())) && this.parent2.getUID().equals(alleleB.getUID()) ||
 				this.parent1.getUID().equals(alleleB.getUID()) && this.parent2.getUID().equals(alleleA.getUID());
 	}
 	
-	public BeeMutation setSecret()
-	{
+	public BeeMutation setSecret(){
 		this.isSecret = true;
 		
 		return this;
 	}
 
-	public boolean isSecret()
-	{
+	public boolean isSecret(){
 		return isSecret;
 	}
 	
-	public BeeMutation setBlockRequired(Block block)
-	{
+	public BeeMutation setBlockRequired(Block block){
 		this.requiresBlock = true;
 		this.requiredBlock = block;
 		
@@ -137,31 +119,27 @@ public class BeeMutation implements IBeeMutation
 	}
 
 	
-	public BeeMutation setBlockAndMetaRequired(Block block, int meta)
-	{
+	public BeeMutation setBlockAndMetaRequired(Block block, int meta){
 		this.requiresBlock = true;
 		this.requiredBlock = block;
 		
 		return this;
 	}
 	
-	public BeeMutation setBlockRequired(String oreDictEntry)
-	{
+	public BeeMutation setBlockRequired(String oreDictEntry){
 		this.requiresBlock = true;
 		this.requiredBlockOreDictEntry = oreDictEntry;
 		
 		return this;
 	}
 	
-	public BeeMutation setBlockRequiredNameOverride(String blockName)
-	{
+	public BeeMutation setBlockRequiredNameOverride(String blockName){
 		this.requiredBlockName = blockName;
 		
 		return this;
 	}
 	
-	public BeeMutation setBiomeRequired(BiomeDictionary.Type biomeType)
-	{
+	public BeeMutation setBiomeRequired(BiomeDictionary.Type biomeType){
 		
 		return this;
 	}
@@ -170,25 +148,18 @@ public class BeeMutation implements IBeeMutation
 	public Collection<String> getSpecialConditions() {
 		ArrayList<String> conditions = new ArrayList<String>();
 		
-		if (this.requiresBlock)
-		{
-			if (this.requiredBlockName != null)
-			{
-			}
-			else if (this.requiredBlockOreDictEntry != null)
-			{
+		if (this.requiresBlock){
+			if (this.requiredBlockName != null){
+			
+			}else if (this.requiredBlockOreDictEntry != null){
 				ArrayList<ItemStack> ores = OreDictionary.getOres(this.requiredBlockOreDictEntry);
-				if (ores.size() > 0)
-				{
+				if (ores.size() > 0){
 					conditions.add(String.format("Requires Block ", ores.get(0).getDisplayName()));
 				}
-			}
-			else
-			{
+			}else{
 
 			}
 		}
-		
 		return conditions;
 	}
 }

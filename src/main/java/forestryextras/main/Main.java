@@ -13,7 +13,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import forestryextras.handlers.GUIHandler;
+import forestryextras.handlers.GuiHandler;
 import forestryextras.handlers.events.OnPlayerJoinWorld;
 import forestryextras.helpers.DonatorHelper;
 import forestryextras.main.init.FEBees;
@@ -22,21 +22,20 @@ import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.32" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "2.0" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO")
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
     public static CommonProxy proxy;
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 1.330;
+    public static double version = 2.0;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     public static IntergrationLoader integration = new IntergrationLoader();
    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) throws Exception{
-		Config config = new Config();
 		Config.loadConfig(event);
 		
 		if(DonatorHelper.canConnect()){
@@ -66,7 +65,7 @@ public class Main {
     	integration.init();
     	FEBees.init();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     	initEvents(event);
     	Recipes.init();
     }

@@ -32,16 +32,14 @@ public class FEBlock extends Block {
 	boolean isIBlock;
 	ItemStack craftMat;
 	
-	public void init()
-	{
+	public void init(){
 		GameRegistry.registerBlock(this, name);
 		
 		if(isIBlock && craftMat != null)
 			addRecipe();
 	}
 	
-	public void addRecipe()
-	{
+	public void addRecipe(){
 		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
 		"XXX",
 		"XXX",
@@ -53,8 +51,7 @@ public class FEBlock extends Block {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister ir) 
-	{
+    public void registerBlockIcons(IIconRegister ir) {
         blockIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + texture);
 	}	
 }

@@ -17,7 +17,6 @@ import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
 public class FEItemGrafter extends Item implements IToolGrafter{
-
 	public FEItemGrafter(String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "grafter" + "." + itemName);
 		setCreativeTab(Tabs.tabUtilities);
@@ -33,7 +32,11 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 		easy = isEasy;
 		recFluid = recipeFluid;
 		createTime = creationTime;
-		init();
+		
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this);
+		
+		recipe(easy);
 	}
 	String name;
 	String oreDict;
@@ -48,16 +51,7 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 	IIcon primary;
 	IIcon secondary;
 	
-	public void init()
-	{
-		GameRegistry.registerItem(this, this.getUnlocalizedName());
-		OreDictionary.registerOre(oreDict, this);
-		
-		recipe(easy);
-	}
-	
-    public void recipe(boolean easy)
-    {
+    public void recipe(boolean easy){
     	if(easy == true){
     		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
     			"  X",
@@ -75,24 +69,10 @@ public class FEItemGrafter extends Item implements IToolGrafter{
     	}
     }
     
-    /*
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id)
-	{
-		return color;
-	}
-	
-	@Override
-    public void registerIcons(IconRegister ir) 
-	{
-        itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "grafter");
-	}
-	*/
-    
     @Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamageForRenderPass(int meta, int renderPass) {
-		if(renderPass > 0) {
+		if(renderPass > 0){
 			return this.primary;
 		}
 		return this.secondary;
@@ -111,18 +91,15 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int pass)
-	{		
-		if(pass > 0) 
-		{
+	public int getColorFromItemStack(ItemStack stack, int pass){		
+		if(pass > 0) {
 			return secColor;
 		}
 			return primColor;
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir) {
 		this.primary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "grafter1");
 		this.secondary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "grafter2");
 	}

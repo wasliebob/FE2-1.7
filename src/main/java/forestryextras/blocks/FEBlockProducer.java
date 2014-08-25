@@ -21,7 +21,6 @@ import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Tabs;
 
 public class FEBlockProducer extends BlockContainer{
-    
 	public FEBlockProducer(String blockName) {
 		super(Material.glass);
 		setCreativeTab(Tabs.tabMain);
@@ -41,13 +40,11 @@ public class FEBlockProducer extends BlockContainer{
 	@SideOnly(Side.CLIENT)
 	IIcon side;
 	
-	public void init()
-	{
+	public void init(){
 		loadRecipes();
 	}
 	
-	public void loadRecipes()
-	{
+	public void loadRecipes(){
 		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
 			"XIX",
 			"XYX",
@@ -86,21 +83,18 @@ public class FEBlockProducer extends BlockContainer{
 	}
 
     @Override
-    public boolean isOpaqueCube()
-    {
+    public boolean isOpaqueCube(){
         return false;
     }
 
 
     @Override
-    public boolean renderAsNormalBlock()
-    {
+    public boolean renderAsNormalBlock(){
         return false;
     }
     
 	@Override
-    public void registerBlockIcons(IIconRegister ir) 
-	{
+    public void registerBlockIcons(IIconRegister ir) {
 		top = Blocks.planks.getBlockTextureFromSide(0);
 		side = Blocks.glass.getBlockTextureFromSide(0);
 		bottom = Blocks.planks.getBlockTextureFromSide(0);

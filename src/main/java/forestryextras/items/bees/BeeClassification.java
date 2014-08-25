@@ -6,35 +6,34 @@ import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IClassification;
 
-public enum BeeClassification implements IClassification
-{
-	DRACONIC("Draconic", "Draconic"),
-	REINFORCED("Reinforced", "Reinforced"),
-	THAUMIUM("Thaumium", "Thaumium"),
-	DARKTHAUMIUM("DarkThaumium", "DarkThaumium"),
-	FAIRY("Fairy", "Fairy"),
-	POKEFENNIUM("Pokefennium", "Pokefennium"),
-	ELECTRICSTEEL("ElectricSteel", "ElectricSteel"),
-	SILVERWOOD("Silverwood", "Silverwood"),
-	GREATWOOD("Greatwood", "Greatwood"),
-	CONDUCTIVE("Conductive", "Conductive"),
-	ELECTRICAL("Electrical", "Electrical"),
-	ENERGETIC("Energetic", "Energetic"),
-	VIBRANT("Vibrant", "Vibrant"),
-	PULSATING("Pulsating", "Pulsating"),
-	BOTANIST("Botanist", "Botanist");
+public enum BeeClassification implements IClassification{
+	DRACONIC("Draconic"),
+	WITHERIA("Witheria"),
+	REINFORCED("Reinforced"),
+	THAUMIUM("Thaumium"),
+	DARKTHAUMIUM("DarkThaumium"),
+	FAIRY("Fairy"),
+	POKEFENNIUM("Pokefennium"),
+	ELECTRICSTEEL("ElectricSteel"),
+	SILVERWOOD("Silverwood"),
+	GREATWOOD("Greatwood"),
+	CONDUCTIVE("Conductive"),
+	ELECTRICAL("Electrical"),
+	ENERGETIC("Energetic"),
+	VIBRANT("Vibrant"),
+	PULSATING("Pulsating"),
+	BOTANIST("Botanist"),
+	VOID("Void");
 	
-
 	private String uID;
 	private String latin;
 	private ArrayList<IAlleleSpecies> species;
 	private IClassification parent;
 	private EnumClassLevel level;
 	
-	private BeeClassification(String name, String scientific)
-	{
+	private BeeClassification(String name){
 		this.uID = "classification." + name.toLowerCase();
-		this.latin = scientific;
+		this.latin = name;
 		this.level = EnumClassLevel.GENUS;
 		this.species = new ArrayList<IAlleleSpecies>();
 		this.parent = AlleleManager.alleleRegistry.getClassification("family.apidae");
@@ -42,72 +41,59 @@ public enum BeeClassification implements IClassification
 	}
 	
 	@Override
-	public EnumClassLevel getLevel()
-	{
+	public EnumClassLevel getLevel(){
 		return this.level;
 	}
 
 	@Override
-	public String getUID()
-	{
+	public String getUID(){
 		return this.uID;
 	}
 
 	@Override
-	public String getName()
-	{
-		return "tce.species";
+	public String getName(){
+		return "fe.species";
 	}
 
 	@Override
-	public String getScientific()
-	{
-		return "tce.science";
+	public String getScientific(){
+		return "fe.science";
 	}
 
 	@Override
-	public String getDescription()
-	{
-		return "tce.description";
+	public String getDescription(){
+		return "fe.description";
 	}
 
 	@Override
-	public IClassification[] getMemberGroups()
-	{
+	public IClassification[] getMemberGroups(){
 		return null;
 	}
 
 	@Override
-	public void addMemberGroup(IClassification group)
-	{
+	public void addMemberGroup(IClassification group){
 		
 	}
 
 	@Override
-	public IAlleleSpecies[] getMemberSpecies()
-	{
+	public IAlleleSpecies[] getMemberSpecies(){
 		return this.species.toArray(new IAlleleSpecies[this.species.size()]);
 	}
 
 	@Override
-	public void addMemberSpecies(IAlleleSpecies species)
-	{
-		if (!this.species.contains(species))
-		{
+	public void addMemberSpecies(IAlleleSpecies species){
+		if (!this.species.contains(species)){
 			this.species.add(species);
 		}
 	}
 
 	@Override
-	public IClassification getParent()
-	{
+	public IClassification getParent(){
 		return this.parent;
 	}
 
 	@Override
-	public void setParent(IClassification parent)
-	{
+	public void setParent(IClassification parent){
 		this.parent = parent;
 	}
 }
-

@@ -215,13 +215,9 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
     @Override
     public void registerIcons(IIconRegister itemMap) {
         this.icons = new IIcon[EnumBeeType.values().length][3];
-
         String root = "Forestry:bees/default/";
-
         IIcon body1 = itemMap.registerIcon(root + "body1");
-
-        for (int i = 0; i < EnumBeeType.values().length; i++)
-        {
+        for (int i = 0; i < EnumBeeType.values().length; i++){
             if(EnumBeeType.values()[i] == EnumBeeType.NONE)
                 continue;
 
@@ -234,22 +230,18 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
         }
     }
     
-	public Species setGenome(IAllele genome[])
-	{
+	public Species setGenome(IAllele genome[]){
 		genomeTemplate = genome;
 		return this;
 	}
 
-	public IAllele[] getGenome()
-	{
+	public IAllele[] getGenome(){
 		return genomeTemplate;
 	}
 	
-	public Species register()
-	{
+	public Species register(){
 		FEBees.beeRoot.registerTemplate(this.getGenome());
-		if (!this.isActive)
-		{
+		if (!this.isActive){
 			AlleleManager.alleleRegistry.blacklistAllele(this.getUID());
 		}
 		return this;

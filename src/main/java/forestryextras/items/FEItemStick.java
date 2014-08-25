@@ -21,7 +21,10 @@ public class FEItemStick extends Item{
 		oreDict = oreDictName;
 		mat = oreDictMaterial;
 		isOreDict = true;
-		init();
+		
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this);
+		recipes();
 	}
 	
 	public FEItemStick(String itemName, int itemColor, String oreDictName, ItemStack material) {
@@ -33,7 +36,10 @@ public class FEItemStick extends Item{
 		oreDict = oreDictName;
 		item = material;
 		isOreDict = false;
-		init();
+		
+		GameRegistry.registerItem(this, this.getUnlocalizedName());
+		OreDictionary.registerOre(oreDict, this);
+		recipes();
 	}
 	String name;
 	String oreDict;
@@ -42,16 +48,7 @@ public class FEItemStick extends Item{
 	ItemStack item;
 	boolean isOreDict;
 	
-	public void init()
-	{
-		GameRegistry.registerItem(this, this.getUnlocalizedName());
-		OreDictionary.registerOre(oreDict, this);
-		
-		recipes();
-	}
-	
-	public void recipes()
-	{
+	public void recipes(){
 		if(isOreDict == true){
 			for(ItemStack stack : OreDictionary.getOres(mat)){
 				GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
@@ -68,14 +65,12 @@ public class FEItemStick extends Item{
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id)
-	{
+	public int getColorFromItemStack(ItemStack stack, int id){
 		return color;
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) 
-	{
+    public void registerIcons(IIconRegister ir) {
         itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "stick");
 	}
 }
