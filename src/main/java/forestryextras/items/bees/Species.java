@@ -260,4 +260,9 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
 			IIndividual individual, int bountyLevel) {
         return new ItemStack[0];
 	}
+
+	@Override
+	public String getUnlocalizedName() {
+		return this.getName();
+	}
 }

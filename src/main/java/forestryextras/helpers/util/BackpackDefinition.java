@@ -63,12 +63,12 @@ public class BackpackDefinition implements IBackpackDefinition{
 	}
 
 	@Override
-	public Collection<ItemStack> getValidItems(EntityPlayer player) {
-		return this.cont;
+	public boolean isValidItem(EntityPlayer player, ItemStack itemstack) {
+		return this.cont.contains(itemstack);
 	}
 
 	@Override
-	public boolean isValidItem(EntityPlayer player, ItemStack itemstack) {
-		return this.cont.contains(itemstack);
+	public String getName(ItemStack backpack) {
+		return backpack.getDisplayName();
 	}
 }
