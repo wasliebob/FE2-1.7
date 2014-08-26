@@ -38,11 +38,11 @@ public class EffectPureDaisy extends BeeEffect{
 						if(output != null){
 							world.setBlock(x + xx, y, z + zz, output);
 							for(int i = 0; i < 25; i++) {
-								double xX = x + Math.random();
+								double xX = xx + Math.random();
 								double yY = y + Math.random() + 0.5;
-								double zZ = z + Math.random();
+								double zZ = zz + Math.random();
 
-								Botania.proxy.wispFX(world, xX, yY, zZ, 1F, 1F, 1F, (float) Math.random() / 2F);
+								Botania.proxy.wispFX(world, x + xX, yY, z + zZ, 1F, 1F, 1F, (float) Math.random() / 2F);
 							}
 						}
 					}
@@ -61,6 +61,7 @@ public class EffectPureDaisy extends BeeEffect{
 			return null;
 	}
 	
+	/** This part of the code is mostly from Vazkii's Botania, used it since this is a bee integrating with it. */
 	public boolean isOreDict(ItemStack stack, String entry) {
 		for(ItemStack s : OreDictionary.getOres(entry)){
 			ItemStack copy = s.copy();

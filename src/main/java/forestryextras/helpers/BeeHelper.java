@@ -1,10 +1,11 @@
 package forestryextras.helpers;
 
+import java.awt.Color;
+
 import net.minecraft.item.ItemStack;
 import forestry.plugins.PluginApiculture;
 
-
-public class BeeHelper {
+public class BeeHelper {	
 	public static ItemStack getComb(ItemStack bee){
 		ItemStack[] stacks = getProducts(bee);
 		

@@ -23,6 +23,7 @@ import forestryextras.items.bees.effects.EffectMana;
 import forestryextras.items.bees.effects.EffectPureDaisy;
 import forestryextras.items.bees.effects.EffectRegen;
 import forestryextras.items.bees.effects.EffectWither;
+import forestryextras.libs.LibBees;
 import forestryextras.main.init.intergration.Botania;
 
 public class FEBees {
@@ -50,17 +51,17 @@ public class FEBees {
 	public static void initSpecies(){
 		beeRoot = (IBeeRoot) AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
 		
-		draconicBee = new Species("draconic", "draconic", BeeClassification.DRACONIC, 0x990000, 0xCC0033, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
+		draconicBee = new Species("draconic", "draconic", BeeClassification.DRACONIC, 0x990000, LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
 		draconicBee.addProduct(new ItemStack(FEBees.comb_draconic, 1, 0), 12)
 		.setGenome(GenomeManager.getDraconicTemplate())
 		.register();
 		
-		reinforcedBee = new Species("reinforced", "reinforced", BeeClassification.REINFORCED, 0xCCCC99, 0xFFFFCC, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
+		reinforcedBee = new Species("reinforced", "reinforced", BeeClassification.REINFORCED, 0xCCCC99, LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
 		reinforcedBee.addProduct(new ItemStack(FEBees.comb_reinforced, 1, 0), 25)
 		.setGenome(GenomeManager.getReinforcedTemplate())
 		.register();
 		
-		witheriaBee = new Species("witheria", "witheria", BeeClassification.WITHERIA, 0x000000, 0x333333, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
+		witheriaBee = new Species("witheria", "witheria", BeeClassification.WITHERIA, 0x000000, LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false, true);
 		witheriaBee.addProduct(new ItemStack(FEBees.comb_witheria, 1, 0), 12)
 		.setGenome(GenomeManager.getWitheriaTemplate())
 		.register();
@@ -270,8 +271,8 @@ public class FEBees {
 		chance = new int[]{25, 75};
 		comb_reinforced = new FEItemComb("Reinforced", new Color(0xCCCC99), new Color(0xFFFFCC), products, chance);
 	
-		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0){
-			products = new ItemStack[]{new ItemStack(FEItems.nugget_thaumium, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
+		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0 && OreDictionary.getOres("nuggetThaumium").size() > 0){
+			products = new ItemStack[]{OreDictionary.getOres("nuggetThaumium").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{25, 75};
 			comb_thaumium = new FEItemComb("Thaumium", new Color(0x000000), new Color(0x9900FF), products, chance);
 		}

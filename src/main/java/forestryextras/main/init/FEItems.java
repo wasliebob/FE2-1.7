@@ -257,10 +257,6 @@ public class FEItems {
 		nugget_draconic = new FEItemNugget("Draconic", new Color(0xFF0000), new ItemStack(FEItems.draconicIngot));
 		nugget_reinforced = new FEItemNugget("Reinforced", new Color(0xCCCC99), new ItemStack(FEItems.reinforcedIngot));
 		nugget_witheria = new FEItemNugget("Witheria", new Color(0x333333), new ItemStack(FEItems.witheriaIngot));
-
-		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0){
-			nugget_thaumium = new FEItemNugget("Thaumium", new Color(0x9966FF), OreDictionary.getOres("ingotThaumium").get(0));
-		}
 		
 		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0){
 			nugget_darkThaumium = new FEItemNugget("Dark Thaumium", new Color(0x993399), OreDictionary.getOres("ingotDarkThaumium").get(0));
@@ -285,20 +281,11 @@ public class FEItems {
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
 			nugget_energeticAlloy = new FEItemNugget("Energetic Alloy", new Color(0x99FF66), OreDictionary.getOres("ingotEnergeticAlloy").get(0));
 		}
-		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy").size() > 0){
-			nugget_vibrantAlloy = new FEItemNugget("Vibrant Alloy", new Color(0xFF9900), OreDictionary.getOres("ingotVibrantAlloy").get(0));
-		}
-		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0){
-			nugget_pulsatingIron = new FEItemNugget("Pulsating Iron", new Color(0xFF9900), OreDictionary.getOres("ingotPulsatingIron").get(0));
-		}
 	}
 	public static FEItemNugget nugget_draconic;
 	public static FEItemNugget nugget_witheria;
 	public static FEItemNugget nugget_reinforced;
 
-	public static FEItemNugget nugget_thaumium;
 	public static FEItemNugget nugget_darkThaumium;
 
 	public static FEItemNugget nugget_fairy;
@@ -307,8 +294,6 @@ public class FEItems {
 	public static FEItemNugget nugget_conductiveIron;
 	public static FEItemNugget nugget_electricalSteel;
 	public static FEItemNugget nugget_energeticAlloy;
-	public static FEItemNugget nugget_vibrantAlloy;
-	public static FEItemNugget nugget_pulsatingIron;
 
 	public static void initDonatorItems(){
 		if(DonatorHelper.canConnect()){
