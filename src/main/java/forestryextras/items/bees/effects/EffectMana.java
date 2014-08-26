@@ -30,7 +30,7 @@ public class EffectMana extends BeeEffect{
 					TileEntity tile = world.getTileEntity(x + xx, y, z + zz);
 					if(tile != null && tile instanceof IManaReceiver){
 						IManaReceiver mana = (IManaReceiver)tile;
-						mana.recieveMana(1);
+						mana.recieveMana(10);
 					}
 				}
 			}

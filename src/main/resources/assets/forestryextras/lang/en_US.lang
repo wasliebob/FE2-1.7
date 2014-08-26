@@ -40,11 +40,12 @@ item.fe.nugget.thaumium.name=Thaumium Nugget
 item.fe.nugget.dark thaumium.name=Dark Thaumium Nugget
 item.fe.nugget.fairy.name=Fairy Nugget
 item.fe.nugget.pokefennium.name=Pokefennium Nugget
-item.fe.nugget.conductive iron.name=Conductive Iron
-item.fe.nugget.electrical steel.name=Electrical Steel
-item.fe.nugget.energetic alloy.name=Energetic Alloy
-item.fe.nugget.vibrant alloy.name=Vibrant Alloy
-item.fe.nugget.pulsating iron.name=Pulsating Iron
+item.fe.nugget.conductive iron.name=Conductive Iron Nugget
+item.fe.nugget.electrical steel.name=Electrical Steel Nugget
+item.fe.nugget.energetic alloy.name=Energetic Alloy Nugget
+item.fe.nugget.vibrant alloy.name=Vibrant Alloy Nugget
+item.fe.nugget.pulsating iron.name=Pulsating Iron Nugget
+item.fe.nugget.witheria.name=Witheria Nugget
 --Combs--
 item.fe.comb.draconic.name=Draconic Comb
 item.fe.comb.reinforced.name=Reinforced Comb
@@ -121,11 +122,12 @@ fe.bees.species.botanist=Botanist
 fe.bees.species.witheria=Witheria
 fe.bees.species.void=Void
 fe.bees.species.mana=Mana
+fe.bees.species.pureDaisy=Pure Daisy
 --Text--
 fe.info.beeducer.1=This block will make it easier for you to produce combs.
 fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).
 fe.info.beeducer.3=When done that the bee will produce 32 combs and then die.
-fe.info.beeducer.4=WARNING: Be careful only place 1 bee at a time!
+fe.info.beeducer.4=WARNING: Be careful only place one bee at a time!
 --Misc--
 itemGroup.tabForestryExtras=Forestry Extras 2
 itemGroup.tabForestryExtrasFrames=Forestry Extras 2 Frames

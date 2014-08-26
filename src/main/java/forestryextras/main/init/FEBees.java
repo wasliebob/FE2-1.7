@@ -20,6 +20,7 @@ import forestryextras.items.bees.GenomeManager;
 import forestryextras.items.bees.Species;
 import forestryextras.items.bees.effects.EffectFire;
 import forestryextras.items.bees.effects.EffectMana;
+import forestryextras.items.bees.effects.EffectPureDaisy;
 import forestryextras.items.bees.effects.EffectRegen;
 import forestryextras.items.bees.effects.EffectWither;
 import forestryextras.main.init.intergration.Botania;
@@ -38,11 +39,13 @@ public class FEBees {
 		fire = new EffectFire("Flaming");
 		wither = new EffectWither("Withering");
 		mana = new EffectMana("Mana");
+		pureDaisy = new EffectPureDaisy("Pure Daisy");
 	}
 	public static EffectRegen regen;
 	public static EffectFire fire;
 	public static EffectWither wither;
 	public static EffectMana mana;
+	public static EffectPureDaisy pureDaisy;
 
 	public static void initSpecies(){
 		beeRoot = (IBeeRoot) AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
@@ -160,6 +163,13 @@ public class FEBees {
 			.setGenome(GenomeManager.getManaTemplate())
 			.register();
 		}
+		
+		if(Loader.isModLoaded("Botania")){
+			pureDaisyBee = new Species("pureDaisy", "pureDaisy", BeeClassification.PUREDAISY, 0xFF99CC, 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false, true);
+			pureDaisyBee.addProduct(new ItemStack(FEBees.comb_botanist, 1, 0), 50)	
+			.setGenome(GenomeManager.getPureDaisyTemplate())
+			.register();
+		}
 	}
 	public static Species draconicBee;
 	public static Species reinforcedBee;
@@ -176,6 +186,7 @@ public class FEBees {
 	public static Species pulsatingBee;
 	public static Species botanistBee;
 	public static Species manaBee;
+	public static Species pureDaisyBee;
 	public static Species witheriaBee;
 	public static Species voidBee;
     public static HashMap<Integer, String> specieNames = new HashMap<Integer, String>();
@@ -239,7 +250,11 @@ public class FEBees {
 		}
 		
 		if(Loader.isModLoaded("Botania")){
-			new BeeMutation(FEBees.botanistBee, Allele.getBaseSpecies("Heroic"), GenomeManager.getManaTemplate(), 5, false, FEBees.manaBee, "Botania");
+			new BeeMutation(FEBees.botanistBee, FEBees.pureDaisyBee, GenomeManager.getManaTemplate(), 5, false, FEBees.manaBee, "Botania");
+		}
+		
+		if(Loader.isModLoaded("Botania")){
+			new BeeMutation(FEBees.botanistBee, Allele.getBaseSpecies("Heroic"), GenomeManager.getPureDaisyTemplate(), 5, false, FEBees.pureDaisyBee, "Botania");
 		}
 	}
 	
@@ -309,14 +324,14 @@ public class FEBees {
 			comb_energeticAlloy = new FEItemComb("Energetic Alloy", new Color(0xCCCC99), new Color(0xFFCC00), products, chance);
 		}
 		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy ").size() > 0){
-			products = new ItemStack[]{new ItemStack(FEItems.nugget_vibrantAlloy, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy ").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
+			products = new ItemStack[]{OreDictionary.getOres("nuggetVibrantAlloy").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
 			comb_vibrantAlloy = new FEItemComb("Vibrant Alloy", new Color(0xFFCC00), new Color(0x99FFCC), products, chance);
 		}
 		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0){
-			products = new ItemStack[]{new ItemStack(FEItems.nugget_pulsatingIron, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
+			products = new ItemStack[]{OreDictionary.getOres("nuggetPulsatingIron").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
 			comb_pulsatingIron = new FEItemComb("Pulsating Iron", new Color(0xFFCC00), new Color(0xFFCC00), products, chance);
 		}
