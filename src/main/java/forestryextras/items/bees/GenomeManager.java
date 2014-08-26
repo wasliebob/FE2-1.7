@@ -188,4 +188,15 @@ public class GenomeManager {
 
 		return genome;
 	}
+	
+	public static IAllele[] getManaTemplate(){
+		IAllele[] genome = getTemplateModBase();
+			
+		genome[EnumBeeChromosome.SPECIES.ordinal()] = FEBees.manaBee;
+		genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+		genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+		genome[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.mana.getUID());
+
+		return genome;
+	}
 }

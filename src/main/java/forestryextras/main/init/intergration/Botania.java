@@ -1,5 +1,6 @@
 package forestryextras.main.init.intergration;
 
+import vazkii.botania.common.lib.LibOreDict;
 import forestry.api.apiculture.FlowerManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -9,8 +10,8 @@ public class Botania {
 		initItems();
 		initMisc();
 	}
-	public static final String[] FLOWER = new String[]{"mysticFlowerWhite", "mysticFlowerOrange", "mysticFlowerMagenta", "mysticFlowerLightBlue", "mysticFlowerYellow", "mysticFlowerLime", "mysticFlowerPink", "mysticFlowerGray", "mysticFlowerLightGray", "mysticFlowerCyan", "mysticFlowerPurple", "mysticFlowerBlue", "mysticFlowerBrown", "mysticFlowerGreen", "mysticFlowerRed", "mysticFlowerBlack"};
-	public static final String[] PETAL = new String[]{"petalWhite", "petalOrange", "petalMagenta", "petalLightBlue", "petalYellow", "petalLime", "petalPink", "petalGray", "petalLightGray", "petalCyan", "petalPurple", "petalBlue", "petalBrown", "petalGreen", "petalRed", "petalBlack"}; //Ripped from botania to get all available petals as an String (Ore Dictionary)
+	public static final String[] FLOWER = LibOreDict.FLOWER;
+	public static final String[] PETAL = LibOreDict.PETAL;
 	
 	public static void initMisc(){
 		for(int i = 0; i < FLOWER.length; i++){
@@ -26,7 +27,6 @@ public class Botania {
 	}
 	
 	public static String[] getFlowerArray(){
-//		return LibOreDict.FLOWER[number];
 		String[] string = new String[FLOWER.length];
 		
 		for(int i = 0; i < FLOWER.length; i++)

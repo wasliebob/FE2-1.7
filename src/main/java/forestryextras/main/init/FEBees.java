@@ -19,6 +19,7 @@ import forestryextras.items.bees.BeeMutation;
 import forestryextras.items.bees.GenomeManager;
 import forestryextras.items.bees.Species;
 import forestryextras.items.bees.effects.EffectFire;
+import forestryextras.items.bees.effects.EffectMana;
 import forestryextras.items.bees.effects.EffectRegen;
 import forestryextras.items.bees.effects.EffectWither;
 import forestryextras.main.init.intergration.Botania;
@@ -36,10 +37,12 @@ public class FEBees {
 		regen = new EffectRegen("Regeneration");
 		fire = new EffectFire("Flaming");
 		wither = new EffectWither("Withering");
+		mana = new EffectMana("Mana");
 	}
 	public static EffectRegen regen;
 	public static EffectFire fire;
 	public static EffectWither wither;
+	public static EffectMana mana;
 
 	public static void initSpecies(){
 		beeRoot = (IBeeRoot) AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
@@ -151,6 +154,12 @@ public class FEBees {
 			.register();
 		}
 
+		if(Loader.isModLoaded("Botania")){
+			manaBee = new Species("mana", "mana", BeeClassification.MANA, 0xCC0033, 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false, true);
+			manaBee.addProduct(new ItemStack(FEBees.comb_botanist, 1, 0), 50)	
+			.setGenome(GenomeManager.getManaTemplate())
+			.register();
+		}
 	}
 	public static Species draconicBee;
 	public static Species reinforcedBee;
@@ -166,6 +175,7 @@ public class FEBees {
 	public static Species vibrantBee;
 	public static Species pulsatingBee;
 	public static Species botanistBee;
+	public static Species manaBee;
 	public static Species witheriaBee;
 	public static Species voidBee;
     public static HashMap<Integer, String> specieNames = new HashMap<Integer, String>();
@@ -228,6 +238,9 @@ public class FEBees {
 				new BeeMutation(Allele.getBaseSpecies("Unweary"), Allele.getBaseSpecies("Heroic"), GenomeManager.getBotanistTemplate(), 5, false, FEBees.botanistBee, "Botania");
 		}
 		
+		if(Loader.isModLoaded("Botania")){
+			new BeeMutation(FEBees.botanistBee, Allele.getBaseSpecies("Heroic"), GenomeManager.getManaTemplate(), 5, false, FEBees.manaBee, "Botania");
+		}
 	}
 	
 	public static void initCombs(){

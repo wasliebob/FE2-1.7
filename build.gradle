@@ -22,6 +22,10 @@ task deps{
 	
 	def forestry = new File('deps/Forestry.jar')
 	new URL('https://dl.dropboxusercontent.com/u/46500170/Forestry%20Extras%202/deps/Forestry.jar').withInputStream{ i -> forestry.withOutputStream{ it << i }}
+
+	def botania = new File('deps/Botania.jar')
+	new URL('https://dl.dropboxusercontent.com/u/46500170/Forestry%20Extras%202/deps/Botania.jar').withInputStream{ i -> botania.withOutputStream{ it << i }}
+
 }
 
 apply plugin: 'forge'
@@ -38,6 +42,7 @@ dependencies{
 	compile files(
 	'deps/Forestry.jar',
 	'deps/WaslieCore.jar',
+	'deps/Botania.jar',
 	)
 }
 	

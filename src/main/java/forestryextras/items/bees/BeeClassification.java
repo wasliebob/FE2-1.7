@@ -23,7 +23,8 @@ public enum BeeClassification implements IClassification{
 	VIBRANT("Vibrant"),
 	PULSATING("Pulsating"),
 	BOTANIST("Botanist"),
-	VOID("Void");
+	VOID("Void"),
+	MANA("Mana");
 	
 	private String uID;
 	private String latin;
