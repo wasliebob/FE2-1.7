@@ -30,7 +30,11 @@ task deps{
 
 apply plugin: 'forge'
 
-version = "2-2.0"
+ext.buildnumber = 0
+if(System.getenv('BUILD_NUMBER') != null)
+    project.buildnumber = System.getenv('BUILD_NUMBER')
+
+version = "2-2.0_B${buildnumber}"
 group= "ForestryExtras" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ForestryExtras"
 

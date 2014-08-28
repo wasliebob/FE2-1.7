@@ -23,11 +23,15 @@ import forestryextras.items.bees.effects.EffectMana;
 import forestryextras.items.bees.effects.EffectPureDaisy;
 import forestryextras.items.bees.effects.EffectRegen;
 import forestryextras.items.bees.effects.EffectWither;
+import forestryextras.items.bees.flowers.FlowerBotaniaAdvanced;
+import forestryextras.items.bees.flowers.FlowerBotaniaBasic;
+import forestryextras.items.bees.flowers.FlowerDragonEgg;
 import forestryextras.libs.LibBees;
 import forestryextras.main.init.intergration.Botania;
 
 public class FEBees {
 	public static void init(){
+		initFlowers();
 		initEffects();
 		initCombs();
 		initSpecies();
@@ -47,7 +51,16 @@ public class FEBees {
 	public static EffectWither wither;
 	public static EffectMana mana;
 	public static EffectPureDaisy pureDaisy;
-
+	
+	public static void initFlowers(){
+		flowerBotaniaBasic = new FlowerBotaniaBasic("Botania Basic");
+		flowerBotaniaAdvanced = new FlowerBotaniaAdvanced("Botania Advanced");
+		flowerDragonEgg = new FlowerDragonEgg("Dragon Egg");
+	}
+	public static FlowerBotaniaBasic flowerBotaniaBasic;
+	public static FlowerBotaniaAdvanced flowerBotaniaAdvanced;
+	public static FlowerDragonEgg flowerDragonEgg;
+	
 	public static void initSpecies(){
 		beeRoot = (IBeeRoot) AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
 		

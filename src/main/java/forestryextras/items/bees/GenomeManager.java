@@ -33,6 +33,7 @@ public class GenomeManager {
 		genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.fire.getUID());
+		genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.flowerDragonEgg.getUID());
 
 		return genome;
 	}
@@ -185,6 +186,7 @@ public class GenomeManager {
 		genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.regen.getUID());
+		genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.flowerBotaniaBasic.getUID());
 
 		return genome;
 	}
@@ -196,6 +198,7 @@ public class GenomeManager {
 		genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.mana.getUID());
+		genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.flowerBotaniaAdvanced.getUID());
 
 		return genome;
 	}
@@ -207,6 +210,7 @@ public class GenomeManager {
 		genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
 		genome[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.pureDaisy.getUID());
+		genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = AlleleManager.alleleRegistry.getAllele(FEBees.flowerBotaniaBasic.getUID());
 
 		return genome;
 	}
