@@ -203,7 +203,7 @@ public class FEBees {
 			.register();
 		}
 		
-		if(OreDictionary.getOres("ingotVibrantAlloy").size() > 0){
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPhasedGold").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
 			vibrantBee = new Species("vibrantAlloy", "vibrantAlloy", BeeBranches.METAL, 0x000000, 0xCC0033, EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
 			vibrantBee.addProduct(new ItemStack(FEBees.comb_vibrantAlloy, 1, 0), 25)	
 			.importVanillaTemplate()
@@ -212,8 +212,8 @@ public class FEBees {
 			.register();
 		}
 		
-		if(OreDictionary.getOres("ingotPulsatingIron").size() > 0){
-			pulsatingBee = new Species("pulsatingIron", "pulsatingIron", BeeBranches.METAL, 0xCC0033, 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+		if(OreDictionary.getOres("ingotPhasedIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
+			pulsatingBee = new Species("pulsatingIron", "pulsatingIron", BeeBranches.METAL, new Color(0, 139, 139).getRGB(), 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
 			pulsatingBee.addProduct(new ItemStack(FEBees.comb_pulsatingIron, 1, 0), 25)	
 			.importVanillaTemplate()
 			.setCaveDwelling()
@@ -379,11 +379,11 @@ public class FEBees {
 			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Heroic"), 5, false, FEBees.energeticBee, "EIO");
 		}
 
-		if(OreDictionary.getOres("ingotVibrantAlloy").size() > 0){
+		if(OreDictionary.getOres("ingotPhasedGold").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
 			new BeeMutation(FEBees.draconicBee, Allele.getBaseSpecies("Heroic"), 5, false, FEBees.vibrantBee, "EIO");
 		}
 		
-		if(OreDictionary.getOres("ingotPulsatingIron").size() > 0){
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPhasedIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
 			new BeeMutation(FEBees.draconicBee, FEBees.energeticBee, 5, false, FEBees.pulsatingBee, "TC4");
 		}
 
@@ -504,16 +504,16 @@ public class FEBees {
 			comb_energeticAlloy = new FEItemComb("Energetic Alloy", new Color(0xCCCC99), new Color(0xFFCC00), products, chance);
 		}
 		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy ").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPhasedGold").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("nuggetVibrantAlloy").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
 			comb_vibrantAlloy = new FEItemComb("Vibrant Alloy", new Color(0xFFCC00), new Color(0x99FFCC), products, chance);
 		}
 		
-		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPhasedIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("nuggetPulsatingIron").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
-			comb_pulsatingIron = new FEItemComb("Pulsating Iron", new Color(0xFFCC00), new Color(0xFFCC00), products, chance);
+			comb_pulsatingIron = new FEItemComb("Pulsating Iron", new Color(0, 128, 128), new Color(0, 139, 139), products, chance);
 		}
 		
 		if(Loader.isModLoaded("Botania")){
