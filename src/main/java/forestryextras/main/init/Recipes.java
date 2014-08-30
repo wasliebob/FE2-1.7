@@ -7,6 +7,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.recipes.RecipeManagers;
+import forestryextras.api.FEApi;
 import forestryextras.main.Config;
 
 public class Recipes {
@@ -78,7 +79,7 @@ public class Recipes {
 	}
 
 	public static void initMiscRecipes(){
-		
+		FEApi.blockMutation.put(Blocks.iron_block, FEBlocks.mutatedIronBlock);
 	}
 	
 	public static void registerSqueezerRecipes(int produceTime, ItemStack input, FluidStack output){

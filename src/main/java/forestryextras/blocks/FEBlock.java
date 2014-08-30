@@ -52,6 +52,6 @@ public class FEBlock extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister ir) {
-        blockIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + texture);
+        blockIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "block_" + texture);
 	}	
 }

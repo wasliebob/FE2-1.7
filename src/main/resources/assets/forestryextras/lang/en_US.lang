@@ -2,9 +2,7 @@
 item.fe.item.draconicIngot.name=Draconic Ingot
 item.fe.item.reinforcedIngot.name=Reinforced Ingot
 item.fe.item.witheriaIngot.name=Witheria Ingot
-item.fe.item.ryuIngot.name=Ryu Ingot
-item.fe.item.alfiumIngot.name=Alfium Ingot
-item.fe.item.itariusIngot.name=Itarius Ingot
+item.fe.item.mutatedIronIngot.name=Mutated Iron Ingot
 --Sticks--
 item.fe.item.coalStick.name=Coal Stick
 item.fe.item.ironStick.name=Iron Stick
@@ -12,7 +10,6 @@ item.fe.item.goldStick.name=Gold Stick
 item.fe.item.diamondStick.name=Diamond Stick
 item.fe.item.emeraldStick.name=Emerald Stick
 item.fe.item.obsidianStick.name=Obsidian Stick
-item.fe.item.mutationStick.name=Mutation Stick
 item.fe.item.draconicStick.name=Draconic Stick
 item.fe.item.reinforcedStick.name=Reinforced Stick
 item.fe.item.copperStick.name=Copper Stick
@@ -33,6 +30,7 @@ item.fe.item.fairyStick.name=Fairy Stick
 item.fe.item.alfiumStick.name=Alfium Stick
 item.fe.item.witheriaStick.name=Witheria Stick
 item.fe.item.itariusStick.name=Itarius Stick
+item.fe.item.mutatedIronStick.name=Mutated Iron Stick Stick
 --Nuggets--
 item.fe.nugget.draconic.name=Draconic Nugget
 item.fe.nugget.reinforced.name=Reinforced Nugget
@@ -46,6 +44,7 @@ item.fe.nugget.energetic alloy.name=Energetic Alloy Nugget
 item.fe.nugget.vibrant alloy.name=Vibrant Alloy Nugget
 item.fe.nugget.pulsating iron.name=Pulsating Iron Nugget
 item.fe.nugget.witheria.name=Witheria Nugget
+item.fe.nugget.mutated iron.name=Mutated Iron Nugget
 --Combs--
 item.fe.comb.draconic.name=Draconic Comb
 item.fe.comb.reinforced.name=Reinforced Comb
@@ -62,10 +61,16 @@ item.fe.comb.pulsating iron.name=Pulsating Iron Comb
 item.fe.comb.botanist.name=Botanist Comb
 item.fe.comb.witheria.name=Witheria Comb
 item.fe.comb.void.name=Void Comb
+item.fe.comb.mutated.name=Mutated Comb
+item.fe.comb.clayious.name=Clayious Comb
+item.fe.comb.bloody.name=Bloody Comb
+item.fe.comb.kroostyl.name=Kroostyl Comb
+--Propolis-
+item.fe.item.bloody propolis.name=Bloody Propolis
 --Blocks--
 tile.fe.block.draconicBlock.name=Draconic Block
 tile.fe.block.reinforcedBlock.name=Reinforced Block
-tile.fe.block.draconicOre.name=Draconic Ore
+tile.fe.block.mutatedIronBlock.name=Mutated Iron Block
 tile.fe.block.beeducer.name=Beeducer
 --Frames--
 item.fe.frame.frameCoal.name=Coal Frame
@@ -123,6 +128,11 @@ fe.bees.species.witheria=Witheria
 fe.bees.species.void=Void
 fe.bees.species.mana=Mana
 fe.bees.species.pureDaisy=Pure Daisy
+fe.bees.species.mutated=Mutated
+fe.bees.species.clayious=Clayious
+fe.bees.species.bloody=Bloody
+fe.bees.species.kroostyl=Kroostyl
+fe.bees.species.potato=Potato
 --Text--
 fe.info.beeducer.1=This block will make it easier for you to produce combs.
 fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).

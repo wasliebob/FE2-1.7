@@ -1,5 +1,6 @@
 package forestryextras.items;
 
+import java.awt.Color;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -7,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -64,6 +66,8 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 		OreDictionary.registerOre("frameForestry", this); 
 		FEItems.list_backpack_frame.add(new ItemStack(this));
     }
+    IIcon primary;
+    IIcon secondary;
     boolean helish;
     boolean simulated;
     boolean selflighted;
@@ -166,13 +170,38 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 	}
 	
 	@Override
-    public void registerIcons(IIconRegister ir) {
-        itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + texture);
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamageForRenderPass(int meta, int renderPass) {
+		if(renderPass > 0) {
+			return this.primary;
+		}
+		return this.secondary;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean requiresMultipleRenderPasses() {
+		return true;
+	}
+
+	@Override
+	public int getRenderPasses(int meta) {
+		return 2;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack stack, int pass){		
+		if(pass > 0) {
+			return color;
+		}
+		return new Color(255, 255, 255).getRGB();
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack stack, int id){
-		return color;
+	@Override
+    public void registerIcons(IIconRegister ir) {
+		this.primary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "frame_0");
+		this.secondary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "frame_1");
 	}
 	
 	@Override
@@ -186,13 +215,13 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 			list.add(EnumChatFormatting.RED + "isSelflighted: " + EnumChatFormatting.GRAY +  selflighted);
 			list.add(EnumChatFormatting.RED + "isSealed: " + EnumChatFormatting.GRAY + sealed);
 			list.add(EnumChatFormatting.RED + "Decay: " + EnumChatFormatting.GRAY +  decay * 100 + "%");
-			list.add(EnumChatFormatting.RED + "Flowering: " + EnumChatFormatting.GRAY + flowering*100 + "%");
-			list.add(EnumChatFormatting.RED + "Production Modifier: " + EnumChatFormatting.GRAY +  productionmodifier*100 + "%");
-			list.add(EnumChatFormatting.RED + "Lifespan Modifier: " + EnumChatFormatting.GRAY +  lifespanmodifier*100 + "%");
-			list.add(EnumChatFormatting.RED + "Mutation Modifier: " + EnumChatFormatting.GRAY + mutationmodifier*100 + "%");
-			list.add(EnumChatFormatting.RED + "Territory Modifier: " + EnumChatFormatting.GRAY + territorymodifier*100 + "%");
+			list.add(EnumChatFormatting.RED + "Flowering: " + EnumChatFormatting.GRAY + flowering * 100 + "%");
+			list.add(EnumChatFormatting.RED + "Production Modifier: " + EnumChatFormatting.GRAY +  productionmodifier * 100 + "%");
+			list.add(EnumChatFormatting.RED + "Lifespan Modifier: " + EnumChatFormatting.GRAY +  lifespanmodifier * 100 + "%");
+			list.add(EnumChatFormatting.RED + "Mutation Modifier: " + EnumChatFormatting.GRAY + mutationmodifier * 100 + "%");
+			list.add(EnumChatFormatting.RED + "Territory Modifier: " + EnumChatFormatting.GRAY + territorymodifier * 100 + "%");
 		}else{
-			list.add(EnumChatFormatting.GREEN + "Press " + "Shift " + "for more info.");
+			list.add(EnumChatFormatting.GREEN + "Press " + "Shift " + "for more info!");
 		}
 	}
 }

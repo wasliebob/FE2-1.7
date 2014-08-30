@@ -10,23 +10,23 @@ public class Tabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem(){
-			return FEItems.draconicIngot;
-			}
-		};
+			return Item.getItemFromBlock(FEBlocks.draconicBlock);
+		}
+	};
 			
-		public static CreativeTabs tabFrames = new CreativeTabs("tabForestryExtrasFrames") {
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem() {
-				return FEItems.draconicFrame;
-			}
-		};  
+	public static CreativeTabs tabFrames = new CreativeTabs("tabForestryExtrasFrames") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+			return FEItems.draconicFrame;
+		}
+	};  
                
-		public static CreativeTabs tabUtilities = new CreativeTabs("tabForestryExtrasUtilities") {
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem() {
-				return FEItems.draconicScoop;
-			}
-		}; 
+	public static CreativeTabs tabUtilities = new CreativeTabs("tabForestryExtrasUtilities") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public Item getTabIconItem() {
+			return FEItems.draconicScoop;
+		}
+	}; 
 }

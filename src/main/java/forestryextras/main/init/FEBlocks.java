@@ -13,11 +13,17 @@ import forestryextras.blocks.FEBlockProducer;
 public class FEBlocks {
 
 	public static void init(){
-		draconicBlock = new FEBlock(Material.iron, "draconicBlock", "draconicblock", true, 1.0F, new ItemStack(FEItems.draconicIngot));
-		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforcedblock", true, 1.0F, new ItemStack(FEItems.reinforcedIngot));
+		draconicBlock = new FEBlock(Material.iron, "draconicBlock", "draconic", true, 0F, new ItemStack(FEItems.draconicIngot));
+		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforced", true, 0F, new ItemStack(FEItems.reinforcedIngot));
+		mutatedIronBlock = new FEBlock(Material.iron, "mutatedIronBlock", "mutatedIron", true, 0F, new ItemStack(FEItems.mutatedIronIngot));
+
 		producer = new FEBlockProducer("Beeducer");	
 		smelting();
 	}
+	public static FEBlock draconicBlock;
+	public static FEBlock reinforcedBlock;
+	public static FEBlock mutatedIronBlock;
+	public static FEBlockProducer producer;
 	
 	public static void smelting(){}
 	
@@ -30,9 +36,4 @@ public class FEBlocks {
 			'Y', Items.iron_ingot,
 			'Z', Blocks.obsidian});
 	}
-	
-	public static FEBlock draconicBlock;
-	public static FEBlock reinforcedBlock;
-//	public static FEBlock draconicOre;
-	public static FEBlockProducer producer;
 }

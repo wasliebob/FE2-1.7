@@ -4,15 +4,17 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import com.mojang.authlib.GameProfile;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import forestry.api.apiculture.EnumBeeChromosome;
 import forestry.api.apiculture.EnumBeeType;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBeeGenome;
@@ -25,6 +27,8 @@ import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
 import forestry.api.genetics.IIndividual;
+import forestryextras.items.bees.effects.BeeEffect;
+import forestryextras.items.bees.flowers.FlowerProvider;
 import forestryextras.main.init.FEBees;
 
 public class Species implements IAlleleBeeSpecies, IIconProvider{
@@ -35,7 +39,6 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
     private EnumTemperature temperature;
     private EnumHumidity humidity;
     private boolean hasEffect;
-    private boolean isSecret;
     private boolean isCounted;
     private boolean isActive;
     private boolean isNocturnal;
@@ -51,11 +54,10 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
 
     public Species(String speciesName, String genusName, IClassification classification, int firstColour,
                     int secondColour, EnumTemperature preferredTemp, EnumHumidity preferredHumidity,
-                    boolean hasGlowEffect, boolean isSpeciesSecret, boolean isSpeciesCounted,
+                    boolean hasGlowEffect, boolean isSpeciesCounted,
                     boolean isSpeciesDominant) {
         this.uid = "fe.bees.species." + speciesName;
         this.dominant = isSpeciesDominant;
-        AlleleManager.alleleRegistry.registerAllele(this);
         binomial = genusName;
         authority = "wasliebob";
         primaryColour = firstColour;
@@ -63,7 +65,6 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
         temperature = preferredTemp;
         humidity = preferredHumidity;
         hasEffect = hasGlowEffect;
-        isSecret = isSpeciesSecret;
         isCounted = isSpeciesCounted;
         products = new HashMap<ItemStack, Integer>();
         specialties = new HashMap<ItemStack, Integer>();
@@ -71,7 +72,8 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
         this.branch.addMemberSpecies(this);
         this.isActive = true;
         this.isNocturnal = false;
-        
+        AlleleManager.alleleRegistry.registerAllele(this);
+
         FEBees.specieNames.put(FEBees.specieNames.size(), this.getName() + " Bee");
     }
 
@@ -89,20 +91,10 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
     public Map<ItemStack, Integer> getProducts() {
         return products;
     }
-
-    public Species addProduct(ItemStack out, int percentileChance) {
-        products.put(out, percentileChance);
-        return this;
-    }
-
+    
     @Override
     public Map<ItemStack, Integer> getSpecialty() {
         return specialties;
-    }
-
-    public Species addSpeciality(ItemStack out, int percentileChance) {
-        specialties.put(out, percentileChance);
-        return this;
     }
 
     @Override
@@ -167,7 +159,7 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
 
     @Override
     public boolean isSecret() {
-        return isSecret;
+        return true;
     }
 
     @Override
@@ -213,11 +205,18 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
     }
 
     @Override
-    public void registerIcons(IIconRegister itemMap) {
+    public void registerIcons(IIconRegister itemMap){
+    	String mod = "Forestry";
+    	String type = "default";
+    	
+    	if(this.getBranch() == BeeBranches.CROPS){
+    		mod = "forestryextras";
+    		type = "crops";
+    	}
         this.icons = new IIcon[EnumBeeType.values().length][3];
-        String root = "Forestry:bees/default/";
+        String root = mod + ":bees/" + type + "/";
         IIcon body1 = itemMap.registerIcon(root + "body1");
-        for (int i = 0; i < EnumBeeType.values().length; i++){
+        for(int i = 0; i < EnumBeeType.values().length; i++){
             if(EnumBeeType.values()[i] == EnumBeeType.NONE)
                 continue;
 
@@ -229,15 +228,6 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
                     EnumBeeType.values()[i].toString().toLowerCase(Locale.ENGLISH) + ".body2");
         }
     }
-    
-	public Species setGenome(IAllele genome[]){
-		genomeTemplate = genome;
-		return this;
-	}
-
-	public IAllele[] getGenome(){
-		return genomeTemplate;
-	}
 	
 	public Species register(){
 		FEBees.beeRoot.registerTemplate(this.getGenome());
@@ -256,5 +246,81 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
 	@Override
 	public String getUnlocalizedName() {
 		return this.getName();
+	}
+	
+	/** After initalization, before register */
+    public Species addProduct(ItemStack out, int percentileChance) {
+        products.put(out, percentileChance);
+        return this;
+    }
+
+    public Species addSpeciality(ItemStack out, int percentileChance) {
+        specialties.put(out, percentileChance);
+        return this;
+    }
+    
+    public Species importVanillaTemplate(){
+		genomeTemplate = BeeGenome.getTemplateModBase();
+	    this.genomeTemplate[EnumBeeChromosome.SPECIES.ordinal()] = this;
+	    
+		return this;
+    }
+    
+	public Species setGenome(IAllele genome[]){
+		genomeTemplate = genome;
+		return this;
+	}
+	
+	public IAllele[] getGenome(){
+		return genomeTemplate;
+	}
+	
+	/** Template */
+	public Species setEffect(BeeEffect effect){
+		genomeTemplate[EnumBeeChromosome.EFFECT.ordinal()] = AlleleManager.alleleRegistry.getAllele(effect.getUID());
+	
+		return this;
+	}
+	
+	public Species setFlower(FlowerProvider flower){
+		genomeTemplate[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = AlleleManager.alleleRegistry.getAllele(flower.getUID());
+		
+		return this;
+	}
+	
+	public Species setNocturnal(){
+		genomeTemplate[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+		
+		return this;
+	}
+	
+	public Species setCaveDwelling(){
+		genomeTemplate[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+
+		return this;
+	}
+	
+	public Species setSpeed(String value){
+		genomeTemplate[EnumBeeChromosome.SPEED.ordinal()] = Allele.getBaseAllele(value);
+		
+		return this;
+	}
+	
+	public Species setLifespan(String value){
+		genomeTemplate[EnumBeeChromosome.LIFESPAN.ordinal()] = Allele.getBaseAllele(value);
+		
+		return this;
+	}
+	
+	public Species setFertility(String value){
+		genomeTemplate[EnumBeeChromosome.FERTILITY.ordinal()] = Allele.getBaseAllele(value);
+		
+		return this;
+	}
+	
+	public Species setTerritory(String value){
+		genomeTemplate[EnumBeeChromosome.TERRITORY.ordinal()] = Allele.getBaseAllele(value);
+		
+		return this;
 	}
 }

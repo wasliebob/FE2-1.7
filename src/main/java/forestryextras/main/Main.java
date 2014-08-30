@@ -12,6 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import forestryextras.api.FEApi;
 import forestryextras.handlers.events.OnPlayerJoinWorld;
 import forestryextras.helpers.DonatorHelper;
 import forestryextras.main.init.FEBees;
@@ -20,14 +21,14 @@ import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "2.0" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "3.0" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO;after:oodmod")
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
     public static CommonProxy proxy;
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static double version = 2.0;
+    public static double version = 3.0;
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     public static IntergrationLoader integration = new IntergrationLoader();
@@ -36,9 +37,6 @@ public class Main {
     public void preInit(FMLPreInitializationEvent event) throws Exception{
 		Config.loadConfig(event);
 		
-		if(DonatorHelper.canConnect()){
-			createFiles();}
-		
 		proxy.load();
 		integration.prePreInit();
     	FEItems.init();
@@ -46,23 +44,13 @@ public class Main {
     	integration.preInit();
     	initTiles();
     }
-    
-    public void createFiles() throws Exception{
-    	FileHelper.createModFolder("Forestry Extras 2");    	
-    	if(DonatorHelper.getNames() != null){
-        	ArrayList<String> list = new ArrayList<String>();
-    		for(String s : DonatorHelper.getNames()){
-    			list.add(s);
-    		}
-    		DonatorHelper.createFailFile(list);
-    	}
-    }
+
     
     @EventHandler
     public void init(FMLInitializationEvent event){
     	integration.init();
     	FEBees.init();
-
+    	
     	initEvents(event);
     	Recipes.init();
     }

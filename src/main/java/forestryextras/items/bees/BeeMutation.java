@@ -18,17 +18,16 @@ import forestry.api.genetics.IGenome;
 import forestryextras.main.init.FEBees;
 
 public class BeeMutation implements IBeeMutation{	
-	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance, boolean requiresBlock, IAlleleBeeSpecies resultType, String mod){
+	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, int percentChance, boolean requiresBlock, Species result, String mod){
 		this.parent1 = species0;
 		this.parent2 = species1;
-		this.mutationTemplate = resultSpeciesGenome;
+		this.mutationTemplate = result.getGenome();
 		this.baseChance = percentChance;
 		this.isSecret = false;
 		this.requiresBlock = false;
 		this.requiredBlockOreDictEntry = null;
 		this.requiredBlockName = null;
 	
-		/** Not sure about what is causing this -- Player didn't change anything as of the port to 1.7 so something went wrong*/
 		this.getRoot().registerMutation(this);
 	}
 	private IAllele parent1;
@@ -140,7 +139,6 @@ public class BeeMutation implements IBeeMutation{
 	}
 	
 	public BeeMutation setBiomeRequired(BiomeDictionary.Type biomeType){
-		
 		return this;
 	}
 

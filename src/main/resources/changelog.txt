@@ -1,0 +1,12 @@
+===============
+Version 3.0
+===============
+Rewrote a huge (almost the whole) bee code i was using.
+Added Bloody Bees.
+Added Potato Bees (Looking Cool).
+Added Kroostyl Bees (For Kris).
+Added Clayious Bees.
+Added Mutated Bees (Used in creating Mutation Frames).
+Added Mutated Iron.
+A lot of improved textures.
+A lot of fixes.

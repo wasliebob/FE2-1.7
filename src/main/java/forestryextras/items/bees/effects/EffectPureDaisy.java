@@ -24,7 +24,7 @@ public class EffectPureDaisy extends BeeEffect{
 	public IEffectData doEffect(IBeeGenome genome, IEffectData storedData,
 			IBeeHousing housing, World world, int x, int y, int z){
 		int min = 1;
-		int max = 35;
+		int max = 100;
 		Random rand = new Random();
 	    int number = rand.nextInt((max - min) + 1) + min;
 

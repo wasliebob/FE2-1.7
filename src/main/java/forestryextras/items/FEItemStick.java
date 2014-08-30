@@ -52,14 +52,14 @@ public class FEItemStick extends Item{
 		if(isOreDict == true){
 			for(ItemStack stack : OreDictionary.getOres(mat)){
 				GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
-					" X",
-					"X ",
+					"X",
+					"X",
 					'X', stack});
 			}
 		}else{
 			GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
-				" X",
-				"X ",
+				"X",
+				"X",
 				'X', item});
 		}
 	}

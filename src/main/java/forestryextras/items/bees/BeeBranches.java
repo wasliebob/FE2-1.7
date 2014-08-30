@@ -5,35 +5,25 @@ import java.util.ArrayList;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IClassification;
+import forestry.api.genetics.IClassification.EnumClassLevel;
 
-public enum BeeClassification implements IClassification{
-	DRACONIC("Draconic"),
-	WITHERIA("Witheria"),
-	REINFORCED("Reinforced"),
-	THAUMIUM("Thaumium"),
-	DARKTHAUMIUM("DarkThaumium"),
-	FAIRY("Fairy"),
-	POKEFENNIUM("Pokefennium"),
-	ELECTRICSTEEL("ElectricSteel"),
-	SILVERWOOD("Silverwood"),
-	GREATWOOD("Greatwood"),
-	CONDUCTIVE("Conductive"),
-	ELECTRICAL("Electrical"),
-	ENERGETIC("Energetic"),
-	VIBRANT("Vibrant"),
-	PULSATING("Pulsating"),
-	BOTANIST("Botanist"),
-	VOID("Void"),
-	MANA("Mana"),
-	PUREDAISY("PureDaisy");
+public enum BeeBranches implements IClassification{
+	DEADLY("Deadly"),
+	METAL("Metal"),
+	MAGICAL("Magical"),
+	MYSTERIOUS("Mysterious"),
+	NATURAL("Natural"),
+	CROPS("Crops");
 	
+	private String name;
 	private String uID;
 	private String latin;
 	private ArrayList<IAlleleSpecies> species;
 	private IClassification parent;
 	private EnumClassLevel level;
 	
-	private BeeClassification(String name){
+	private BeeBranches(String name){
+		this.name = name;
 		this.uID = "classification." + name.toLowerCase();
 		this.latin = name;
 		this.level = EnumClassLevel.GENUS;
@@ -54,17 +44,17 @@ public enum BeeClassification implements IClassification{
 
 	@Override
 	public String getName(){
-		return "fe.species";
+		return "fe.species." + this.name;
 	}
 
 	@Override
 	public String getScientific(){
-		return "fe.science";
+		return "fe.science." + this.name;
 	}
 
 	@Override
 	public String getDescription(){
-		return "fe.description";
+		return "fe.description." + this.name;
 	}
 
 	@Override
