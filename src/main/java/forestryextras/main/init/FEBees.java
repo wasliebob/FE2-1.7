@@ -268,6 +268,38 @@ public class FEBees {
 			.setSpeed("speedSlowest")
 			.register();
 		}
+		
+		if(OreDictionary.getOres("ingotYellorium").size() > 0){
+			yelloriumBee = new Species("yellorium", "yellorium", BeeBranches.METAL, new Color(255, 255, 0).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+			yelloriumBee.addProduct(new ItemStack(FEBees.comb_yellorium, 1, 0), 25)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(OreDictionary.getOres("ingotCyanite").size() > 0){
+			cyaniteBee = new Species("cyanite", "cyanite", BeeBranches.METAL, new Color(70, 130, 180).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+			cyaniteBee.addProduct(new ItemStack(FEBees.comb_cyanite, 1, 0), 25)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(OreDictionary.getOres("ingotGraphite").size() > 0){
+			graphiteBee = new Species("graphite", "graphite", BeeBranches.METAL, new Color(100, 100, 100).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+			graphiteBee.addProduct(new ItemStack(FEBees.comb_graphite, 1, 0), 25)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(OreDictionary.getOres("ingotBlutonium").size() > 0){
+			blutoniumBee = new Species("blutonium", "blutonium", BeeBranches.METAL, new Color(0, 0, 50).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+			blutoniumBee.addProduct(new ItemStack(FEBees.comb_blutonium, 1, 0), 25)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
 	}
 	public static Species draconicBee;
 	public static Species witheriaBee;
@@ -292,6 +324,10 @@ public class FEBees {
 	public static Species bloodyBee;
 	public static Species kroostylBee;
 	public static Species potatoBee;
+	public static Species yelloriumBee;
+	public static Species cyaniteBee;
+	public static Species graphiteBee;
+	public static Species blutoniumBee;
     public static HashMap<Integer, String> specieNames = new HashMap<Integer, String>();
 
 	public static void initMutations(){
@@ -371,6 +407,23 @@ public class FEBees {
 		if(FluidRegistry.getFluid("life essence") != null){
 			new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.bloodyBee, "BM");
 		}
+		
+		if(OreDictionary.getOres("ingotGraphite").size() > 0){
+			new BeeMutation(FEBees.mutatedBee, FEBees.clayiousBee, 5, false, FEBees.graphiteBee, "BR");
+		}
+		
+		if(OreDictionary.getOres("ingotYellorium").size() > 0){
+			new BeeMutation(FEBees.mutatedBee, FEBees.graphiteBee, 5, false, FEBees.yelloriumBee, "BR");
+		}
+		
+		if(OreDictionary.getOres("ingotBlutonium").size() > 0){
+			new BeeMutation(FEBees.mutatedBee, FEBees.graphiteBee, 5, false, FEBees.blutoniumBee, "BR");
+		}
+		
+		if(OreDictionary.getOres("ingotCyanite").size() > 0){
+			new BeeMutation(FEBees.yelloriumBee, FEBees.graphiteBee, 5, false, FEBees.cyaniteBee, "BR");
+		}
+		
 	}
 	
 	public static void initCombs(){
@@ -480,6 +533,30 @@ public class FEBees {
 			chance = new int[]{2, 75};
 			comb_kroostyl = new FEItemComb("Kroostyl", new Color(255, 0, 10), new Color(0x333333), products, chance);
 		}
+		
+		if(OreDictionary.getOres("ingotYellorium").size() > 0){
+			products = new ItemStack[]{new ItemStack(FEItems.nugget_yellorium), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{25, 75};
+			comb_yellorium = new FEItemComb("Yellorium", new Color(255, 255, 0), new Color(0x333333), products, chance);
+		}
+		
+		if(OreDictionary.getOres("ingotCyanite").size() > 0){
+			products = new ItemStack[]{new ItemStack(FEItems.nugget_cyanite), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{25, 75};
+			comb_cyanite = new FEItemComb("Cyanite", new Color(70, 130, 180), new Color(0x333333), products, chance);
+		}
+		
+		if(OreDictionary.getOres("ingotGraphite").size() > 0){
+			products = new ItemStack[]{new ItemStack(FEItems.nugget_graphite), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{25, 75};
+			comb_graphite = new FEItemComb("Graphite", new Color(100, 100, 100), new Color(0x333333), products, chance);
+		}
+		
+		if(OreDictionary.getOres("ingotBlutonium").size() > 0){
+			products = new ItemStack[]{new ItemStack(FEItems.nugget_blutonium), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{25, 75};
+			comb_blutonium = new FEItemComb("Blutonium", new Color(0, 0, 50), new Color(0x333333), products, chance);
+		}
 	}
 	public static FEItemComb comb_draconic;
 	public static FEItemComb comb_reinforced;
@@ -504,6 +581,11 @@ public class FEBees {
 	public static FEItemComb comb_energeticAlloy;
 	public static FEItemComb comb_vibrantAlloy;
 	public static FEItemComb comb_pulsatingIron;
+
+	public static FEItemComb comb_yellorium;
+	public static FEItemComb comb_graphite;
+	public static FEItemComb comb_cyanite;
+	public static FEItemComb comb_blutonium;
 
 	public static FEItemComb comb_normal;
 	public static FEItemComb comb_botanist;

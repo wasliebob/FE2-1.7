@@ -292,6 +292,22 @@ public class FEItems {
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
 			nugget_energeticAlloy = new FEItemNugget("Energetic Alloy", new Color(0x99FF66), OreDictionary.getOres("ingotEnergeticAlloy").get(0));
 		}
+		
+		if(OreDictionary.getOres("ingotYellorium").size() > 0){
+			nugget_yellorium = new FEItemNugget("Yellorium", new Color(255, 255, 0), OreDictionary.getOres("ingotYellorium").get(0));
+		}
+		
+		if(OreDictionary.getOres("ingotGraphite").size() > 0){
+			nugget_graphite = new FEItemNugget("Graphite", new Color(100, 100, 100), OreDictionary.getOres("ingotGraphite").get(0));
+		}
+		
+		if(OreDictionary.getOres("ingotCyanite").size() > 0){
+			nugget_cyanite = new FEItemNugget("Cyanite", new Color(70, 130, 180), OreDictionary.getOres("ingotCyanite").get(0));
+		}
+		
+		if(OreDictionary.getOres("ingotBlutonium").size() > 0){
+			nugget_blutonium = new FEItemNugget("Blutonium", new Color(0, 0, 50), OreDictionary.getOres("ingotBlutonium").get(0));
+		}
 	}
 	public static FEItemNugget nugget_draconic;
 	public static FEItemNugget nugget_witheria;
@@ -306,6 +322,11 @@ public class FEItems {
 	public static FEItemNugget nugget_conductiveIron;
 	public static FEItemNugget nugget_electricalSteel;
 	public static FEItemNugget nugget_energeticAlloy;
+
+	public static FEItemNugget nugget_graphite;
+	public static FEItemNugget nugget_yellorium;
+	public static FEItemNugget nugget_blutonium;
+	public static FEItemNugget nugget_cyanite;
 
 	
 	public static void initBackpacks(){		

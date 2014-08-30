@@ -39,7 +39,7 @@ group= "ForestryExtras" // http://maven.apache.org/guides/mini/guide-naming-conv
 archivesBaseName = "ForestryExtras"
 
 minecraft {
-    version = "1.7.10-10.13.0.1199"
+    version = "1.7.10-10.13.0.1208"
     assetDir = "eclipse/assets"
 }
 dependencies{

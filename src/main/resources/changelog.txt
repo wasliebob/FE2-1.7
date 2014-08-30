@@ -6,6 +6,7 @@ Added Bloody Bees.
 Added Potato Bees (Looking Cool).
 Added Kroostyl Bees (For Kris).
 Added Clayious Bees.
+Added Big Reactor Bees (Yellorium, Cyanite, Blutonium, Graphite).
 Added Mutated Bees (Used in creating Mutation Frames).
 Added Mutated Iron.
 A lot of improved textures.

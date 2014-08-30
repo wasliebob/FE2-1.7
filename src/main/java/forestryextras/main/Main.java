@@ -21,7 +21,7 @@ import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "3.0" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO;after:oodmod")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "3.0" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO;after:oodmod;after:BigReactors")
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
     public static CommonProxy proxy;

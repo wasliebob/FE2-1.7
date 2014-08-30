@@ -45,6 +45,10 @@ item.fe.nugget.vibrant alloy.name=Vibrant Alloy Nugget
 item.fe.nugget.pulsating iron.name=Pulsating Iron Nugget
 item.fe.nugget.witheria.name=Witheria Nugget
 item.fe.nugget.mutated iron.name=Mutated Iron Nugget
+item.fe.nugget.cyanite.name=Cyanite Nugget
+item.fe.nugget.graphite.name=Graphite Nugget
+item.fe.nugget.yellorium.name=Yellorium Nugget
+item.fe.nugget.blutonium.name=Blutonium Nugget
 --Combs--
 item.fe.comb.draconic.name=Draconic Comb
 item.fe.comb.reinforced.name=Reinforced Comb
@@ -65,6 +69,10 @@ item.fe.comb.mutated.name=Mutated Comb
 item.fe.comb.clayious.name=Clayious Comb
 item.fe.comb.bloody.name=Bloody Comb
 item.fe.comb.kroostyl.name=Kroostyl Comb
+item.fe.comb.yellorium.name=Yellorium Comb
+item.fe.comb.graphite.name=Graphite Comb
+item.fe.comb.cyanite.name=Cyanite Comb
+item.fe.comb.blutonium.name=Blutonium Comb
 --Propolis-
 item.fe.item.bloody propolis.name=Bloody Propolis
 --Blocks--
@@ -133,6 +141,10 @@ fe.bees.species.clayious=Clayious
 fe.bees.species.bloody=Bloody
 fe.bees.species.kroostyl=Kroostyl
 fe.bees.species.potato=Potato
+fe.bees.species.yellorium=Yellorium
+fe.bees.species.cyanite=Cyanite
+fe.bees.species.graphite=Graphite
+fe.bees.species.blutonium=Blutonium
 --Text--
 fe.info.beeducer.1=This block will make it easier for you to produce combs.
 fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).
