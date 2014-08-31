@@ -3,6 +3,7 @@ package forestryextras.main.init;
 import java.awt.Color;
 import java.util.HashMap;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -30,7 +31,9 @@ import forestryextras.items.bees.effects.EffectWither;
 import forestryextras.items.bees.flowers.FlowerBotaniaAdvanced;
 import forestryextras.items.bees.flowers.FlowerBotaniaBasic;
 import forestryextras.items.bees.flowers.FlowerDragonEgg;
+import forestryextras.items.bees.flowers.FlowerUnstable;
 import forestryextras.libs.LibBees;
+import forestryextras.main.Config;
 import forestryextras.main.init.intergration.Botania;
 
 public class FEBees {
@@ -48,10 +51,17 @@ public class FEBees {
 		regen = new EffectRegen("Regeneration");
 		fire = new EffectFire("Flaming");
 		wither = new EffectWither("Withering");
-		mana = new EffectMana("Mana");
-		pureDaisy = new EffectPureDaisy("Pure Daisy");
+		
+		if(Loader.isModLoaded("Botania")){
+			mana = new EffectMana("Mana");
+			pureDaisy = new EffectPureDaisy("Pure Daisy");
+		}
+		
 		mutation = new EffectMutation("Mutation");
-		bloody = new EffectBloody("Bloody");
+		
+		if(Loader.isModLoaded("AWWayofTime")){
+			bloody = new EffectBloody("Bloody");
+		}
 	}
 	public static EffectRegen regen;
 	public static EffectFire fire;
@@ -62,14 +72,21 @@ public class FEBees {
 	public static EffectBloody bloody;
 
 	public static void initFlowers(){
-		flowerBotaniaBasic = new FlowerBotaniaBasic("Botania Basic");
-		flowerBotaniaAdvanced = new FlowerBotaniaAdvanced("Botania Advanced");
+		if(Loader.isModLoaded("Botania")){
+			flowerBotaniaBasic = new FlowerBotaniaBasic("Botania Basic");
+			flowerBotaniaAdvanced = new FlowerBotaniaAdvanced("Botania Advanced");
+		}
+		
+		if(OreDictionary.getOres("blockUnstable").size() > 0){
+			flowerUnstable = new FlowerUnstable("Unstable Block");
+		}
 		flowerDragonEgg = new FlowerDragonEgg("Dragon Egg");
 	}
 	public static FlowerBotaniaBasic flowerBotaniaBasic;
 	public static FlowerBotaniaAdvanced flowerBotaniaAdvanced;
 	public static FlowerDragonEgg flowerDragonEgg;
-	
+	public static FlowerUnstable flowerUnstable;
+
 	public static void initSpecies(){
 		beeRoot = (IBeeRoot) AlleleManager.alleleRegistry.getSpeciesRoot("rootBees");
 		
@@ -80,6 +97,14 @@ public class FEBees {
 		.setNocturnal()
 		.setEffect(FEBees.fire)
 		.setFlower(FEBees.flowerDragonEgg)
+		.register();
+		
+		legendaryBee = new Species("legendary", "legendary", BeeBranches.DEADLY, new Color(0, 0, 205).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+		legendaryBee.addProduct(new ItemStack(FEBees.comb_legendary, 1, 0), 12)
+		.importVanillaTemplate()
+		.setCaveDwelling()
+		.setNocturnal()
+		.setSpeed("speedFast")
 		.register();
 		
 		reinforcedBee = new Species("reinforced", "reinforced", BeeBranches.METAL, 0xCCCC99, LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
@@ -111,8 +136,31 @@ public class FEBees {
 		.register();
 		
 		potatoBee = new Species("potato", "potato", BeeBranches.CROPS, new Color(238, 232, 170).getRGB(), new Color(240, 230, 140).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
-		potatoBee.addProduct(new ItemStack(Items.potato), 50)
-		.addProduct(new ItemStack(Items.poisonous_potato), 25)
+		potatoBee.addProduct(new ItemStack(FEBees.comb_potato, 1, 0), 12)
+		.importVanillaTemplate()
+		.setSpeed("speedFast")
+		.register();
+		
+		carrotBee = new Species("carrot", "carrot", BeeBranches.CROPS, new Color(255, 165, 0).getRGB(), new Color(255, 165, 0).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+		carrotBee.addProduct(new ItemStack(FEBees.comb_carrot, 1, 0), 12)
+		.importVanillaTemplate()
+		.setSpeed("speedFast")
+		.register();
+		
+		pigBee = new Species("pig", "pig", BeeBranches.PASSIVE, new Color(255, 105, 180).getRGB(), new Color(255, 182, 193).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+		pigBee.addProduct(new ItemStack(FEBees.comb_pig, 1, 0), 50)
+		.importVanillaTemplate()
+		.setSpeed("speedFast")
+		.register();
+		
+		cowBee = new Species("cow", "cow", BeeBranches.PASSIVE, new Color(139, 69, 19).getRGB(), new Color(233, 150, 122).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+		cowBee.addProduct(new ItemStack(FEBees.comb_cow, 1, 0), 12)
+		.importVanillaTemplate()
+		.setSpeed("speedFast")
+		.register();
+		
+		sheepBee = new Species("sheep", "sheep", BeeBranches.PASSIVE, new Color(255, 255, 255).getRGB(), new Color(233, 150, 122).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+		sheepBee.addProduct(new ItemStack(FEBees.comb_sheep, 1, 0), 50)
 		.importVanillaTemplate()
 		.setSpeed("speedFast")
 		.register();
@@ -245,7 +293,7 @@ public class FEBees {
 			pureDaisyBee = new Species("pureDaisy", "pureDaisy", BeeBranches.NATURAL, 0xFF99CC, 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
 			pureDaisyBee.addProduct(new ItemStack(FEBees.comb_botanist, 1, 0), 50)	
 			.importVanillaTemplate()
-			.setEffect(FEBees.regen)
+			.setEffect(FEBees.pureDaisy)
 			.setFlower(FEBees.flowerBotaniaBasic)
 			.setSpeed("speedFaster")
 			.register();
@@ -256,6 +304,46 @@ public class FEBees {
 			bloodyBee.addProduct(new ItemStack(FEBees.comb_bloody, 1, 0), 50)	
 			.importVanillaTemplate()
 			.setEffect(FEBees.bloody)
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(FluidRegistry.getFluid("glowstone") != null){
+			glowyBee = new Species("glowy", "glowy", BeeBranches.FLUID, new Color(255, 255, 0).getRGB(), new Color(255, 0, 0).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			glowyBee.addProduct(new ItemStack(FEBees.comb_glowy, 1, 0), 50)	
+			.importVanillaTemplate()
+			.setSpeed("speedFastest")
+			.register();
+		}
+		
+		if(FluidRegistry.getFluid("ender") != null){
+			resonantBee = new Species("resonant", "resonant", BeeBranches.FLUID, new Color(0, 139, 139).getRGB(), new Color(0, 128, 128).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			resonantBee.addProduct(new ItemStack(FEBees.comb_resonant, 1, 0), 50)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(FluidRegistry.getFluid("pyrotheum") != null){
+			blazingBee = new Species("blazing", "blazing", BeeBranches.FLUID, new Color(255, 69, 0).getRGB(), new Color(255, 255, 0).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			blazingBee.addProduct(new ItemStack(FEBees.comb_blazing, 1, 0), 50)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(FluidRegistry.getFluid("cryotheum") != null){
+			gelidBee = new Species("gelid", "gelid", BeeBranches.FLUID, new Color(0, 206, 209).getRGB(), new Color(0, 206, 209).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			gelidBee.addProduct(new ItemStack(FEBees.comb_gelid, 1, 0), 50)	
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.register();
+		}
+		
+		if(FluidRegistry.getFluid("redstone") != null){
+			destablizedBee = new Species("destablized", "destablized", BeeBranches.FLUID, new Color(255, 0, 0).getRGB(), new Color(255, 0, 0).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			destablizedBee.addProduct(new ItemStack(FEBees.comb_destablized, 1, 0), 50)	
+			.importVanillaTemplate()
 			.setSpeed("speedFast")
 			.register();
 		}
@@ -300,6 +388,15 @@ public class FEBees {
 			.setSpeed("speedFast")
 			.register();
 		}
+		
+		if(Config.unstableBee && OreDictionary.getOres("nuggetUnstable").size() > 0){
+			unstableBee = new Species("unstable", "unstable", BeeBranches.METAL, new Color(255, 255, 255).getRGB(), LibBees.rockBody.getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, true, false, false);
+			unstableBee.addProduct(new ItemStack(FEBees.comb_unstable, 1, 0), 25)	
+			.importVanillaTemplate()
+			.setFlower(FEBees.flowerUnstable)
+			.setSpeed("speedNorm")
+			.register();
+		}
 	}
 	public static Species draconicBee;
 	public static Species witheriaBee;
@@ -328,17 +425,34 @@ public class FEBees {
 	public static Species cyaniteBee;
 	public static Species graphiteBee;
 	public static Species blutoniumBee;
+	public static Species resonantBee;
+	public static Species glowyBee;
+	public static Species gelidBee;
+	public static Species blazingBee;
+	public static Species destablizedBee;
+	public static Species unstableBee;
+	public static Species carrotBee;
+	public static Species legendaryBee;
+	public static Species pigBee;
+	public static Species cowBee;
+	public static Species sheepBee;
     public static HashMap<Integer, String> specieNames = new HashMap<Integer, String>();
 
 	public static void initMutations(){
 		new BeeMutation(Allele.getBaseSpecies("Meadows"), Allele.getBaseSpecies("Noble"), 15, false, FEBees.clayiousBee, "FE2");
 		new BeeMutation(Allele.getBaseSpecies("Steadfast"), Allele.getBaseSpecies("Industrious"), 30, false, FEBees.potatoBee, "FE2");
+		new BeeMutation(Allele.getBaseSpecies("Steadfast"), Allele.getBaseSpecies("Industrious"), 30, false, FEBees.carrotBee, "FE2");
+		
+		new BeeMutation(Allele.getBaseSpecies("Steadfast"), FEBees.carrotBee, 30, false, FEBees.pigBee, "FE2");
+		new BeeMutation(Allele.getBaseSpecies("Steadfast"), FEBees.potatoBee, 30, false, FEBees.cowBee, "FE2");
+		new BeeMutation(FEBees.carrotBee, FEBees.potatoBee, 30, false, FEBees.sheepBee, "FE2");
 
 		new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Noble"), 5, false, FEBees.reinforcedBee, "FE2");
 		new BeeMutation(Allele.getBaseSpecies("Industrious"), FEBees.reinforcedBee, 5, false, FEBees.mutatedBee, "FE2");
 		new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.witheriaBee, "FE2");
 		new BeeMutation(FEBees.witheriaBee, FEBees.reinforcedBee, 5, false, FEBees.draconicBee, "FE2");
-		
+		new BeeMutation(FEBees.witheriaBee, FEBees.draconicBee, 5, false, FEBees.legendaryBee, "FE2");
+
 		if(OreDictionary.getOres("woodGreatwood").size() > 0){
 			new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Edenic"), 5, false, FEBees.greatwoodBee, "TC4");
 		}
@@ -408,6 +522,26 @@ public class FEBees {
 			new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.bloodyBee, "BM");
 		}
 		
+		if(FluidRegistry.getFluid("redstone") != null){
+			new BeeMutation(FEBees.clayiousBee, FEBees.mutatedBee, 5, false, FEBees.destablizedBee, "TE");
+		}
+		
+		if(FluidRegistry.getFluid("glowstone") != null){
+			new BeeMutation(FEBees.destablizedBee, FEBees.mutatedBee, 5, false, FEBees.glowyBee, "TE");
+		}
+		
+		if(FluidRegistry.getFluid("pyrotheum") != null){
+			new BeeMutation(FEBees.draconicBee, FEBees.mutatedBee, 5, false, FEBees.blazingBee, "TE");
+		}
+		
+		if(FluidRegistry.getFluid("cryotheum") != null){
+			new BeeMutation(FEBees.witheriaBee, FEBees.mutatedBee, 5, false, FEBees.gelidBee, "TE");
+		}
+		
+		if(FluidRegistry.getFluid("ender") != null){
+			new BeeMutation(FEBees.glowyBee, FEBees.destablizedBee, 5, false, FEBees.resonantBee, "TE");
+		}
+		
 		if(OreDictionary.getOres("ingotGraphite").size() > 0){
 			new BeeMutation(FEBees.mutatedBee, FEBees.clayiousBee, 5, false, FEBees.graphiteBee, "BR");
 		}
@@ -424,6 +558,9 @@ public class FEBees {
 			new BeeMutation(FEBees.yelloriumBee, FEBees.graphiteBee, 5, false, FEBees.cyaniteBee, "BR");
 		}
 		
+		if(Config.unstableBee && OreDictionary.getOres("nuggetUnstable").size() > 0){
+			new BeeMutation(FEBees.draconicBee, FEBees.legendaryBee, 1, false, FEBees.unstableBee, "ExUtils");
+		}
 	}
 	
 	public static void initCombs(){
@@ -433,6 +570,10 @@ public class FEBees {
 		products = new ItemStack[]{new ItemStack(FEItems.nugget_draconic, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{10, 75};
 		comb_draconic = new FEItemComb("Draconic", new Color(0x990000), new Color(0xCC0033), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(FEItems.nugget_legendary, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
+		chance = new int[]{5, 75};
+		comb_legendary = new FEItemComb("Legendary", new Color(0, 0, 205), new Color(0, 0, 205), products, chance);
 		
 		products = new ItemStack[]{new ItemStack(FEItems.nugget_reinforced, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{25, 75};
@@ -449,6 +590,26 @@ public class FEBees {
 		products = new ItemStack[]{new ItemStack(Items.clay_ball, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
 		comb_clayious = new FEItemComb("Clayious", new Color(176, 196, 222), new Color(0x333333), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(Items.potato), new ItemStack(Items.poisonous_potato)};
+		chance = new int[]{15, 15};
+		comb_potato = new FEItemComb("Potato", new Color(238, 232, 170), new Color(240, 230, 140), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(Items.carrot), new ItemStack(Items.golden_carrot)};
+		chance = new int[]{15, 2};
+		comb_carrot = new FEItemComb("Carrot", new Color(255, 165, 0), new Color(255, 165, 0), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(Items.porkchop)};
+		chance = new int[]{15};
+		comb_pig = new FEItemComb("Pig", new Color(255, 105, 180), new Color(255, 182, 193), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(Items.leather), new ItemStack(Items.beef)};
+		chance = new int[]{10, 15};
+		comb_cow = new FEItemComb("Cow", new Color(139, 69, 19), new Color(233, 150, 122), products, chance);
+		
+		products = new ItemStack[]{new ItemStack(Blocks.wool), new ItemStack(Items.string)};
+		chance = new int[]{10, 15};
+		comb_sheep = new FEItemComb("Sheep", new Color(255, 255, 255), new Color(233, 150, 122), products, chance);
 		
 		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0 && OreDictionary.getOres("nuggetThaumium").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("nuggetThaumium").get(0), OreDictionary.getOres("dropHoney").get(0)};
@@ -528,6 +689,36 @@ public class FEBees {
 			comb_bloody = new FEItemComb("Bloody", new Color(128, 0, 0), new Color(255, 0, 0), products, chance);
 		}
 		
+		if(FluidRegistry.getFluid("pyrotheum") != null){
+			products = new ItemStack[]{new ItemStack(FEBees.propolis_blazing), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{40, 75};
+			comb_blazing = new FEItemComb("Blazing", new Color(255, 69, 0), new Color(255, 255, 0), products, chance);
+		}
+		
+		if(FluidRegistry.getFluid("cryotheum") != null){
+			products = new ItemStack[]{new ItemStack(FEBees.propolis_gelid), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{40, 75};
+			comb_gelid = new FEItemComb("Gelid", new Color(0, 206, 209), new Color(0, 206, 209), products, chance);
+		}
+		
+		if(FluidRegistry.getFluid("glowstone") != null){
+			products = new ItemStack[]{new ItemStack(FEBees.propolis_glowy), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{40, 75};
+			comb_glowy = new FEItemComb("Glowy", new Color(255, 255, 0), new Color(255, 215, 0), products, chance);
+		}
+		
+		if(FluidRegistry.getFluid("ender") != null){
+			products = new ItemStack[]{new ItemStack(FEBees.propolis_resonant), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{40, 75};
+			comb_resonant = new FEItemComb("Resonant", new Color(0, 139, 139), new Color(0, 128, 128), products, chance);
+		}
+		
+		if(FluidRegistry.getFluid("redstone") != null){
+			products = new ItemStack[]{new ItemStack(FEBees.propolis_destablized), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{40, 75};
+			comb_destablized = new FEItemComb("Destablized", new Color(255, 0, 0), new Color(255, 0, 0), products, chance);
+		}
+		
 		if(OreDictionary.getOres("gemKroostyl").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("gemKroostyl").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{2, 75};
@@ -557,15 +748,27 @@ public class FEBees {
 			chance = new int[]{25, 75};
 			comb_blutonium = new FEItemComb("Blutonium", new Color(0, 0, 50), new Color(0x333333), products, chance);
 		}
+		
+		if(Config.unstableBee && OreDictionary.getOres("nuggetUnstable").size() > 0){
+			products = new ItemStack[]{OreDictionary.getOres("nuggetUnstable").get(0), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{8, 75};
+			comb_unstable = new FEItemComb("Unstable", new Color(255, 255, 255), new Color(0x333333), products, chance);
+		}
 	}
 	public static FEItemComb comb_draconic;
 	public static FEItemComb comb_reinforced;
 	public static FEItemComb comb_witheria;
 	public static FEItemComb comb_mutated;
+	public static FEItemComb comb_legendary;
 
 	public static FEItemComb comb_clayious;
 	
 	public static FEItemComb comb_bloody;
+	public static FEItemComb comb_glowy;
+	public static FEItemComb comb_resonant;
+	public static FEItemComb comb_blazing;
+	public static FEItemComb comb_gelid;
+	public static FEItemComb comb_destablized;
 
 	public static FEItemComb comb_kroostyl;
 	
@@ -587,15 +790,44 @@ public class FEBees {
 	public static FEItemComb comb_cyanite;
 	public static FEItemComb comb_blutonium;
 
+	public static FEItemComb comb_unstable;
+
+	public static FEItemComb comb_potato;
+	public static FEItemComb comb_carrot;
+	public static FEItemComb comb_cow;
+	public static FEItemComb comb_pig;
+	public static FEItemComb comb_sheep;
+
 	public static FEItemComb comb_normal;
 	public static FEItemComb comb_botanist;
 
 	public static void initPropolis(){
 		if(FluidRegistry.getFluid("life essence") != null)
 			propolis_bloody = new FEItemPropolis("bloody", new Color(178, 34, 34).getRGB(), new FluidStack(FluidRegistry.getFluid("life essence"), 50));
+	
+		if(FluidRegistry.getFluid("glowstone") != null)
+			propolis_glowy = new FEItemPropolis("glowy", new Color(255, 255, 0).getRGB(), new FluidStack(FluidRegistry.getFluid("glowstone"), 50));
+	
+		if(FluidRegistry.getFluid("ender") != null)
+			propolis_resonant = new FEItemPropolis("resonant", new Color(0, 139, 139).getRGB(), new FluidStack(FluidRegistry.getFluid("ender"), 50));
+	
+		if(FluidRegistry.getFluid("pyrotheum") != null)
+			propolis_blazing = new FEItemPropolis("blazing", new Color(255, 69, 0).getRGB(), new FluidStack(FluidRegistry.getFluid("pyrotheum"), 50));
+	
+		if(FluidRegistry.getFluid("cryotheum") != null)
+			propolis_gelid = new FEItemPropolis("gelid", new Color(0, 206, 209).getRGB(), new FluidStack(FluidRegistry.getFluid("cryotheum"), 50));
+		
+		if(FluidRegistry.getFluid("redstone") != null)
+			propolis_destablized = new FEItemPropolis("destablized", new Color(255, 0, 0).getRGB(), new FluidStack(FluidRegistry.getFluid("redstone"), 50));
+	
 	}
 	public static FEItemPropolis propolis_bloody;
-	
+	public static FEItemPropolis propolis_glowy;
+	public static FEItemPropolis propolis_resonant;
+	public static FEItemPropolis propolis_gelid;
+	public static FEItemPropolis propolis_blazing;
+	public static FEItemPropolis propolis_destablized;
+
 	public static boolean doesModItemExist(String modID, String itemName){
 		return GameRegistry.findItemStack(modID, itemName, 1) != null;
 	}

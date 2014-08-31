@@ -3,6 +3,7 @@ item.fe.item.draconicIngot.name=Draconic Ingot
 item.fe.item.reinforcedIngot.name=Reinforced Ingot
 item.fe.item.witheriaIngot.name=Witheria Ingot
 item.fe.item.mutatedIronIngot.name=Mutated Iron Ingot
+item.fe.item.legendaryIngot.name=Legendary Ingot
 --Sticks--
 item.fe.item.coalStick.name=Coal Stick
 item.fe.item.ironStick.name=Iron Stick
@@ -30,7 +31,8 @@ item.fe.item.fairyStick.name=Fairy Stick
 item.fe.item.alfiumStick.name=Alfium Stick
 item.fe.item.witheriaStick.name=Witheria Stick
 item.fe.item.itariusStick.name=Itarius Stick
-item.fe.item.mutatedIronStick.name=Mutated Iron Stick Stick
+item.fe.item.mutatedIronStick.name=Mutated Iron Stick
+item.fe.item.legendaryStick.name=Legendary Stick
 --Nuggets--
 item.fe.nugget.draconic.name=Draconic Nugget
 item.fe.nugget.reinforced.name=Reinforced Nugget
@@ -49,6 +51,7 @@ item.fe.nugget.cyanite.name=Cyanite Nugget
 item.fe.nugget.graphite.name=Graphite Nugget
 item.fe.nugget.yellorium.name=Yellorium Nugget
 item.fe.nugget.blutonium.name=Blutonium Nugget
+item.fe.nugget.legendary.name=Legendary Nugget
 --Combs--
 item.fe.comb.draconic.name=Draconic Comb
 item.fe.comb.reinforced.name=Reinforced Comb
@@ -73,12 +76,30 @@ item.fe.comb.yellorium.name=Yellorium Comb
 item.fe.comb.graphite.name=Graphite Comb
 item.fe.comb.cyanite.name=Cyanite Comb
 item.fe.comb.blutonium.name=Blutonium Comb
+item.fe.comb.glowy.name=Glowy Comb
+item.fe.comb.resonant.name=Resonant Comb
+item.fe.comb.gelid.name=Gelid Comb
+item.fe.comb.blazing.name=Blazing Comb
+item.fe.comb.destablized.name=Destablized Comb
+item.fe.comb.unstable.name=Unstable Comb
+item.fe.comb.legendary.name=Legendary Comb
+item.fe.comb.potato.name=Potato Comb
+item.fe.comb.carrot.name=Carrot Comb
+item.fe.comb.pig.name=Pig Comb
+item.fe.comb.cow.name=Cow Comb
+item.fe.comb.sheep.name=Sheep Comb
 --Propolis-
 item.fe.item.bloody propolis.name=Bloody Propolis
+item.fe.item.glowy propolis.name=Glowy Propolis
+item.fe.item.resonant propolis.name=Resonant Propolis
+item.fe.item.gelid propolis.name=Gelid Propolis
+item.fe.item.blazing propolis.name=Blazing Propolis
+item.fe.item.destablized propolis.name=Destablized Propolis
 --Blocks--
 tile.fe.block.draconicBlock.name=Draconic Block
 tile.fe.block.reinforcedBlock.name=Reinforced Block
 tile.fe.block.mutatedIronBlock.name=Mutated Iron Block
+tile.fe.block.legendaryBlock.name=Legendary Block
 tile.fe.block.beeducer.name=Beeducer
 --Frames--
 item.fe.frame.frameCoal.name=Coal Frame
@@ -109,6 +130,7 @@ item.fe.frame.frameAlfium.name=Alfium Frame
 item.fe.frame.frameMCKE.name=MCKE Frame
 item.fe.frame.frameWitheria.name=Witheria Frame
 item.fe.frame.frameItarius.name=Itarius Frame
+item.fe.frame.frameLegendary.name=Legendary Frame
 --Grafters--
 item.fe.grafter.grafterReinforced.name=Reinforced Grafter
 item.fe.grafter.grafterDraconic.name=Draconic Grafter
@@ -145,6 +167,17 @@ fe.bees.species.yellorium=Yellorium
 fe.bees.species.cyanite=Cyanite
 fe.bees.species.graphite=Graphite
 fe.bees.species.blutonium=Blutonium
+fe.bees.species.glowy=Glowy
+fe.bees.species.resonant=Resonant
+fe.bees.species.gelid=Gelid
+fe.bees.species.blazing=Blazing
+fe.bees.species.destablized=Destablized
+fe.bees.species.unstable=Unstable
+fe.bees.species.legendary=Legendary
+fe.bees.species.carrot=Carrot
+fe.bees.species.pig=Pig
+fe.bees.species.cow=Cow
+fe.bees.species.sheep=Sheep
 --Text--
 fe.info.beeducer.1=This block will make it easier for you to produce combs.
 fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).

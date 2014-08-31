@@ -3,6 +3,7 @@ package forestryextras.items.bees.effects;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -34,7 +35,7 @@ public class EffectPureDaisy extends BeeEffect{
 					Block block = world.getBlock(x + xx, y, z + zz);
 					if(block != null){
 						ItemStack stack = new ItemStack(Item.getItemFromBlock(block), 1, world.getBlockMetadata(x + xx, y, z + zz));
-						Block output = getOut(stack);
+						Block output = getOut(stack, block);
 						if(output != null){
 							world.setBlock(x + xx, y, z + zz, output);
 							for(int i = 0; i < 25; i++) {
@@ -44,6 +45,9 @@ public class EffectPureDaisy extends BeeEffect{
 
 								Botania.proxy.wispFX(world, x + xX, yY, z + zZ, 1F, 1F, 1F, (float) Math.random() / 2F);
 							}
+							xx = 4;
+							zz = 4;
+							continue;
 						}
 					}
 				}
@@ -52,10 +56,10 @@ public class EffectPureDaisy extends BeeEffect{
 	    return null;
 	}
 	
-	public Block getOut(ItemStack stack){		
+	public Block getOut(ItemStack stack, Block block){		
 		if(isOreDict(stack, "stone"))
 			return ModBlocks.livingrock;
-		else if(isOreDict(stack, "logWood"))
+		else if(isOreDict(stack, "logWood") || block == Blocks.log || block == Blocks.log2)
 			return ModBlocks.livingwood;
 		else
 			return null;

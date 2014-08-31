@@ -31,6 +31,9 @@ public class EffectMutation extends BeeEffect{
 						Block output = FEApi.blockMutation.get(block);
 						if(output != null){
 							world.setBlock(x + xx, y, z + zz, output);
+							xx = 4;
+							zz = 4;
+							continue;
 						}
 					}
 				}

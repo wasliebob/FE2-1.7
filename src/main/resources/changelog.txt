@@ -1,13 +1,23 @@
 ===============
 Version 3.0
 ===============
-Rewrote a huge (almost the whole) bee code i was using.
-Added Bloody Bees.
-Added Potato Bees (Looking Cool).
-Added Kroostyl Bees (For Kris).
-Added Clayious Bees.
-Added Big Reactor Bees (Yellorium, Cyanite, Blutonium, Graphite).
-Added Mutated Bees (Used in creating Mutation Frames).
-Added Mutated Iron.
-A lot of improved textures.
-A lot of fixes.
+Changed the texture for the nuggets.
+Changed the texture for the nuggets.
+Added Pig Bees.
+Added Cow Bees.
+Added Sheep Bees.
+Added Legendary Bees.
+Added Legendary Frame.
+Added Legendary Stick.
+Added Legendary Block.
+Added Legendary Nugget.
+Added Legendary Ingot.
+Added Carrot Bees.
+Added Unstable Bees (can be disabled in the config)
+Fixed Pure Daisy and Mutated Bees doing multiple blocks at once.
+Fixed Pure Daisy bees not giving the Pure Daisy Effect (#WaslieDerp)
+Added Destablized Bees.
+Added Gelid Bees.
+Added Blazing Bees.
+Added Glowy Bees.
+Added Resonant Bees.

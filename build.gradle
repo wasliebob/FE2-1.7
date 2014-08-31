@@ -34,7 +34,7 @@ ext.buildnumber = 0
 if(System.getenv('BUILD_NUMBER') != null)
     project.buildnumber = System.getenv('BUILD_NUMBER')
 
-version = "2-3.0_B${buildnumber}"
+version = "2-3.1_B${buildnumber}"
 group= "ForestryExtras" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ForestryExtras"
 

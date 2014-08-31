@@ -16,6 +16,7 @@ public class FEBlocks {
 		draconicBlock = new FEBlock(Material.iron, "draconicBlock", "draconic", true, 0F, new ItemStack(FEItems.draconicIngot));
 		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforced", true, 0F, new ItemStack(FEItems.reinforcedIngot));
 		mutatedIronBlock = new FEBlock(Material.iron, "mutatedIronBlock", "mutatedIron", true, 0F, new ItemStack(FEItems.mutatedIronIngot));
+		legendaryBlock = new FEBlock(Material.iron, "legendaryBlock", "legendary", true, 0F, new ItemStack(FEItems.legendaryIngot));
 
 		producer = new FEBlockProducer("Beeducer");	
 		smelting();
@@ -23,6 +24,7 @@ public class FEBlocks {
 	public static FEBlock draconicBlock;
 	public static FEBlock reinforcedBlock;
 	public static FEBlock mutatedIronBlock;
+	public static FEBlock legendaryBlock;
 	public static FEBlockProducer producer;
 	
 	public static void smelting(){}

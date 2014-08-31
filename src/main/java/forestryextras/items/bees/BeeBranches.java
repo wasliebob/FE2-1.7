@@ -13,7 +13,9 @@ public enum BeeBranches implements IClassification{
 	MAGICAL("Magical"),
 	MYSTERIOUS("Mysterious"),
 	NATURAL("Natural"),
-	CROPS("Crops");
+	CROPS("Crops"),
+	PASSIVE("Passive"),
+	FLUID("Fluid");
 	
 	private String name;
 	private String uID;
