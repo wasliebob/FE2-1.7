@@ -5,8 +5,6 @@ import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 
-
-
 public class Thaumcraft implements IIntergration{
 
 	@Override

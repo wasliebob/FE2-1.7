@@ -1,6 +1,8 @@
 ===============
-Version 3.0
+Version 3.1
 ===============
+Added Modular Machines Upgrade, Interacting Upgrade: Mutation (has a guide entry).
+Fixed wearing a apiarist suit not ignoring bee effects.
 Changed the texture for the nuggets.
 Changed the texture for the nuggets.
 Added Pig Bees.

@@ -26,6 +26,7 @@ import forestryextras.items.bees.effects.EffectFire;
 import forestryextras.items.bees.effects.EffectMana;
 import forestryextras.items.bees.effects.EffectMutation;
 import forestryextras.items.bees.effects.EffectPureDaisy;
+import forestryextras.items.bees.effects.EffectRadioactive;
 import forestryextras.items.bees.effects.EffectRegen;
 import forestryextras.items.bees.effects.EffectWither;
 import forestryextras.items.bees.flowers.FlowerBotaniaAdvanced;
@@ -51,6 +52,7 @@ public class FEBees {
 		regen = new EffectRegen("Regeneration");
 		fire = new EffectFire("Flaming");
 		wither = new EffectWither("Withering");
+		radioactive = new EffectRadioactive("Radioactive");
 		
 		if(Loader.isModLoaded("Botania")){
 			mana = new EffectMana("Mana");
@@ -70,6 +72,7 @@ public class FEBees {
 	public static EffectPureDaisy pureDaisy;
 	public static EffectMutation mutation;
 	public static EffectBloody bloody;
+	public static EffectRadioactive radioactive;
 
 	public static void initFlowers(){
 		if(Loader.isModLoaded("Botania")){
@@ -362,6 +365,7 @@ public class FEBees {
 			yelloriumBee.addProduct(new ItemStack(FEBees.comb_yellorium, 1, 0), 25)	
 			.importVanillaTemplate()
 			.setSpeed("speedFast")
+			.setEffect(FEBees.radioactive)
 			.register();
 		}
 		
@@ -370,6 +374,7 @@ public class FEBees {
 			cyaniteBee.addProduct(new ItemStack(FEBees.comb_cyanite, 1, 0), 25)	
 			.importVanillaTemplate()
 			.setSpeed("speedFast")
+			.setEffect(FEBees.radioactive)
 			.register();
 		}
 		
@@ -378,6 +383,7 @@ public class FEBees {
 			graphiteBee.addProduct(new ItemStack(FEBees.comb_graphite, 1, 0), 25)	
 			.importVanillaTemplate()
 			.setSpeed("speedFast")
+			.setEffect(FEBees.radioactive)
 			.register();
 		}
 		
@@ -386,6 +392,7 @@ public class FEBees {
 			blutoniumBee.addProduct(new ItemStack(FEBees.comb_blutonium, 1, 0), 25)	
 			.importVanillaTemplate()
 			.setSpeed("speedFast")
+			.setEffect(FEBees.radioactive)
 			.register();
 		}
 		

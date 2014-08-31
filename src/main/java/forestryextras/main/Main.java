@@ -1,9 +1,6 @@
 package forestryextras.main;
 
-import java.util.ArrayList;
-
 import net.minecraftforge.common.MinecraftForge;
-import wasliecore.helpers.FileHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -11,17 +8,17 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import forestryextras.api.FEApi;
+import forestryextras.handlers.GuiHandler;
 import forestryextras.handlers.events.OnPlayerJoinWorld;
-import forestryextras.helpers.DonatorHelper;
 import forestryextras.main.init.FEBees;
 import forestryextras.main.init.FEBlocks;
 import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Recipes;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "3.1" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO;after:oodmod;after:BigReactors")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "3.1" ,dependencies = "required-after:Forestry;required-after:WaslieCore;after:Thaumcraft;after:ExtraTiC;after:EnderIO;after:oodmod;after:BigReactors;after:ModularMachines")
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
     public static CommonProxy proxy;
@@ -51,6 +48,7 @@ public class Main {
     	integration.init();
     	FEBees.init();
     	
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     	initEvents(event);
     	Recipes.init();
     }
@@ -61,7 +59,7 @@ public class Main {
     }
     
     public void initTiles(){
-        GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileEntityProducer.class, "10001");
+        GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileProducer.class, "fe_producer");
     }
     
     @EventHandler

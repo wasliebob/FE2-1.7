@@ -12,8 +12,8 @@ import forestry.api.genetics.IEffectData;
 import forestryextras.helpers.BeeHelper;
 import forestryextras.helpers.EffectHelper;
 
-public class EffectWither extends BeeEffect{
-	public EffectWither(String name) {
+public class EffectRadioactive extends BeeEffect{
+	public EffectRadioactive(String name) {
 		super(name);
 		this.name = name;
 	}
@@ -27,7 +27,8 @@ public class EffectWither extends BeeEffect{
 			if((player.capabilities.isCreativeMode) || (BeeHelper.hasFullSuit(player)))
 				continue;
 			
-			player.addPotionEffect(new PotionEffect(Potion.wither.id, 40));
+			player.addPotionEffect(new PotionEffect(Potion.wither.id, 20));
+			player.addPotionEffect(new PotionEffect(Potion.poison.id, 20));
 		}
 		
 		return null;

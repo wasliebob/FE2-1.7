@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import forestry.api.apiculture.IBeeGenome;
 import forestry.api.apiculture.IBeeHousing;
 import forestry.api.genetics.IEffectData;
+import forestryextras.helpers.BeeHelper;
 import forestryextras.helpers.EffectHelper;
 
 public class EffectBloody extends BeeEffect{
@@ -24,13 +25,10 @@ public class EffectBloody extends BeeEffect{
 		ArrayList<EntityPlayer> players = EffectHelper.getClosePlayers(world, x, y, z, 2D);
 
 		for(EntityPlayer player : players){
-			if(!player.capabilities.isCreativeMode){
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20));
-//				player.setHealth(player.getHealth() - 0.5F);
-//				
-//				if(player.getHealth() < 0)
-//		            player.onDeath(DamageSource.generic);
-			}
+			if((player.capabilities.isCreativeMode) || (BeeHelper.hasFullSuit(player)))
+				continue;
+			
+			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20));
 		}
 		
 		return null;

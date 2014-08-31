@@ -15,8 +15,8 @@ import wasliecore.helpers.Utils;
 import forestry.core.config.ForestryItem;
 import forestryextras.helpers.BeeHelper;
 
-public class TileEntityProducer extends TileEntity implements ISidedInventory{
-	public TileEntityProducer(){
+public class TileProducer extends TileEntity implements ISidedInventory{
+	public TileProducer(){
 		stacks = new ItemStack[1];
 		time = MathHelper.secondToTick(5);
 		turns = 32;

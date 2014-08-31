@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import forestry.api.apiculture.IBeeGenome;
 import forestry.api.apiculture.IBeeHousing;
 import forestry.api.genetics.IEffectData;
+import forestryextras.helpers.BeeHelper;
 import forestryextras.helpers.EffectHelper;
 
 public class EffectFire extends BeeEffect{
@@ -23,7 +24,10 @@ public class EffectFire extends BeeEffect{
 		ArrayList<EntityPlayer> players = EffectHelper.getClosePlayers(world, x, y, z, 2D);
 
 		for(EntityPlayer player : players){
-			player.setFire(40);
+			if((player.capabilities.isCreativeMode) || (BeeHelper.hasFullSuit(player)))
+				continue;
+			
+			player.setFire(2);
 		}
 		
 		return null;

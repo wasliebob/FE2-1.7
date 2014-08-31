@@ -8,19 +8,19 @@ import net.minecraft.util.MathHelper;
 
 import org.lwjgl.opengl.GL11;
 
-import forestryextras.blocks.tiles.TileEntityProducer;
+import forestryextras.blocks.tiles.TileProducer;
 
 public class TileEntityProducerRenderer extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x,
 			double y, double z, float ticks) {
-		TileEntityProducer te = ((TileEntityProducer) tile);
+		TileProducer te = ((TileProducer) tile);
 		if(te.getStackInSlot(0) != null)
 			renderItem(te, x, y, z, ticks);
 	}
 
-	public void renderItem(TileEntityProducer te, double x, double y, double z, float ticks){
+	public void renderItem(TileProducer te, double x, double y, double z, float ticks){
 		GL11.glPushMatrix();
 		float h = MathHelper.sin(ticks % 32767.0F / 16.0F) * 0.05F;
 		GL11.glTranslated(x + 0.5D, y + 0.5D + h, z + 0.5D);

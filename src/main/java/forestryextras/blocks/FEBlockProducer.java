@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import forestry.apiculture.items.ItemBeeGE;
 import forestryextras.blocks.itemblocks.FEItemBlockProducer;
-import forestryextras.blocks.tiles.TileEntityProducer;
+import forestryextras.blocks.tiles.TileProducer;
 import forestryextras.main.Main;
 import forestryextras.main.init.FEItems;
 import forestryextras.main.init.Tabs;
@@ -56,7 +56,7 @@ public class FEBlockProducer extends BlockContainer{
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float par7, float par8, float par9){
 		if(!world.isRemote){
-			TileEntityProducer te = (TileEntityProducer) world.getTileEntity(x, y, z);
+			TileProducer te = (TileProducer) world.getTileEntity(x, y, z);
 			if(te != null){
 				ItemStack bee = te.getStackInSlot(0);
 				if(player.isSneaking()){
@@ -114,6 +114,6 @@ public class FEBlockProducer extends BlockContainer{
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TileEntityProducer();
+		return new TileProducer();
 	}
 }

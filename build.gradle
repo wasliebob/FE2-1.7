@@ -25,7 +25,9 @@ task deps{
 
 	def botania = new File('deps/Botania.jar')
 	new URL('https://dl.dropboxusercontent.com/u/46500170/Forestry%20Extras%202/deps/Botania.jar').withInputStream{ i -> botania.withOutputStream{ it << i }}
-
+	
+	def mm = new File('deps/ModularMachines.jar')
+	new URL('https://dl.dropboxusercontent.com/u/46500170/Forestry%20Extras%202/deps/ModularMachines.jar').withInputStream{ i -> mm.withOutputStream{ it << i }}
 }
 
 apply plugin: 'forge'
@@ -47,6 +49,7 @@ dependencies{
 	'deps/Forestry.jar',
 	'deps/WaslieCore.jar',
 	'deps/Botania.jar',
+	'deps/ModularMachines.jar'
 	)
 }
 	

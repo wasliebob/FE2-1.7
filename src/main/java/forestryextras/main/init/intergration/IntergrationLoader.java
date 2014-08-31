@@ -7,7 +7,10 @@ public class IntergrationLoader implements IIntergration{
 	
 	@Override
 	public void prePreInit(){
-		
+		if(isLoaded("ModularMachines")){
+			mm.prePreInit();
+			initMessage("ModularMachines");
+		}
 	}
 	
 	@Override
@@ -15,6 +18,10 @@ public class IntergrationLoader implements IIntergration{
 		if(isLoaded("Thaumcraft")){
 			tc.preInit();
 			initMessage("Thaumcraft");
+		}
+		
+		if(isLoaded("ModularMachines")){
+			mm.preInit();
 		}
 	}
 	
@@ -24,15 +31,24 @@ public class IntergrationLoader implements IIntergration{
 			vc.init();
 			initMessage("VersionChecker");
 		}
+		
+		if(isLoaded("ModularMachines")){
+			mm.init();
+		}
 	}
 	
 	@Override
 	public void postInit(){
-		tc.postInit();
+		if(isLoaded("Thaumcraft")){
+			tc.postInit();
+		}
+		
+		if(isLoaded("ModularMachines")){
+			mm.postInit();
+		}
 	}
 
-	public String initMessage(String modName)
-	{
+	public String initMessage(String modName){
 		return "[Forestry Extras 2] " + modName + " is installed, adding intergration" + "\n";
 	}
 	
@@ -40,6 +56,7 @@ public class IntergrationLoader implements IIntergration{
 		return Loader.isModLoaded(modID);
 	}
 	public Thaumcraft tc = new Thaumcraft();
+	public MM mm = new MM();
 	public VersionChecker vc = new VersionChecker();
 
 }

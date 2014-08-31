@@ -1,4 +1,4 @@
---Ingots-
+--Ingots--
 item.fe.item.draconicIngot.name=Draconic Ingot
 item.fe.item.reinforcedIngot.name=Reinforced Ingot
 item.fe.item.witheriaIngot.name=Witheria Ingot
@@ -187,3 +187,6 @@ fe.info.beeducer.4=WARNING: Be careful only place one bee at a time!
 itemGroup.tabForestryExtras=Forestry Extras 2
 itemGroup.tabForestryExtrasFrames=Forestry Extras 2 Frames
 itemGroup.tabForestryExtrasUtilities=Forestry Extras 2 Utilities
+--Modular Machines--
+item.modularmachines.item.mutation.name=Interacting Upgrade: Mutation
+mm.guide.entries.Upgrade: Mutation.0=This upgrade makes your core act like a Mutation Bee. This basicly mutates blocks (Iron Block into Mutated Iron Block)

@@ -30,6 +30,7 @@ public class FEItems {
 	}
 	
 	public static void initItems(){
+		initMisc();
 		initIngots();
 		initSticks();
 		initFrames();
@@ -39,7 +40,11 @@ public class FEItems {
 		initModSupportFrames();
 		initNuggets();
 	}
+	
+	public static void initMisc(){
 
+	}
+	
 	public static void initIngots(){
 		draconicIngot = new FEItemIngot("draconicIngot", 0xFF0000, "ingotDraconic");
 		reinforcedIngot = new FEItemIngot("reinforcedIngot", 0x999999, "ingotReinforced");
