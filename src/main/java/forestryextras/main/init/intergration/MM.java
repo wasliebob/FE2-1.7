@@ -16,31 +16,27 @@ import net.minecraft.item.crafting.IRecipe;
 import forestryextras.main.init.FEItems;
 import forestryextras.main.init.intergration.modularmachines.UpgradeMutation;
 
-public class MM implements IIntergration{
+public class MM {
 
-	@Override
-	public void prePreInit() {
+	public static void prePreInit() {
 		
 	}
 	
-	@Override
-	public void preInit() {
+	public static void preInit() {
 		interacting_mutation = new MMInteractingUpgrade("mutation", new Color(0, 255, 0));
 	}
 	public static MMInteractingUpgrade interacting_mutation;
 	
-	@Override
-	public void init() {
+	public static void init() {
 		MMApi.addInteractingUpgrade(MM.interacting_mutation, new InteractingUpgrade(new UpgradeMutation()));
 	}
 
-	@Override
-	public void postInit() {
+	public static void postInit() {
 		recipes();
 		entries();
 	}
 
-	public void recipes(){
+	public static void recipes(){
 		RecipeHelper.addShapedRecipe(new ItemStack(MM.interacting_mutation), new Object[]{
 			"XYX",
 			"YIY",
@@ -52,7 +48,7 @@ public class MM implements IIntergration{
 	}
 	public static IRecipe recipe_mutationUpgrade;
 	
-	public void entries(){
+	public static void entries(){
 		EntryHelper.addEntry("Upgrade: Mutation", new IEntry[]{new EntryText(), new EntryRecipe(MM.recipe_mutationUpgrade)}, 2);
 	}
 }

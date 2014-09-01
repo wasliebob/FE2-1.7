@@ -8,7 +8,7 @@ public class IntergrationLoader implements IIntergration{
 	@Override
 	public void prePreInit(){
 		if(isLoaded("ModularMachines")){
-			mm.prePreInit();
+			MM.prePreInit();
 			initMessage("ModularMachines");
 		}
 	}
@@ -21,7 +21,7 @@ public class IntergrationLoader implements IIntergration{
 		}
 		
 		if(isLoaded("ModularMachines")){
-			mm.preInit();
+			MM.preInit();
 		}
 	}
 	
@@ -33,7 +33,7 @@ public class IntergrationLoader implements IIntergration{
 		}
 		
 		if(isLoaded("ModularMachines")){
-			mm.init();
+			MM.init();
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class IntergrationLoader implements IIntergration{
 		}
 		
 		if(isLoaded("ModularMachines")){
-			mm.postInit();
+			MM.postInit();
 		}
 	}
 
@@ -56,7 +56,6 @@ public class IntergrationLoader implements IIntergration{
 		return Loader.isModLoaded(modID);
 	}
 	public Thaumcraft tc = new Thaumcraft();
-	public MM mm = new MM();
 	public VersionChecker vc = new VersionChecker();
 
 }
