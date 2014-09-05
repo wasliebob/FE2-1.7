@@ -101,6 +101,7 @@ tile.fe.block.reinforcedBlock.name=Reinforced Block
 tile.fe.block.mutatedIronBlock.name=Mutated Iron Block
 tile.fe.block.legendaryBlock.name=Legendary Block
 tile.fe.block.beeducer.name=Beeducer
+tile.fe.block.crop checker.name=Crop Checker
 --Frames--
 item.fe.frame.frameCoal.name=Coal Frame
 item.fe.frame.frameIron.name=Iron Frame

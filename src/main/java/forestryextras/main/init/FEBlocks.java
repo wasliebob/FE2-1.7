@@ -8,6 +8,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import forestry.api.recipes.RecipeManagers;
 import forestryextras.blocks.FEBlock;
+import forestryextras.blocks.FEBlockCropChecker;
 import forestryextras.blocks.FEBlockProducer;
 
 public class FEBlocks {
@@ -17,7 +18,7 @@ public class FEBlocks {
 		reinforcedBlock = new FEBlock(Material.iron, "reinforcedBlock", "reinforced", true, 0F, new ItemStack(FEItems.reinforcedIngot));
 		mutatedIronBlock = new FEBlock(Material.iron, "mutatedIronBlock", "mutatedIron", true, 0F, new ItemStack(FEItems.mutatedIronIngot));
 		legendaryBlock = new FEBlock(Material.iron, "legendaryBlock", "legendary", true, 0F, new ItemStack(FEItems.legendaryIngot));
-		
+		checkerCrop = new FEBlockCropChecker("Crop Checker");
 		producer = new FEBlockProducer("Beeducer");	
 		smelting();
 	}
@@ -26,6 +27,7 @@ public class FEBlocks {
 	public static FEBlock mutatedIronBlock;
 	public static FEBlock legendaryBlock;
 	public static FEBlockProducer producer;
+	public static FEBlockCropChecker checkerCrop;
 
 	public static void smelting(){}
 	

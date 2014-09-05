@@ -529,23 +529,23 @@ public class FEBees {
 			new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.bloodyBee, "BM");
 		}
 		
-		if(FluidRegistry.getFluid("redstone") != null){
+		if(FluidRegistry.getFluid("redstone") != null && Loader.isModLoaded("ThermalFoundation")){
 			new BeeMutation(FEBees.clayiousBee, FEBees.mutatedBee, 5, false, FEBees.destablizedBee, "TE");
 		}
 		
-		if(FluidRegistry.getFluid("glowstone") != null){
+		if(FluidRegistry.getFluid("glowstone") != null && Loader.isModLoaded("ThermalFoundation")){
 			new BeeMutation(FEBees.destablizedBee, FEBees.mutatedBee, 5, false, FEBees.glowyBee, "TE");
 		}
 		
-		if(FluidRegistry.getFluid("pyrotheum") != null){
+		if(FluidRegistry.getFluid("pyrotheum") != null && Loader.isModLoaded("ThermalFoundation")){
 			new BeeMutation(FEBees.draconicBee, FEBees.mutatedBee, 5, false, FEBees.blazingBee, "TE");
 		}
 		
-		if(FluidRegistry.getFluid("cryotheum") != null){
+		if(FluidRegistry.getFluid("cryotheum") != null && Loader.isModLoaded("ThermalFoundation")){
 			new BeeMutation(FEBees.witheriaBee, FEBees.mutatedBee, 5, false, FEBees.gelidBee, "TE");
 		}
 		
-		if(FluidRegistry.getFluid("ender") != null){
+		if(FluidRegistry.getFluid("ender") != null && Loader.isModLoaded("ThermalFoundation")){
 			new BeeMutation(FEBees.glowyBee, FEBees.destablizedBee, 5, false, FEBees.resonantBee, "TE");
 		}
 		

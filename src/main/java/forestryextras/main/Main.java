@@ -60,6 +60,7 @@ public class Main {
     
     public void initTiles(){
         GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileProducer.class, "fe_producer");
+        GameRegistry.registerTileEntity(forestryextras.blocks.tiles.TileCropChecker.class, "fe_cropChecker");
     }
     
     @EventHandler
