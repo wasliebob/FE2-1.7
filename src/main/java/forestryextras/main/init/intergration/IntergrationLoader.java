@@ -27,11 +27,6 @@ public class IntergrationLoader implements IIntergration{
 	
 	@Override
 	public void init(){	
-		if(isLoaded("VersionChecker")){
-			vc.init();
-			initMessage("VersionChecker");
-		}
-		
 		if(isLoaded("ModularMachines")){
 			MM.init();
 		}
@@ -56,6 +51,4 @@ public class IntergrationLoader implements IIntergration{
 		return Loader.isModLoaded(modID);
 	}
 	public Thaumcraft tc = new Thaumcraft();
-	public VersionChecker vc = new VersionChecker();
-
 }
