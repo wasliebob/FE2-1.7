@@ -219,6 +219,16 @@ public class FEBees {
 			.register();
 		}
 		
+		if(OreDictionary.getOres("gemAmber").size() > 0){
+			amberBee = new Species("amber", "amber", BeeBranches.MAGICAL, new Color(250, 140, 0).getRGB(), new Color(255, 115, 0).getRGB(), EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
+			amberBee.addProduct(new ItemStack(FEBees.comb_amber, 1, 0), 60)
+			.importVanillaTemplate()
+			.setSpeed("speedFast")
+			.setCaveDwelling()
+			.setNocturnal()
+			.register();
+		}
+		
 		if(OreDictionary.getOres("woodGreatwood").size() > 0){
 			greatwoodBee = new Species("greatwood", "greatwood", BeeBranches.MAGICAL, 0x9966CC, 0x9900FF, EnumTemperature.NORMAL, EnumHumidity.NORMAL, false, false, false);
 			greatwoodBee.addProduct(OreDictionary.getOres("woodGreatwood").get(0), 80)
@@ -412,6 +422,7 @@ public class FEBees {
 	public static Species clayiousBee;
 	public static Species darkThaumiumBee;
 	public static Species thaumiumBee;
+	public static Species amberBee;
 	public static Species pokefenniumBee;
 	public static Species fairyBee;
 	public static Species silverwoodBee;
@@ -454,18 +465,18 @@ public class FEBees {
 		new BeeMutation(Allele.getBaseSpecies("Steadfast"), FEBees.potatoBee, 30, false, FEBees.cowBee, "FE2");
 		new BeeMutation(FEBees.carrotBee, FEBees.potatoBee, 30, false, FEBees.sheepBee, "FE2");
 
-		new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Noble"), 5, false, FEBees.reinforcedBee, "FE2");
-		new BeeMutation(Allele.getBaseSpecies("Industrious"), FEBees.reinforcedBee, 5, false, FEBees.mutatedBee, "FE2");
-		new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.witheriaBee, "FE2");
+		new BeeMutation(Allele.getBaseSpecies("Valiant"), Allele.getBaseSpecies("Noble"), 5, false, FEBees.reinforcedBee, "FE2");
+		new BeeMutation(Allele.getBaseSpecies("Majestic"), FEBees.reinforcedBee, 5, false, FEBees.mutatedBee, "FE2");
+		new BeeMutation(Allele.getBaseSpecies("Industrious"), FEBees.mutatedBee, 5, false, FEBees.witheriaBee, "FE2");
 		new BeeMutation(FEBees.witheriaBee, FEBees.reinforcedBee, 5, false, FEBees.draconicBee, "FE2");
 		new BeeMutation(FEBees.witheriaBee, FEBees.draconicBee, 5, false, FEBees.legendaryBee, "FE2");
 
 		if(OreDictionary.getOres("woodGreatwood").size() > 0){
-			new BeeMutation(Allele.getBaseSpecies("Industrious"), Allele.getBaseSpecies("Edenic"), 5, false, FEBees.greatwoodBee, "TC4");
+			new BeeMutation(Allele.getBaseSpecies("Valiant"), Allele.getBaseSpecies("Majestic"), 5, false, FEBees.greatwoodBee, "TC4");
 		}
 
 		if(OreDictionary.getOres("woodSilverwood").size() > 0 && FEBees.greatwoodBee != null){
-			new BeeMutation(FEBees.greatwoodBee, Allele.getBaseSpecies("Edenic"), 5, false, FEBees.silverwoodBee, "TC4");
+			new BeeMutation(FEBees.greatwoodBee, Allele.getBaseSpecies("Valiant"), 5, false, FEBees.silverwoodBee, "TC4");
 		}
 
 		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0 && FEBees.silverwoodBee != null && FEBees.greatwoodBee != null){
@@ -476,12 +487,16 @@ public class FEBees {
 			new BeeMutation(FEBees.silverwoodBee, FEBees.thaumiumBee, 5, false, FEBees.voidBee, "TC4");
 		}
 		
+		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("gemAmber").size() > 0 && FEBees.silverwoodBee != null && FEBees.greatwoodBee != null){
+			new BeeMutation(FEBees.silverwoodBee, FEBees.greatwoodBee, 5, false, FEBees.amberBee, "TC4");
+		}
+		
 		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0 && FEBees.thaumiumBee != null){
-			new BeeMutation(FEBees.thaumiumBee, Allele.getBaseSpecies("Edenic"), 5, false, darkThaumiumBee, "TCE");
+			new BeeMutation(FEBees.thaumiumBee, Allele.getBaseSpecies("Valiant"), 5, false, darkThaumiumBee, "TCE");
 		}
 	
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
-			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Edenic"), 5, false, FEBees.pokefenniumBee, "ExtraTiC");
+			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Industrious"), 5, false, FEBees.pokefenniumBee, "ExtraTiC");
 		}
 		
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotFairy").size() > 0){
@@ -497,7 +512,7 @@ public class FEBees {
 		}
 
 		if(OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
-			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Heroic"), 5, false, FEBees.energeticBee, "EIO");
+			new BeeMutation(FEBees.reinforcedBee, Allele.getBaseSpecies("Industrious"), 5, false, FEBees.energeticBee, "EIO");
 		}
 
 		if(OreDictionary.getOres("ingotPhasedGold").size() > 0 && OreDictionary.getOres("nuggetVibrantAlloy").size() > 0){
@@ -509,8 +524,7 @@ public class FEBees {
 		}
 
 		if(Loader.isModLoaded("Botania")){
-			for(int i = 0; i < Botania.getFlowerArray().length; i++)
-				new BeeMutation(Allele.getBaseSpecies("Unweary"), Allele.getBaseSpecies("Heroic"), 5, false, FEBees.botanistBee, "Botania");
+			new BeeMutation(Allele.getBaseSpecies("Unweary"), Allele.getBaseSpecies("Heroic"), 5, false, FEBees.botanistBee, "Botania");
 		}
 		
 		if(Loader.isModLoaded("Botania")){
@@ -526,7 +540,7 @@ public class FEBees {
 		}
 		
 		if(FluidRegistry.getFluid("life essence") != null){
-			new BeeMutation(Allele.getBaseSpecies("Edenic"), FEBees.mutatedBee, 5, false, FEBees.bloodyBee, "BM");
+			new BeeMutation(Allele.getBaseSpecies("Imperial"), FEBees.mutatedBee, 5, false, FEBees.bloodyBee, "BM");
 		}
 		
 		if(FluidRegistry.getFluid("redstone") != null && Loader.isModLoaded("ThermalFoundation")){
@@ -624,6 +638,12 @@ public class FEBees {
 			comb_thaumium = new FEItemComb("Thaumium", new Color(0x000000), new Color(0x9900FF), products, chance);
 		}
 		
+		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("gemAmber").size() > 0){
+			products = new ItemStack[]{OreDictionary.getOres("gemAmber").get(0), OreDictionary.getOres("dropHoney").get(0)};
+			chance = new int[]{25, 75};
+			comb_amber = new FEItemComb("Amber", new Color(250, 140, 0), new Color(255, 115, 0), products, chance);
+		}
+		
 		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotVoid").size() > 0 && OreDictionary.getOres("nuggetVoid").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("nuggetVoid").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{25, 75};
@@ -657,13 +677,13 @@ public class FEBees {
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotConductiveIron").size() > 0){
 			products = new ItemStack[]{new ItemStack(FEItems.nugget_conductiveIron, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 7};
-			comb_conductiveIron = new FEItemComb("Conductive Iron", new Color(0xCCCC99), new Color(0x99FFCC), products, chance);
+			comb_conductiveIron = new FEItemComb("Conductive Iron", new Color(219, 112, 147), new Color(205, 92, 92), products, chance);
 		}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotElectricalSteel").size() > 0){
 			products = new ItemStack[]{new ItemStack(FEItems.nugget_electricalSteel, 1, 0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
-			comb_electricalSteel = new FEItemComb("Electrical Steel", new Color(0x999900), new Color(0x99FFCC), products, chance);
+			comb_electricalSteel = new FEItemComb("Electrical Steel", new Color(211, 211, 211), new Color(112, 128, 144), products, chance);
 		}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
@@ -681,7 +701,7 @@ public class FEBees {
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPhasedIron").size() > 0 &&  OreDictionary.getOres("nuggetPulsatingIron").size() > 0){
 			products = new ItemStack[]{OreDictionary.getOres("nuggetPulsatingIron").get(0), OreDictionary.getOres("dropHoney").get(0)};
 			chance = new int[]{15, 75};
-			comb_pulsatingIron = new FEItemComb("Pulsating Iron", new Color(0, 128, 128), new Color(0, 139, 139), products, chance);
+			comb_pulsatingIron = new FEItemComb("Pulsating Iron", new Color(0, 139, 139), new Color(0, 128, 128), products, chance);
 		}
 		
 		if(Loader.isModLoaded("Botania")){
@@ -782,6 +802,7 @@ public class FEBees {
 	public static FEItemComb comb_fairy;
 	public static FEItemComb comb_pokefennium;
 
+	public static FEItemComb comb_amber;
 	public static FEItemComb comb_thaumium;
 	public static FEItemComb comb_void;
 	public static FEItemComb comb_darkThaumium;

@@ -88,6 +88,7 @@ item.fe.comb.carrot.name=Carrot Comb
 item.fe.comb.pig.name=Pig Comb
 item.fe.comb.cow.name=Cow Comb
 item.fe.comb.sheep.name=Sheep Comb
+item.fe.comb.amber.name=Amber Comb
 --Propolis-
 item.fe.item.bloody propolis.name=Bloody Propolis
 item.fe.item.glowy propolis.name=Glowy Propolis
@@ -179,6 +180,7 @@ fe.bees.species.carrot=Carrot
 fe.bees.species.pig=Pig
 fe.bees.species.cow=Cow
 fe.bees.species.sheep=Sheep
+fe.bees.species.amber=Amber
 --Text--
 fe.info.beeducer.1=This block will make it easier for you to produce combs.
 fe.info.beeducer.2=You have to put a bee in (click the block with a bee in your hand).

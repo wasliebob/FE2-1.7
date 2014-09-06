@@ -294,15 +294,15 @@ public class FEItems {
 		}
 
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotConductiveIron").size() > 0){
-			nugget_conductiveIron = new FEItemNugget("Conductive Iron", new Color(0x999966), OreDictionary.getOres("ingotConductiveIron").get(0));
+			nugget_conductiveIron = new FEItemNugget("Conductive Iron", new Color(219, 112, 147), OreDictionary.getOres("ingotConductiveIron").get(0));
 		}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotElectricalSteel").size() > 0){
-			nugget_electricalSteel = new FEItemNugget("Electrical Steel", new Color(0x999966), OreDictionary.getOres("ingotElectricalSteel").get(0));
+			nugget_electricalSteel = new FEItemNugget("Electrical Steel", new Color(211, 211, 211), OreDictionary.getOres("ingotElectricalSteel").get(0));
 		}
 		
 		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
-			nugget_energeticAlloy = new FEItemNugget("Energetic Alloy", new Color(0x99FF66), OreDictionary.getOres("ingotEnergeticAlloy").get(0));
+			nugget_energeticAlloy = new FEItemNugget("Energetic Alloy", new Color(0xCCCC99), OreDictionary.getOres("ingotEnergeticAlloy").get(0));
 		}
 		
 		if(OreDictionary.getOres("ingotYellorium").size() > 0){
